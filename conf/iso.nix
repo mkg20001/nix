@@ -8,20 +8,16 @@ with lib;
 {
   imports =
     [ <nixpkgs/nixos/modules/installer/cd-dvd/iso-image.nix>
-
-      # Profiles of this basic installation CD.
-      <nixpkgs/nixos/modules/profiles/all-hardware.nix>
-      <nixpkgs/nixos/modules/profiles/base.nix>
       <nixpkgs/nixos/modules/profiles/installation-device.nix>
       
       # System
-      ./configuration.nix
+      ./base.nix
     ];
 
   # ISO naming.
   isoImage.isoName = "${config.isoImage.isoBaseName}-${config.system.nixos.label}-${pkgs.stdenv.hostPlatform.system}.iso";
 
-  isoImage.volumeID = substring 0 11 "NIXOS_ISO";
+  isoImage.volumeID = substring 0 11 "MKGOS_ISO";
 
   # EFI booting
   isoImage.makeEfiBootable = true;
