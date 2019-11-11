@@ -7,12 +7,12 @@ with lib;
 
 {
   imports =
-    [ <nixos/modules/installer/cd-dvd/iso-image.nix>
+    [ <nixpkgs/nixos/modules/installer/cd-dvd/iso-image.nix>
 
       # Profiles of this basic installation CD.
-      <nixos/modules/profiles/all-hardware.nix>
-      <nixos/modules/profiles/base.nix>
-      <nixos/modules/profiles/installation-device.nix>
+      <nixpkgs/nixos/modules/profiles/all-hardware.nix>
+      <nixpkgs/nixos/modules/profiles/base.nix>
+      <nixpkgs/nixos/modules/profiles/installation-device.nix>
       
       # System
       ./configuration.nix
