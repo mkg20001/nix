@@ -2,13 +2,17 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, ... }:
+{ config, lib, pkgs, fetchFromGitHub, ... }:
 
 with lib;
 
 let
-  url = "https://github.com/mkg20001/mkgpkgs/archive/master.tar.gz";
-  mkgOverlay = (import (builtins.fetchTarball url));
+  mkgRepo = {
+    owner = "mkg20001";
+    repo = "mkgpkgs";
+    rev =  "master";
+  };
+  mkgOverlay = (import (fetchFromGitHub mkgRepo));
 in
   {
     imports =
@@ -49,7 +53,7 @@ in
     # List packages installed in system profile. To search, run:
     # $ nix search wget
     environment.systemPackages = with pkgs; [
-      wget vim nano htop nload iotop git tree
+      wget vim nano htop nload iotop git tree nixos.nix-prefetch-git
     ];
 
     # Some programs need SUID wrappers, can be configured further or are
