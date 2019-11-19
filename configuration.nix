@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, lib, pkgs, fetchFromGitHub, ... }:
+{ config, lib, pkgs, ... }:
 
 with lib;
 
@@ -12,7 +12,7 @@ let
     repo = "mkgpkgs";
     rev = "master";
   };
-  mkgOverlay = (import (fetchFromGitHub mkgRepo));
+  mkgOverlay = (import (lib.fetchFromGitHub mkgRepo));
 in
   {
     imports =
