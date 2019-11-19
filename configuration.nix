@@ -7,12 +7,12 @@
 with lib;
 
 let
-  mkgRepo = {
-    owner = "mkg20001";
-    repo = "mkgpkgs";
-    rev =  "master";
-  };
-  mkgOverlay = (import (fetchFromGitHub mkgRepo));
+#  mkgRepo = {
+#    owner = "mkg20001";
+#    repo = "mkgpkgs";
+#    rev = "master";
+#  };
+#  mkgOverlay = (import (fetchFromGitHub mkgRepo));
 in
   {
     imports =
@@ -20,7 +20,7 @@ in
         ./hardware-configuration.nix
       ];
 
-    nixpkgs.overlays = [ mkgOverlay ];
+#    nixpkgs.overlays = [ mkgOverlay ];
 
     # Use the systemd-boot EFI boot loader.
     # boot.loader.systemd-boot.enable = true;
