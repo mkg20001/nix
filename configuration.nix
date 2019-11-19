@@ -53,7 +53,7 @@ in
     # List packages installed in system profile. To search, run:
     # $ nix search wget
     environment.systemPackages = with pkgs; [
-      wget vim nano htop nload iotop git tree nixos.nix-prefetch-git
+      wget vim nano htop nload iotop git tree nix-prefetch-git
     ];
 
     # Some programs need SUID wrappers, can be configured further or are
