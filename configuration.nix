@@ -7,11 +7,8 @@
 with lib;
 
 let
-  mkgRepo = {
-    url = "https://github.com/mkg20001/mkgpkgs";
-    rev = "master";
-  };
-  mkgOverlay = (import (fetchgit mkgRepo));
+  mkgRepo = (builtins.fromJSON ./mkgpkgs.json);
+  mkgOverlay = (import (builtins.fetchGit mkgRepo));
 in
   {
     imports =
