@@ -2,17 +2,16 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, fetchgit, ... }:
 
 with lib;
 
 let
   mkgRepo = {
-    owner = "mkg20001";
-    repo = "mkgpkgs";
+    url = "https://github.com/mkg20001/mkgpkgs";
     rev = "master";
   };
-  mkgOverlay = (import (lib.fetchFromGitHub mkgRepo));
+  mkgOverlay = (import (fetchgit mkgRepo));
 in
   {
     imports =
