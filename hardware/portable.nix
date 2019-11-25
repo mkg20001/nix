@@ -4,14 +4,13 @@
 { config, lib, pkgs, ... }:
 
 {
-  #imports =
-  #  [ <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
-  #  ];
   imports =
      [
        <nixpkgs/nixos/modules/profiles/all-hardware.nix>
        <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
      ];
+   
+  networking.hostName = "mkg-portable";
 
   # Use the systemd-boot EFI boot loader.
   # boot.loader.systemd-boot.enable = true;
