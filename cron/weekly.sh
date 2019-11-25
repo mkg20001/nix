@@ -2,4 +2,4 @@
 
 set -e
 
-nix-store --optimise
+nix-store --optimise -vv
