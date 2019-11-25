@@ -13,6 +13,8 @@
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
+  # TODO: possibly switch to btrfs? or at least for home?
+
   fileSystems."/" =
     { #device = "/dev/disk/by-uuid/04f9c231-7127-46ef-b539-dfa29c1eaf47";
       device = "/dev/disk/by-label/nixos-root";
