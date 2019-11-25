@@ -94,6 +94,14 @@ in
       extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
     };
 
+    services.cron = {
+      enable = true;
+      systemCronJobs = [
+        "0 0 * * 1      root    bash /etc/nixos/cron/weekly.sh"
+        "0 0 * * *      root    bash /etc/nixos/cron/daily.sh"
+      ];
+    };
+
     # TODO: clean
     networking.networkmanager.enable = true;
     networking.wireless.enable = mkForce false;
