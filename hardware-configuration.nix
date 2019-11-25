@@ -14,12 +14,14 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/04f9c231-7127-46ef-b539-dfa29c1eaf47";
+    { #device = "/dev/disk/by-uuid/04f9c231-7127-46ef-b539-dfa29c1eaf47";
+      device = "/dev/disk/by-label/nixos-root";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/f7ddf94d-1584-44e6-b845-1e45e2a29983";
+    { #device = "/dev/disk/by-uuid/f7ddf94d-1584-44e6-b845-1e45e2a29983";
+      device = "/dev/disk/by-label/nixos-boot";
       fsType = "ext4";
     };
 
