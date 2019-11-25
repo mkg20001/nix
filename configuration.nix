@@ -18,12 +18,6 @@ in
 
     nixpkgs.overlays = [ mkgOverlay ];
 
-    # Use the systemd-boot EFI boot loader.
-    # boot.loader.systemd-boot.enable = true;
-    # boot.loader.efi.canTouchEfiVariables = true;
-    boot.loader.grub.enable = true;
-    boot.loader.grub.device = "/dev/sdc";
-
     # networking.hostName = "nixos"; # Define your hostname.
     # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
