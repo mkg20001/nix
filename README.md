@@ -1,6 +1,6 @@
 # mkgs-nix
 
-# setup
+# conf
 
 ```
 cd /mnt
@@ -9,10 +9,17 @@ cd etc
 git clone https://github.com/mkg20001/nix nixos
 ```
 
-# hw
+# hw conf
 
 Link `hardware/<name>.nix` to `hardware-configuration.nix`
 
 ```
-sudo ln -s hardware/NAME.nix hardware-configuration.nix
+ln -s hardware/NAME.nix hardware-configuration.nix
+```
+
+# install
+
+```
+sudo chown -Rv root:root /mnt 
+sudo nixos-install --root /mnt
 ```
