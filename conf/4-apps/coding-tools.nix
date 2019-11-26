@@ -1,5 +1,5 @@
-# 4im
-# Adds instant messanging apps
+# 4-coding-tools
+# Adds coding tools
 
 { config, lib, pkgs, ... }:
 
@@ -9,7 +9,6 @@ with lib;
   imports = [];
 
   environment.systemPackages = with pkgs; [
-    tdesktop # telegram.org
-    riot-desktop # riot.im
+    # TODO: bless hex editor - "bless"
   ];
 }

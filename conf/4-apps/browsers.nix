@@ -10,6 +10,6 @@ with lib;
 
   # Add browsers
   environment.systemPackages = with pkgs; [
-    firefox google-chrome
+    firefox google-chrome # the common two
   ];
 }

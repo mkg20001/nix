@@ -10,6 +10,6 @@ with lib;
 
   # Add atom
   environment.systemPackages = with pkgs; [
-    atom
+    atom # IDE
   ];
 }

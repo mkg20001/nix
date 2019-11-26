@@ -9,7 +9,7 @@ with lib;
   imports = [];
 
   environment.systemPackages = with pkgs; [
-    teamspeak_client
+    teamspeak_client # ts3
     mumble
     zoom-us
   ];

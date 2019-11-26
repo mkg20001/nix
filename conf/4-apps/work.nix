@@ -10,6 +10,6 @@ with lib;
 
   environment.systemPackages = with pkgs; [
     thunderbird
-    # twinkle
+    # TODO: twinkle SIP "twinkle"
   ];
 }
