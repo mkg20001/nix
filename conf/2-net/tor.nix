@@ -11,6 +11,7 @@ with lib;
 
   environment.systemPackages = with pkgs; [
     tor # onions
+    obfs4 # onion hide tool
     nyx # and control panel
   ];
 
