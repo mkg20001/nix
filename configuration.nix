@@ -30,13 +30,6 @@ in
     # networking.proxy.default = "http://user:password@proxy:port/";
     # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-    # Select internationalisation properties.
-    i18n = {
-      consoleFont = "Lat2-Terminus16";
-      consoleKeyMap = "de";
-      defaultLocale = "de_DE.UTF-8";
-    };
-
     # Set your time zone.
     time.timeZone = "Europe/Berlin";
 
@@ -65,18 +58,6 @@ in
     # Enable CUPS to print documents.
     services.printing.enable = true;
 
-    # Enable sound.
-    sound.enable = true;
-    hardware.pulseaudio.enable = true;
-
-    # Enable the X11 windowing system.
-    services.xserver.enable = true;
-    services.xserver.layout = "de";
-    # services.xserver.xkbOptions = "eurosign:e";
-
-    # Enable touchpad support.
-    services.xserver.libinput.enable = true;
-
     # Enable the KDE Desktop Environment.
     # services.xserver.displayManager.sddm.enable = true;
     # services.xserver.desktopManager.plasma5.enable = true;
@@ -86,12 +67,6 @@ in
 
     # Cinnamon
     services.xserver.desktopManager.cinnamon.enable = true;
-
-    # Define a user account. Don't forget to set a password with ‘passwd’.
-    users.users.maciej = {
-      isNormalUser = true;
-      extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-    };
 
     services.cron = {
       enable = true;
@@ -104,10 +79,6 @@ in
     # TODO: clean
     powerManagement.enable = true;
 
-    # This value determines the NixOS release with which your system is to be
-    # compatible, in order to avoid breaking some software such as database
-    # servers. You should change this only after NixOS release notes say you
-    # should.
-    system.stateVersion = "19.09"; # Did you read the comment?
+
 
   }

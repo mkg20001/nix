@@ -1,6 +1,6 @@
 # 1-template
 # That's a template
-# docref: <nixpkgs/..>
+# docref: TODO <nixpkgs/..>
 
 { config, lib, pkgs, ... }:
 
