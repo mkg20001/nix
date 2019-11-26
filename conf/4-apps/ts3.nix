@@ -10,6 +10,6 @@ with lib;
 
   # Add teamspeak-client
   environment.systemPackages = with pkgs; [
-    teamspeak-client
+    teamspeak_client
   ];
 }
