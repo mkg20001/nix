@@ -80,10 +80,10 @@ in
     # Enable the KDE Desktop Environment.
     # services.xserver.displayManager.sddm.enable = true;
     # services.xserver.desktopManager.plasma5.enable = true;
-    
+
     # GDM
     services.xserver.displayManager.gdm3.enable = true;
-    
+
     # Cinnamon
     services.xserver.desktopManager.cinnamon.enable = true;
 
@@ -102,8 +102,6 @@ in
     };
 
     # TODO: clean
-    networking.networkmanager.enable = true;
-    networking.wireless.enable = mkForce false;
     powerManagement.enable = true;
 
     # This value determines the NixOS release with which your system is to be
