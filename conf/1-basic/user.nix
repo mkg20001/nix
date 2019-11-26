@@ -1,5 +1,5 @@
 # 1-user
-# Add yours truly's user  account
+# Add yours truly's user account
 # docref: TODO <nixpkgs/..>
 
 { config, lib, pkgs, ... }:
