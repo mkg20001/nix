@@ -10,6 +10,6 @@ with lib;
 
   # Add ipfs
   environment.systemPackages = with pkgs; [
-    ipfs # IDE
+    ipfs # go-ipfs
   ];
 }
