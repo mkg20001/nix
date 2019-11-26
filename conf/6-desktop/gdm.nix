@@ -10,5 +10,5 @@ with lib;
   imports = [];
 
   # GDM
-  services.xserver.displayManager.gdm3.enable = true;
+  # services.xserver.displayManager.gdm3.enable = true;
 }
