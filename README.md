@@ -15,11 +15,12 @@ Link `hardware/<name>.nix` to `hardware-configuration.nix`
 
 ```
 ln -s hardware/NAME.nix hardware-configuration.nix
+ln -s device/NAME/index.nix device.nix
 ```
 
 # install
 
 ```
-sudo chown -Rv root:root /mnt 
+sudo chown -Rv root:root /mnt
 sudo nixos-install --root /mnt
 ```
