@@ -1,5 +1,5 @@
-# 4-utils
-# Adds utils I need (misc)
+# 4-remote-access
+# Adds remote access tools
 
 { config, lib, pkgs, ... }:
 
@@ -9,7 +9,6 @@ with lib;
   imports = [];
 
   environment.systemPackages = with pkgs; [
-    trilium # for notes
-    # TODO: pick-colour-picker "color picker" RFP
+    filezilla
   ];
 }
