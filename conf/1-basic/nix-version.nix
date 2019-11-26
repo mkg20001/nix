@@ -14,5 +14,8 @@ with lib;
   # servers. You should change this only after NixOS release notes say you
   # should.
   # system.stateVersion = "19.09"; # Did you read the comment?
-  system.stateVersion = "20.03"; # Did you read the comment?
+  # system.stateVersion = "20.03"; # Did you read the comment?
+  system.stateVersion = "unstable"; # bleeding edge
+
+  # system.autoUpgrade.enable = true;
 }
