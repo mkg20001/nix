@@ -16,5 +16,6 @@ with lib;
     gnome3.gnome-todo
     gnome3.rhythmbox
     gnome3.nautilus
+    gnome3.gnome-disk-utility
   ];
 }
