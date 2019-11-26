@@ -25,6 +25,8 @@ with lib;
     };
   };
 
+  # TODO: fw
+
   environment.systemPackages = with pkgs; [
     yrd
   ];
