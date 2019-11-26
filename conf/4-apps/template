@@ -1,0 +1,16 @@
+# 4-APP
+# Adds APP
+
+{ config, lib, pkgs, ... }:
+
+with lib;
+
+{
+  imports = [];
+
+  # Add app
+  environment.systemPackages = with pkgs; [
+    APP
+  ];
+}
+
