@@ -7,4 +7,4 @@ list=$(find -mindepth 2 -iname "*.nix" | sort -V | tr "\n" " ")
 echo "{
   imports = [ $list ];
 }
-" > merge.nix
+" > merged.nix
