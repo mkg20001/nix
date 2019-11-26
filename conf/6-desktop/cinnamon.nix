@@ -10,5 +10,5 @@ with lib;
   imports = [];
 
   # Cinnamon
-  # TODO services.xserver.desktopManager.cinnamon.enable = true;
+  services.xserver.desktopManager.cinnamon.enable = true;
 }
