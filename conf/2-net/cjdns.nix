@@ -1,6 +1,6 @@
 # 2-cjdns
 # Enable cjdns
-# docref: TODO <nixpkgs/..>
+# docref: TODO <nixpkgs/nixos/modules/services/networking/cjdns.nix>
 
 { config, lib, pkgs, ... }:
 
@@ -24,4 +24,8 @@ with lib;
       # connectTo = {}; # private config
     };
   };
+
+  environment.systemPackages = with pkgs; [
+    yrd
+  ];
 }

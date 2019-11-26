@@ -1,6 +1,6 @@
 # 2-yggdrasil
 # Enable yggdrasil
-# docref: TODO <nixpkgs/..>
+# docref: TODO <nixpkgs/nixos/modules/services/networking/yggdrasil.nix>
 
 { config, lib, pkgs, ... }:
 
