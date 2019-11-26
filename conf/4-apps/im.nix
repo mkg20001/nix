@@ -1,5 +1,5 @@
-# 4-ts3
-# Adds teamspeak-client
+# 4im
+# Adds instant messanging apps
 
 { config, lib, pkgs, ... }:
 
@@ -8,8 +8,8 @@ with lib;
 {
   imports = [];
 
-  # Add teamspeak-client
   environment.systemPackages = with pkgs; [
-    teamspeak_client
+    tdesktop
+    riot-desktop
   ];
 }

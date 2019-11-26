@@ -1,5 +1,5 @@
-# 4-zoom
-# Adds Zoom.us
+# 4-voice
+# Adds VoIP apps
 
 { config, lib, pkgs, ... }:
 
@@ -8,8 +8,9 @@ with lib;
 {
   imports = [];
 
-  # Add app
   environment.systemPackages = with pkgs; [
+    teamspeak_client
+    mumble
     zoom-us
   ];
 }
