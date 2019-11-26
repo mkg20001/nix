@@ -20,5 +20,6 @@
   # Bleeeeddd.... xD
   nix.nixPath = [
     "nixpkgs=/home/maciej/cinnamon"
+    "nixos-config=/etc/nixos/configuration.nix"
   ];
 }
