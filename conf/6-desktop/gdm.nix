@@ -11,4 +11,6 @@ with lib;
 
   # GDM
   services.xserver.displayManager.gdm.enable = true;
+  # No wayland
+  services.xserver.displayManager.gdm.wayland = false;
 }
