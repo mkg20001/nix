@@ -16,4 +16,9 @@
   # Use MBR
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sdc";
+
+  # Bleeeeddd.... xD
+  nix.nixPath = [
+    "nixpkgs=/home/maciej/cinnamon"
+  ];
 }
