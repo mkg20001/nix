@@ -1,6 +1,6 @@
 # 1-nix-version
 # Define nix & nixOS version
-# docref: TODO <nixpkgs/..>
+# docref: https://nixos.org/nixos/manual/index.html#sec-upgrading
 
 { config, lib, pkgs, ... }:
 
@@ -18,4 +18,5 @@ with lib;
   system.stateVersion = "unstable"; # bleeding edge
 
   # system.autoUpgrade.enable = true;
+  # system.autoUpgrade.channel = https://nixos.org/channels/nixos-19.09;
 }
