@@ -12,8 +12,8 @@ with lib;
   services.cron = {
     enable = true;
     systemCronJobs = [
-      "0 0 * * 1      root    bash /etc/nixos/cron/weekly.sh"
       "0 0 * * *      root    bash /etc/nixos/cron/daily.sh"
+      "0 0 * * 1      root    bash /etc/nixos/cron/weekly.sh"
     ];
   };
 }
