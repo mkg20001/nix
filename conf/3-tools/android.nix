@@ -9,6 +9,6 @@ with lib;
   imports = [];
 
   environment.systemPackages = with pkgs; [
-    android-studio-stable
+    android-studio
   ];
 }
