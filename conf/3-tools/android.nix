@@ -13,4 +13,6 @@ with lib;
     apktool
     fastlane
   ];
+
+  virtualisation.anbox.enable = true;
 }
