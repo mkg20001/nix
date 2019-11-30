@@ -10,5 +10,7 @@ with lib;
 
   environment.systemPackages = with pkgs; [
     android-studio
+    apktool
+    fastlane
   ];
 }
