@@ -9,7 +9,7 @@ with lib;
   imports = [];
 
   environment.systemPackages = with pkgs; [
-    thunderbird
-    # TODO: twinkle SIP "twinkle"
+    thunderbird # email client
+    twinkle # twinkle SIP
   ];
 }
