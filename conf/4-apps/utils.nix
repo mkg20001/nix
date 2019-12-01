@@ -10,6 +10,6 @@ with lib;
 
   environment.systemPackages = with pkgs; [
     trilium # for notes
-    # TODO: pick-colour-picker "color picker" RFP
+    pick-colour-picker # color picker that saves picks
   ];
 }
