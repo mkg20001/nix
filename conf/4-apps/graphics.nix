@@ -13,7 +13,6 @@ with lib;
     gimp
     mypaint
     inkscape
+    # TODO: add rgbpaint
   ];
-
-  # TODO: FW config
 }
