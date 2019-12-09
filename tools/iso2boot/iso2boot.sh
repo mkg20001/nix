@@ -2,7 +2,8 @@
 
 set -e
 
-GRUB="@@GRUB@@"
+GRUB_PC="@@GRUB@@"
+GRUB_EFI="@@GEFI@@"
 
 findCopyAndReplace() {
   local src="$1"
@@ -61,7 +62,7 @@ EOF
     "boot/grub/converted-font.pf2=${boot_dir}/grub/converted-font.pf2"
   )
 
-  grub-mkstandalone \
+  ${GRUB_EFI}/bin/grub-mkstandalone \
     --format=x86_64-efi \
     --output=${TMP}/scratch/bootx64.efi \
     --locales="" \
@@ -75,7 +76,7 @@ EOF
       mcopy -i efiboot.img ./bootx64.efi ::efi/boot/
   )
 
-  grub-mkstandalone \
+  ${GRUB_EFI}/bin/grub-mkstandalone \
       --format=i386-pc \
       --output=${TMP}/scratch/core.img \
       --install-modules="linux normal iso9660 biosdisk memdisk search tar ls font vbe gfxterm png test all_video" \
@@ -85,7 +86,7 @@ EOF
       "${GRAFT[@]}"
 
   cat \
-      ${GRUB}/lib/grub/i386-pc/cdboot.img \
+      ${GRUB_PC}/lib/grub/i386-pc/cdboot.img \
       ${TMP}/scratch/core.img \
   > ${TMP}/scratch/bios.img
 
@@ -102,7 +103,7 @@ EOF
           -boot-info-table \
           --eltorito-catalog boot/grub/boot.cat \
       --grub2-boot-info \
-      --grub2-mbr ${GRUB}/lib/grub/i386-pc/boot_hybrid.img \
+      --grub2-mbr ${GRUB_PC}/lib/grub/i386-pc/boot_hybrid.img \
       -eltorito-alt-boot \
           -e EFI/efiboot.img \
           -no-emul-boot \
