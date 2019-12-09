@@ -16,4 +16,9 @@
   # Use MBR
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/disk/by-id/usb-ZALMAN_ZM-VE350_WXT1EC0HDWX8-0:1";
+
+  fileSystems."/zalman" =
+    { device = "/dev/disk/by-label/zalman";
+      fsType = "ntfs";
+    };
 }
