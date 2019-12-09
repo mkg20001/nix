@@ -78,7 +78,7 @@ EOF
       mcopy -i efiboot.img ./bootx64.efi ::efi/boot/
   )
 
-  ${GRUB_EFI}/bin/grub-mkstandalone \
+  ${GRUB_PC}/bin/grub-mkstandalone \
       --format=i386-pc \
       --output=${TMP}/scratch/core.img \
       --install-modules="linux normal iso9660 biosdisk memdisk search tar ls font vbe gfxterm png test all_video" \
