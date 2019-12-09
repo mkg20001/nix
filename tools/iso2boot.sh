@@ -34,9 +34,79 @@ main() {
 
   mkdir -p "${TMP}/{scratch,image}"
 
-  cp "$boot_dir/grub/grub.cfg" "${TMP}/scratch/grub.cfg"
+  cat <<'EOF' >${TMP}/scratch/grub.cfg
 
+search --set=root --file /iso2boot
+
+insmod all_video
+
+set default="0"
+set timeout=30
+
+EOF
+
+  # NOTE: there are two drive searches, drive1 (boot) and drive2 (store). remove them, since we are already where we should be.
+  cat "$boot_dir/grub/grub.cfg" | grep -v search | sed "s|\$drive1|\$root|" >> "${TMP}/scratch/grub.cfg"
+
+  # copy all the boot files
   storeCopy "${TMP}/scratch/grub.cfg" "$store_dir" "${TMP}/image"
 
-  
+  GRAFT=(
+    "boot/grub/grub.cfg=${TMP}/scratch/grub.cfg"
+    "boot/grub/background.png=${boot_dir}/grub/background.png"
+    "boot/grub/converted-font.pf2=${boot_dir}/grub/converted-font.pf2"
+  )
+
+  grub-mkstandalone \
+    --format=x86_64-efi \
+    --output=${TMP}/scratch/bootx64.efi \
+    --locales="" \
+    --fonts="" \
+    "${GRAFT[@]}"
+
+  (cd ${TMP}/scratch && \
+      dd if=/dev/zero of=efiboot.img bs=1M count=10 && \
+      mkfs.vfat efiboot.img && \
+      mmd -i efiboot.img efi efi/boot && \
+      mcopy -i efiboot.img ./bootx64.efi ::efi/boot/
+  )
+
+  grub-mkstandalone \
+      --format=i386-pc \
+      --output=${TMP}/scratch/core.img \
+      --install-modules="linux normal iso9660 biosdisk memdisk search tar ls font vbe gfxterm png test all_video" \
+      --modules="linux normal iso9660 biosdisk search font vbe gfxterm png test all_video" \
+      --locales="" \
+      --fonts="" \
+      "${GRAFT[@]}"
+
+  cat \
+      /usr/lib/grub/i386-pc/cdboot.img \
+      ${TMP}/scratch/core.img \
+  > ${TMP}/scratch/bios.img
+
+  xorriso \
+      -as mkisofs \
+      -iso-level 3 \
+      -J -r \
+      -full-iso9660-filenames \
+      -volid "iso2boot" \
+      -eltorito-boot \
+          boot/grub/bios.img \
+          -no-emul-boot \
+          -boot-load-size 4 \
+          -boot-info-table \
+          --eltorito-catalog boot/grub/boot.cat \
+      --grub2-boot-info \
+      --grub2-mbr /usr/lib/grub/i386-pc/boot_hybrid.img \
+      -eltorito-alt-boot \
+          -e EFI/efiboot.img \
+          -no-emul-boot \
+      -append_partition 2 0xef ${TMP}/scratch/efiboot.img \
+      -output "$SRC/iso2boot.iso" \
+      -graft-points \
+          "${TMP}/image" \
+          /boot/grub/bios.img=${TMP}/scratch/bios.img \
+          /EFI/efiboot.img=${TMP}/scratch/efiboot.img
+
 }
