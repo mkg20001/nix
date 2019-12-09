@@ -21,18 +21,20 @@ storeCopy() {
   local out_dir="$3"
 
   for file in bzImage initrd; do
-    findAndReplace "$srcfile" "$file" "$store_dir" "$out_dir"
+    findCopyAndReplace "$srcfile" "$file" "$store_dir" "$out_dir"
   done
 }
 
 main() {
   local boot_dir="$1"
-  local store_dir="$2"
+  local store_dir_location="$2"
+  local store_dir=0
+  store_dir=$(dirname "$(dirname "$store_dir_location")")
   local outfile="$3"
 
   TMP=$(mktemp -d)
 
-  mkdir -p "${TMP}/{scratch,image}"
+  mkdir -p "${TMP}/"{scratch,image}
 
   cat <<'EOF' >${TMP}/scratch/grub.cfg
 
@@ -90,7 +92,7 @@ EOF
       -iso-level 3 \
       -J -r \
       -full-iso9660-filenames \
-      -volid "iso2boot" \
+      -volid "ISO2BOOT" \
       -eltorito-boot \
           boot/grub/bios.img \
           -no-emul-boot \
@@ -103,10 +105,12 @@ EOF
           -e EFI/efiboot.img \
           -no-emul-boot \
       -append_partition 2 0xef ${TMP}/scratch/efiboot.img \
-      -output "$SRC/iso2boot.iso" \
+      -output "$outfile" \
       -graft-points \
           "${TMP}/image" \
           /boot/grub/bios.img=${TMP}/scratch/bios.img \
           /EFI/efiboot.img=${TMP}/scratch/efiboot.img
-
 }
+
+# main "$r/boot" "$r/nix/store" "$PWD/iso2boot.iso"
+main "$@"
