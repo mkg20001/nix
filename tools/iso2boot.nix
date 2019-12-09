@@ -14,7 +14,7 @@ stdenv.mkDerivation {
   ];
 
   installPhase = ''
-    replaceInPlace iso2boot.sh --replace "@@GRUB@@" "${grub2_full}"
+    sed "s|@@GRUB@@|${grub2_full}|g" -i iso2boot.sh
     install -D iso2boot.sh $out/bin/iso2boot
     '';
 }
