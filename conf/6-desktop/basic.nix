@@ -27,6 +27,7 @@ with lib;
 
   # Enable powerManagment
   powerManagement.enable = true;
+  services.upower.enable = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
