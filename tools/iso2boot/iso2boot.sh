@@ -41,6 +41,9 @@ main() {
 
   mkdir -p "${TMP}/"{scratch,image}
 
+  # so grub can find it
+  touch ${TMP}/image/iso2boot
+
   cat <<'EOF' >${TMP}/scratch/grub.cfg
 
 search --set=root --file /iso2boot
