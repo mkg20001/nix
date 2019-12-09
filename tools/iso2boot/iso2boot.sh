@@ -5,7 +5,7 @@ set -e
 GRUB_PC="@@GRUB@@"
 GRUB_EFI="@@GEFI@@"
 
-export PATH="@@XORRISO@@:@@MTOOLS@@:$PATH"
+export PATH="@@XORRISO@@/bin:@@MTOOLS@@/bin:$PATH"
 
 findCopyAndReplace() {
   local src="$1"
