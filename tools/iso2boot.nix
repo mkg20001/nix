@@ -1,6 +1,7 @@
 { stdenv
 , grub2_full
-, xorriso }:
+, xorriso
+, ... }:
 stdenv.mkDerivation {
   pname = "iso2boot";
   version = "0.0.1";
