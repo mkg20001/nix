@@ -37,6 +37,8 @@ in
     # $ nix search wget
     environment.systemPackages = with pkgs; [
       wget vim nano htop nload iotop git tree nix-prefetch-git
+
+      (import ./tools/iso2boot.nix pkgs)
     ];
 
   }

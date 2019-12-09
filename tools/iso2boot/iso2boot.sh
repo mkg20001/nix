@@ -2,6 +2,8 @@
 
 set -e
 
+GRUB="@@GRUB@@"
+
 findCopyAndReplace() {
   local src="$1"
   local file="$2"
@@ -83,7 +85,7 @@ EOF
       "${GRAFT[@]}"
 
   cat \
-      /usr/lib/grub/i386-pc/cdboot.img \
+      ${GRUB}/lib/grub/i386-pc/cdboot.img \
       ${TMP}/scratch/core.img \
   > ${TMP}/scratch/bios.img
 
@@ -100,7 +102,7 @@ EOF
           -boot-info-table \
           --eltorito-catalog boot/grub/boot.cat \
       --grub2-boot-info \
-      --grub2-mbr /usr/lib/grub/i386-pc/boot_hybrid.img \
+      --grub2-mbr ${GRUB}/lib/grub/i386-pc/boot_hybrid.img \
       -eltorito-alt-boot \
           -e EFI/efiboot.img \
           -no-emul-boot \
