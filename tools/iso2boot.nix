@@ -2,7 +2,7 @@
 , grub2_full
 , grub2_efi
 , xorriso
-, mmd
+, mtools
 , ... }:
 stdenv.mkDerivation {
   pname = "iso2boot";
@@ -14,7 +14,7 @@ stdenv.mkDerivation {
     grub2_full
     grub2_efi
     xorriso
-    mmd
+    mtools # mmd
   ];
 
   installPhase = ''
