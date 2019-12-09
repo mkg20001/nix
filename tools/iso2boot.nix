@@ -3,6 +3,7 @@
 , grub2_efi
 , xorriso
 , mtools
+, makeWrapper
 , ... }:
 stdenv.mkDerivation {
   pname = "iso2boot";
@@ -16,6 +17,8 @@ stdenv.mkDerivation {
     xorriso
     mtools # mmd
   ];
+
+  nativeBuildInputs = [ makeWrapper ];
 
   installPhase = ''
     sed "s|@@GEFI@@|${grub2_efi}|g" -i iso2boot.sh
