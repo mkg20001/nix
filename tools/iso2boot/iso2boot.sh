@@ -63,7 +63,7 @@ EOF
 
   COPY="background.png converted-font.pf2 grub/locale grub/fonts"
 
-  for mod in "linux normal iso9660 biosdisk memdisk search tar ls font vbe gfxterm png test all_video"; do
+  for mod in linux normal iso9660 biosdisk memdisk search tar ls font vbe gfxterm png test all_video; do
     COPY="$COPY grub/i386-pc/${mod}.mod"
   done
 
