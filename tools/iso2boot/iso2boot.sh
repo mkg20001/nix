@@ -61,12 +61,12 @@ EOF
   # copy all the boot files
   storeCopy "${TMP}/scratch/grub.cfg" "$store_dir" "${TMP}/image"
 
-  # cp -rp "$boot_dir" "${TMP}/image/boot"
+  cp -rp "$boot_dir" "${TMP}/image/boot"
 
   GRAFT=(
     "boot/grub/grub.cfg=${TMP}/scratch/grub.cfg"
-    "boot/background.png=${boot_dir}/background.png"
-    "boot/converted-font.pf2=${boot_dir}/converted-font.pf2"
+    # "boot/background.png=${boot_dir}/background.png"
+    # "boot/converted-font.pf2=${boot_dir}/converted-font.pf2"
   )
 
   ${GRUB_EFI}/bin/grub-mkstandalone \
