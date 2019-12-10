@@ -61,17 +61,21 @@ EOF
   # copy all the boot files
   storeCopy "${TMP}/scratch/grub.cfg" "$store_dir" "${TMP}/image"
 
-  COPY="background.png converted-font.pf2 grub/locale grub/fonts"
+  if [ ! -z "$ENABLE_COPY" ]; then
+    # this bricks booting on some devices, but makes it look shiny. choose.
 
-  for mod in linux normal iso9660 biosdisk memdisk search tar ls font vbe gfxterm png test all_video; do
-    COPY="$COPY grub/i386-pc/${mod}.mod"
-  done
+    COPY="background.png converted-font.pf2 grub/locale grub/fonts grub/i386-pc"
 
-  for f in $COPY; do
-    OUT="${TMP}/image/boot/$f"
-    mkdir -p "$(dirname "$OUT")"
-    cp -r "$boot_dir/$f" "$OUT"
-  done
+    # for mod in linux normal iso9660 biosdisk memdisk search tar ls font vbe gfxterm png test all_video; do
+    #   COPY="$COPY grub/i386-pc/${mod}.mod"
+    # done
+
+    for f in $COPY; do
+      OUT="${TMP}/image/boot/$f"
+      mkdir -p "$(dirname "$OUT")"
+      cp -r "$boot_dir/$f" "$OUT"
+    done
+  fi
 
   GRAFT=(
     "boot/grub/grub.cfg=${TMP}/scratch/grub.cfg"
