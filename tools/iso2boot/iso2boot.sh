@@ -16,7 +16,7 @@ findCopyAndReplace() {
   for path in $(cat "$src" | grep -o "/nix/store/.*/$file" | sort | uniq); do
     outname=$(echo "$path" | sed "s|/|_|g")
     cp -v "$store_dir$path" "$out_dir/$outname"
-    sed "s|(.*$path|(\$drive1)/$outname|g" -i "$1"
+    sed "s|(.*$path|(\$root)/$outname|g" -i "$1"
   done
 }
 
@@ -46,8 +46,7 @@ main() {
 
   cat <<'EOF' >${TMP}/scratch/grub.cfg
 
-search --set=drive1 --file /iso2boot
-search --set=drive2 --file /iso2boot
+search --set=root --file /iso2boot
 
 insmod all_video
 
@@ -57,7 +56,7 @@ set timeout=30
 EOF
 
   # NOTE: there are two drive searches, drive1 (boot) and drive2 (store). remove them, since we are already where we should be.
-  cat "$boot_dir/grub/grub.cfg" | grep -v search >> "${TMP}/scratch/grub.cfg"
+  cat "$boot_dir/grub/grub.cfg" | grep -v search | sed "s|\$drive1|\$root|" >> "${TMP}/scratch/grub.cfg"
 
   # copy all the boot files
   storeCopy "${TMP}/scratch/grub.cfg" "$store_dir" "${TMP}/image"
