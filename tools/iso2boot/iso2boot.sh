@@ -61,6 +61,8 @@ EOF
   # copy all the boot files
   storeCopy "${TMP}/scratch/grub.cfg" "$store_dir" "${TMP}/image"
 
+  cp -rp "$boot_dir" "${TMP}/image/boot"
+
   GRAFT=(
     "boot/grub/grub.cfg=${TMP}/scratch/grub.cfg"
     "boot/grub/background.png=${boot_dir}/grub/background.png"
@@ -118,6 +120,8 @@ EOF
           "${TMP}/image" \
           /boot/grub/bios.img=${TMP}/scratch/bios.img \
           /EFI/efiboot.img=${TMP}/scratch/efiboot.img
+
+  rm -rf "${TMP}"
 }
 
 # main "$r/boot" "$r/nix/store" "$PWD/iso2boot.iso"
