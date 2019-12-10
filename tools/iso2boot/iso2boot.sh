@@ -66,7 +66,7 @@ EOF
   for f in $COPY; do
     OUT="${TMP}/image/boot/$f"
     mkdir -p "$(dirname "$OUT")"
-    cp -r "$boot_dir$f" "$OUT"
+    cp -r "$boot_dir/$f" "$OUT"
   done
 
   GRAFT=(
