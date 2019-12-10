@@ -61,7 +61,7 @@ EOF
   # copy all the boot files
   storeCopy "${TMP}/scratch/grub.cfg" "$store_dir" "${TMP}/image"
 
-  cp -rp "$boot_dir" "${TMP}/image/boot"
+  # cp -rp "$boot_dir" "${TMP}/image/boot"
 
   GRAFT=(
     "boot/grub/grub.cfg=${TMP}/scratch/grub.cfg"
