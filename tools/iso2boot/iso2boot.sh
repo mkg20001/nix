@@ -79,6 +79,10 @@ EOF
 
   GRAFT=(
     "boot/grub/grub.cfg=${TMP}/scratch/grub.cfg"
+
+    # TODO: maybe try with compression?
+
+    # (too large)
     # "boot/background.png=${boot_dir}/background.png"
     # "boot/converted-font.pf2=${boot_dir}/converted-font.pf2"
   )

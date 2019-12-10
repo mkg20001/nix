@@ -1,0 +1,32 @@
+From 23ab7be4769867cde843bb1f0e08b9412f417801 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Maciej=20Kr=C3=BCger?= <mkg20001@gmail.com>
+Date: Tue, 10 Dec 2019 10:37:14 +0100
+Subject: [PATCH] fix: prefix
+
+---
+ Makefile | 7 +++----
+ 1 file changed, 3 insertions(+), 4 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index 104d7b1..0e1c2e1 100755
+--- a/Makefile
++++ b/Makefile
+@@ -20,12 +20,11 @@ lightdm-tiny-greeter.o: lightdm-tiny-greeter.c config.h
+ 	$(CC) $(CFLAGS) -c $^ $(PKGS)
+ 
+ install:
+-	$(shell mkdir -p /usr/share/xgreeters)
+-	cp lightdm-tiny-greeter.desktop /usr/share/xgreeters/lightdm-tiny-greeter.desktop
+-	cp lightdm-tiny-greeter $(PREFIX)/bin/lightdm-tiny-greeter
++	install -D lightdm-tiny-greeter.desktop $(PREFIX)/share/xgreeters/lightdm-tiny-greeter.desktop
++	install -D lightdm-tiny-greeter $(PREFIX)/bin/lightdm-tiny-greeter
+ 
+ uninstall:
+-	$(RM) /usr/share/xgreeters/lightdm-tiny-greeter.desktop
++	$(RM) $(PREFIX)/share/xgreeters/lightdm-tiny-greeter.desktop
+ 	$(RM) $(PREFIX)/bin/lightdm-tiny-greeter
+ 
+ clean:
+-- 
+2.20.1
+
