@@ -65,8 +65,8 @@ EOF
 
   GRAFT=(
     "boot/grub/grub.cfg=${TMP}/scratch/grub.cfg"
-    "boot/grub/background.png=${boot_dir}/grub/background.png"
-    "boot/grub/converted-font.pf2=${boot_dir}/grub/converted-font.pf2"
+    "boot/background.png=${boot_dir}/background.png"
+    "boot/converted-font.pf2=${boot_dir}/converted-font.pf2"
   )
 
   ${GRUB_EFI}/bin/grub-mkstandalone \
