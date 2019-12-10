@@ -61,7 +61,13 @@ EOF
   # copy all the boot files
   storeCopy "${TMP}/scratch/grub.cfg" "$store_dir" "${TMP}/image"
 
-  cp -rp "$boot_dir" "${TMP}/image/boot"
+  COPY="background.png converted-font.pf2 grub/i386-pc grub/locale grub/fonts"
+
+  for f in $COPY; do
+    OUT="${TMP}/image/boot/$f"
+    mkdir -p "$(dirname "$OUT")"
+    cp -r "$boot_dir$f" "$OUT"
+  done
 
   GRAFT=(
     "boot/grub/grub.cfg=${TMP}/scratch/grub.cfg"
