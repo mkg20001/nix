@@ -1,3 +1,4 @@
 result*
 nix
 conf/9-private
+*.qcow2
