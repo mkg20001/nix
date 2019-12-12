@@ -11,8 +11,9 @@ with lib;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.maciej = {
+    createHome = true;
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "networkmanager" "audio" "video" ];
   };
 
   # Some programs need SUID wrappers, can be configured further or are
