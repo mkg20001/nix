@@ -1,7 +1,7 @@
 let
-  e = device: import <nixpkgs/nixos> {
+  e = device: (import <nixpkgs/nixos> {
     configuration = import ./_configuration.nix { device = device; };
-  };
+  }).system;
 
   machines = {
     pc = e ./devices/pc;
