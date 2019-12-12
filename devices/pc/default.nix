@@ -4,7 +4,9 @@
 { config, lib, pkgs, ... }:
 
 {
-  imports = [];
+  imports = [
+    ./hardware-configuration.nix
+  ];
 
   # Name the child
   networking.hostName = "mkg-pc";
