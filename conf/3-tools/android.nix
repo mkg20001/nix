@@ -6,8 +6,6 @@
 with lib;
 
 lib.mkIf config.flags.highSpec {
-  imports = [];
-
   environment.systemPackages = with pkgs; [
     android-studio
     apktool
