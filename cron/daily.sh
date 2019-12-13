@@ -20,7 +20,7 @@ nixpkgs_need_update() {
 
 nixpkgs_update() {
   URL="https://github.com/mkg20001/nixpkgs/archive/$LATEST_SHA.tar.gz"
-  SHA=$(nix-prefetch-url --unpack --print-path "$URL")
+  SHA=$(nix-prefetch-url --unpack "$URL")
 
   # TODO: also include this in nix conf, possibly link as /etc/nixpkgs ?
 
