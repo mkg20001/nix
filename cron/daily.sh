@@ -19,7 +19,6 @@ nixpkgs_need_update() {
 }
 
 nixpkgs_update() {
-  rm /nixpkgs
   URL="https://github.com/mkg20001/nixpkgs/archive/mkg-patch.tar.gz"
   SHA=$(nix-prefetch-url "$URL")
 

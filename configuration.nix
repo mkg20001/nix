@@ -1,1 +1,1 @@
-super: import ./configuration.nix { device = ./device; } super
+import ./_configuration.nix { device = ./device; }

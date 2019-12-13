@@ -37,7 +37,7 @@ in
     # List packages installed in system profile. To search, run:
     # $ nix search wget
     environment.systemPackages = with pkgs; [
-      wget vim nano htop nload iotop git tree nix-prefetch-git
+      wget vim nano htop nload iotop git tree nix-prefetch-git jq
 
       (import ./tools/iso2boot.nix pkgs)
     ];
