@@ -39,6 +39,7 @@ nixpkgs_update() {
   }' > nixpkgs.nix
 
   nix-build --out-link /tmp/nixpkgs nixpkgs.nix
+  rm -fv /etc/nixpkgs
   ln -sfv /tmp/nixpkgs/etc/nixpkgs /etc/nixpkgs
 
   # nix-build --out-link /nixpkgs -E '(builtins.fetchTarball {
