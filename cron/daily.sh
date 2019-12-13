@@ -35,10 +35,7 @@ nixpkgs_update() {
       sha256 = "'"$SHA"'";
     });
 
-    installPhase = ''
-      mkdir -p $out/etc
-      cp -r $PWD $out/etc/nixpkgs
-      '';
+    installPhase = "mkdir -p $out/etc && cp -r $PWD $out/etc/nixpkgs";
   }' > nixpkgs.nix
 
   nix-build --out-link /tmp/nixpkgs nixpkgs.nix
