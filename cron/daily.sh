@@ -4,7 +4,7 @@ set -eu
 set -o pipefail
 
 nixpkgs_need_update() {
-  CURRENT_SHA=$(cat /nixpkgs.sha; true)
+  CURRENT_SHA=$(cat /etc/nixpkgs/sha; true)
   LATEST_SHA=$(curl -s https://api.github.com/repos/mkg20001/nixpkgs/branches/mkg-patch | jq -r .commit.sha)
 
   if [ ! -e /nixpkgs ]; then
@@ -35,20 +35,12 @@ nixpkgs_update() {
       sha256 = "'"$SHA"'";
     };
 
-    installPhase = "mkdir -p $out/etc && cp -r $PWD $out/etc/nixpkgs";
+    installPhase = "mkdir -p $out/etc && cp -r $PWD $out/etc/nixpkgs && echo '"$LATEST_SHA"' > $out/etc/nixpkgs/sha";
   }' > nixpkgs.nix
 
   nix-build --out-link /tmp/nixpkgs nixpkgs.nix
   rm -fv /etc/nixpkgs
   ln -sfv /tmp/nixpkgs/etc/nixpkgs /etc/nixpkgs
-
-  # nix-build --out-link /nixpkgs -E '(builtins.fetchTarball {
-  #   name = "mkg-patched-nixpkgs";
-  #   url = "'"$URL"'";
-  #   sha256 = "'"$SHA"'";
-  # })'
-
-  echo "$LATEST_SHA" > /nixpkgs.sha
 }
 
 nix-channel --update
