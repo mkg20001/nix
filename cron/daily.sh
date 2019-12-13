@@ -41,6 +41,9 @@ nixpkgs_update() {
       '';
   }' > nixpkgs.nix
 
+  nix-build --out-link /tmp/nixpkgs nixpkgs.nix
+  ln -sfv /tmp/nixpkgs/etc/nixpkgs /etc/nixpkgs
+
   # nix-build --out-link /nixpkgs -E '(builtins.fetchTarball {
   #   name = "mkg-patched-nixpkgs";
   #   url = "'"$URL"'";
