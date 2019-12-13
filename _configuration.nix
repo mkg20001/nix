@@ -15,6 +15,8 @@ in
     imports =
       [ # Include merged config
         ./conf/merged.nix
+        # Include cachix-managed conf
+        ./cachix.nix
         # Include the results of the hardware scan.
         # ./hardware-configuration.nix
         # Include per-device config
