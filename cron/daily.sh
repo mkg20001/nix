@@ -24,7 +24,7 @@ nixpkgs_update() {
 
   # TODO: also include this in nix conf, possibly link as /etc/nixpkgs ?
 
-  echo '(with import <nixpkgs>);
+  echo 'with (import <nixpkgs>);
   stdenv.mkDerivation {
     pname = "nixpkgs-mkg-patched";
     version = "mkg-patch";
