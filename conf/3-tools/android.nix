@@ -8,11 +8,13 @@ with lib;
 {
   imports = [];
 
-  environment.systemPackages = with pkgs; [
-    android-studio
-    apktool
-    fastlane
-  ];
+  config = lib.mkIf config.flags.highSpec {
+    environment.systemPackages = with pkgs; [
+      android-studio
+      apktool
+      fastlane
+    ];
 
-  virtualisation.anbox.enable = true;
+    virtualisation.anbox.enable = true;
+  };
 }
