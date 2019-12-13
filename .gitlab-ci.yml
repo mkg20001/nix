@@ -1,0 +1,5 @@
+build-and-push:
+  script:
+    - '[ ! -e /cache/nixpkgs ] && git clone https://github.com/mkg20001/nixpkgs /cache/nixpkgs -b mkg-patch && ln -s /cache/nixpkgs ../nixpkgs'
+    - 'git -C ../nixpkgs fetch origin && git -C ../nixpkgs reset --hard origin/mkg-patch && git -C ../nixpkgs clean -dxf'
+    - bash build-and-push.sh
