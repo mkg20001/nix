@@ -19,6 +19,8 @@ in
         # ./hardware-configuration.nix
         # Include per-device config
         device
+        # Include channel config
+        ./channel.nix
       ];
 
     nixpkgs.overlays = [ mkgOverlay ];
