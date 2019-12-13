@@ -10,7 +10,7 @@ with lib;
   imports = [];
 
   nix.nixPath = lib.mkDefault [
-    "nixpkgs=/nixpkgs"
+    "nixpkgs=/etc/nixpkgs"
     "nixos-config=/etc/nixos/configuration.nix"
   ];
 }

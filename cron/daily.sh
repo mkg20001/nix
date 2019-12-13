@@ -19,12 +19,27 @@ nixpkgs_need_update() {
 }
 
 nixpkgs_update() {
-  URL="https://github.com/mkg20001/nixpkgs/archive/mkg-patch.tar.gz"
+  URL="https://github.com/mkg20001/nixpkgs/archive/$LATEST_SHA.tar.gz"
   SHA=$(nix-prefetch-url --unpack --print-path "$URL")
 
   # TODO: also include this in nix conf, possibly link as /etc/nixpkgs ?
 
-  ln -sv "$SHA" /nixpkgs
+  echo '(with import <nixpkgs>);
+  stdenv.mkDerivation {
+    pname = "nixpkgs-mkg-patched";
+    version = "mkg-patch";
+
+    src = (builtins.fetchTarball {
+      name = "mkg-patched-nixpkgs";
+      url = "'"$URL"'";
+      sha256 = "'"$SHA"'";
+    });
+
+    installPhase = ''
+      mkdir -p $out/etc
+      cp -r $PWD $out/etc/nixpkgs
+      '';
+  }' > nixpkgs.nix
 
   # nix-build --out-link /nixpkgs -E '(builtins.fetchTarball {
   #   name = "mkg-patched-nixpkgs";

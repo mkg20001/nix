@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ device }:
+{ device, channel ? false }:
 { config, lib, pkgs, fetchgit, ... }:
 
 with lib;
@@ -19,9 +19,10 @@ in
         # ./hardware-configuration.nix
         # Include per-device config
         device
+      ] ++ (if channel then [
         # Include channel config
         ./channel.nix
-      ];
+      ] else []);
 
     nixpkgs.overlays = [ mkgOverlay ];
     nixpkgs.config.allowUnfree = true;
@@ -42,6 +43,9 @@ in
       wget vim nano htop nload iotop git tree nix-prefetch-git jq
 
       (import ./tools/iso2boot.nix pkgs)
-    ];
+    ] ++ (if channel then [
+      # Include nixpkgs config
+      ./nixpkgs.nix
+    ] else []);
 
   }
