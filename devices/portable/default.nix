@@ -11,6 +11,7 @@
   # Name the child
   networking.hostName = "mkg-portable";
 
+  # Raise da flags
   flags.portable = true;
 
   # Use the systemd-boot EFI boot loader.

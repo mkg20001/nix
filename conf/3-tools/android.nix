@@ -5,16 +5,14 @@
 
 with lib;
 
-{
+lib.mkIf config.flags.highSpec {
   imports = [];
 
-  config = lib.mkIf config.flags.highSpec {
-    environment.systemPackages = with pkgs; [
-      android-studio
-      apktool
-      fastlane
-    ];
+  environment.systemPackages = with pkgs; [
+    android-studio
+    apktool
+    fastlane
+  ];
 
-    virtualisation.anbox.enable = true;
-  };
+  virtualisation.anbox.enable = true;
 }

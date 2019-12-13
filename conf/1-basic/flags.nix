@@ -20,6 +20,12 @@ in
         default = false;
         description = "Enable portable modules";
       };
+
+      tools = mkOption {
+        type = types.bool;
+        default = false;
+        description = "Enable extra tools";
+      };
     };
   };
 

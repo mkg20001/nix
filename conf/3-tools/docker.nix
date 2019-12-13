@@ -6,7 +6,7 @@
 
 with lib;
 
-{
+lib.mkIf config.flags.tools {
   imports = [];
 
   virtualisation.docker.enable = true;

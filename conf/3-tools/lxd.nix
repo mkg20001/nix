@@ -5,7 +5,7 @@
 
 with lib;
 
-{
+lib.mkIf config.flags.tools {
   imports = [];
 
   virtualisation.lxd.enable = true;
