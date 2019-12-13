@@ -20,9 +20,10 @@ nixpkgs_need_update() {
 
 nixpkgs_update() {
   URL="https://github.com/mkg20001/nixpkgs/archive/mkg-patch.tar.gz"
-  SHA=$(nix-prefetch-url "$URL")
+  SHA=$(nix-prefetch-url --unpack "$URL")
 
   nix-build --out-link /nixpkgs -E '(builtins.fetchTarball {
+    name = "mkg-patched-nixpkgs"
     url = "'"$URL"'";
     sha256 = "'"$SHA"'";
   })'
