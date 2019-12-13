@@ -20,20 +20,24 @@ nixpkgs_need_update() {
 
 nixpkgs_update() {
   URL="https://github.com/mkg20001/nixpkgs/archive/mkg-patch.tar.gz"
-  SHA=$(nix-prefetch-url --unpack "$URL")
+  SHA=$(nix-prefetch-url --unpack --print-path "$URL")
 
   # TODO: also include this in nix conf, possibly link as /etc/nixpkgs ?
 
-  nix-build --out-link /nixpkgs -E '(builtins.fetchTarball {
-    name = "mkg-patched-nixpkgs";
-    url = "'"$URL"'";
-    sha256 = "'"$SHA"'";
-  })'
+  ln -sv "$SHA" /nixpkgs
+
+  # nix-build --out-link /nixpkgs -E '(builtins.fetchTarball {
+  #   name = "mkg-patched-nixpkgs";
+  #   url = "'"$URL"'";
+  #   sha256 = "'"$SHA"'";
+  # })'
 
   echo "$LATEST_SHA" > /nixpkgs.sha
 }
 
 nix-channel --update
+
+# TODO: once the future arrives, we could just do `nixpkgs=https://github.com/mkg20001/nixpkgs/archive/$LATEST_SHA.tar.gz`
 
 if nixpkgs_need_update; then
   nixpkgs_update
