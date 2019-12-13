@@ -29,11 +29,11 @@ nixpkgs_update() {
     pname = "nixpkgs-mkg-patched";
     version = "mkg-patch";
 
-    src = (builtins.fetchTarball {
+    src = builtins.fetchTarball {
       name = "mkg-patched-nixpkgs";
       url = "'"$URL"'";
       sha256 = "'"$SHA"'";
-    });
+    };
 
     installPhase = "mkdir -p $out/etc && cp -r $PWD $out/etc/nixpkgs";
   }' > nixpkgs.nix
