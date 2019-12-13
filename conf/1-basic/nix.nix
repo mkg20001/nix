@@ -15,6 +15,10 @@ with lib;
     gc-keep-outputs = true
     gc-keep-derivations = true
     env-keep-derivations = true
+
+    # Cache TTLs
+    # narinfo-cache-positive-ttl = 0
+    narinfo-cache-negative-ttl = 0
     '';
 
 }

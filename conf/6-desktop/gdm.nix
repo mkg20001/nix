@@ -10,11 +10,11 @@ with lib;
   imports = [];
 
   # GDM
-  # services.xserver.displayManager.gdm.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
   # No wayland
   # services.xserver.displayManager.gdm.wayland = false;
 
-  services.xserver.displayManager.lightdm.greeters.mini = {
+  /* services.xserver.displayManager.lightdm.greeters.mini = {
     enable = true;
     user = "maciej";
     extraConfig = ''
@@ -23,5 +23,5 @@ with lib;
         [greeter-theme]
         background-image = ""
     '';
-  };
+  }; */
 }
