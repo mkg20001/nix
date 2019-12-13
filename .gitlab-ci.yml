@@ -3,7 +3,7 @@ build-and-push:
   script:
     - nix-env -iA cachix -f https://cachix.org/api/v1/install
     - cachix use mkg20001
-    - nix-env -iA nixpkgs.git
+    - nix-env -iA nixpkgs.git nixpkgs.bash
     - '[ ! -e /cache/nixpkgs ] && git clone https://github.com/mkg20001/nixpkgs /cache/nixpkgs -b mkg-patch && ln -s /cache/nixpkgs ../nixpkgs'
     - 'git -C ../nixpkgs fetch origin && git -C ../nixpkgs reset --hard origin/mkg-patch && git -C ../nixpkgs clean -dxf'
     - bash build-and-push.sh
