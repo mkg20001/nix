@@ -9,6 +9,6 @@ with lib;
   imports = [];
 
   environment.systemPackages = with pkgs; [
-    # TODO: bless hex editor - "bless"
+    bless # gtk# hex editor
   ];
 }
