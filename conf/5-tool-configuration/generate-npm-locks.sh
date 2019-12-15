@@ -8,12 +8,15 @@ _() {
   list="$list $*"
 }
 
-#_ aegir # this one is for all the protocol-labs projects
-#_ nodemon parcel http-server # watchers, web dev, etc
-_ pino-pretty  # show pretty logs
-#_ npm-check-updates google-font-installer wscat json5 pkg # other
-#_ ndb 0x # debugger and profiler
-#_ jay-repl # better repl
+# _ aegir # this one is for all the protocol-labs projects
+# _ nodemon parcel http-server # watchers, web dev, etc
+# _ pino-pretty  # show pretty logs
+# _ npm-check-updates google-font-installer wscat json5 pkg # other
+# _ ndb 0x # debugger and profiler
+# _ jay-repl # better repl
+
+# the badly needed, until argument list too long error is resolved
+_ npm-check-updates diff-so-fancy
 
 rm -f package-lock.json
 NPKG=$(cat package.json | jq -r 'del(.dependencies)')
