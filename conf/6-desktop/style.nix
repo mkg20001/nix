@@ -14,5 +14,6 @@ with lib;
     ant-theme
     papirus-icon-theme
     # TODO: add patched yaru & ant
+    (import ../../pkgs/yaru-blue.nix pkgs)
   ];
 }

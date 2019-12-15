@@ -1,0 +1,10 @@
+{
+  "name": "npm-tools",
+  "version": "0.0.1",
+  "description": "npm tools for nixOS",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "pino-pretty": "^3.5.0"
+  }
+}

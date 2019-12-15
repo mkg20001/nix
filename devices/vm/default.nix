@@ -25,6 +25,12 @@
     '';
   };
 
+  # Use good amount of memory
+  virtualisation.memorySize = lib.mkDefault 4096;
+
+  # nopasswd
+  security.sudo.wheelNeedsPassword = false;
+
   # Forward ssh, the like
   virtualisation.qemu.networkingOptions = [
     "-net nic,netdev=user.0,model=virtio"

@@ -1,0 +1,52 @@
+From 5ad724a9c5a606b7c2166ca342b4acd81efebf65 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Maciej=20Kr=C3=BCger?= <mkg20001@gmail.com>
+Date: Sun, 15 Dec 2019 03:35:01 +0100
+Subject: [PATCH] feat: colors
+
+---
+ gnome-shell/src/gnome-shell-sass/_ubuntu-colors.scss | 6 +++---
+ gtk/src/default/gtk-3.20/_ubuntu-colors.scss         | 8 ++++----
+ 2 files changed, 7 insertions(+), 7 deletions(-)
+
+diff --git a/gnome-shell/src/gnome-shell-sass/_ubuntu-colors.scss b/gnome-shell/src/gnome-shell-sass/_ubuntu-colors.scss
+index b9db1d0b..470e6176 100644
+--- a/gnome-shell/src/gnome-shell-sass/_ubuntu-colors.scss
++++ b/gnome-shell/src/gnome-shell-sass/_ubuntu-colors.scss
+@@ -12,8 +12,8 @@ $ash: #878787;
+ 
+ // Utility
+ $red: #ED3146;
+-$orange: #E95420;
++$orange: #4FC3F7; /* md lb 300 */
+ $yellow: #F89B0F;
+ $green: #3EB34F;
+-$blue: #19B6EE;
+-$purple: #762572;
++$blue: #03A9F4; /* md lb 500 */
++$purple: #03A9F4; /* md lb 500 */
+diff --git a/gtk/src/default/gtk-3.20/_ubuntu-colors.scss b/gtk/src/default/gtk-3.20/_ubuntu-colors.scss
+index a13169c3..5edededc 100644
+--- a/gtk/src/default/gtk-3.20/_ubuntu-colors.scss
++++ b/gtk/src/default/gtk-3.20/_ubuntu-colors.scss
+@@ -12,14 +12,14 @@ $ash: #878787;
+ 
+ // Utility
+ $red: #ED3146;
+-$orange: #E95420;
++$orange: #4FC3F7; /* md lb 300 */
+ $yellow: #F89B0F;
+ $green: #3EB34F;
+-$blue: #19B6EE;
+-$purple: #762572;
++$blue: #03A9F4; /* md lb 500 */
++$purple: #03A9F4; /* md lb 500 */
+ 
+ // Terminal colors
+-$terminal_bg_color: #300A24;
++$terminal_bg_color: #0288D1; /* md lb 700 */
+ $terminal_base_color: lighten($terminal_bg_color, 5%);
+ $terminal_fg_color: white;
+ $terminal_borders_color: darken($terminal_bg_color, 10%);
+-- 
+2.20.1
+
