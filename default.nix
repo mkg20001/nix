@@ -6,10 +6,11 @@ let
   machines = {
     pc = e ./devices/pc;
     portable = e ./devices/portable;
+    lenovo = e ./devices/lenovo;
   };
 in
 {
   inherit machines;
 
-  all = [ machines.pc machines.portable ];
+  all = [ machines.pc machines.portable machines.lenovo ];
 }
