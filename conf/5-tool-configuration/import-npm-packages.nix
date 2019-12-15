@@ -34,6 +34,6 @@ with lib;
   ];
 
   environment.systemPackages = with pkgs; [
-    npm-tools
+    # npm-tools
   ];
 }
