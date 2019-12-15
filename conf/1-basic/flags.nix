@@ -12,13 +12,13 @@ in
       highSpec = mkOption {
         type = types.bool;
         default = false;
-        description = "Enable highSpec modules";
+        description = "Enable modules that require good hardware";
       };
 
       portable = mkOption {
         type = types.bool;
         default = false;
-        description = "Enable portable modules";
+        description = "Enable modules for portable installations";
       };
 
       tools = mkOption {
