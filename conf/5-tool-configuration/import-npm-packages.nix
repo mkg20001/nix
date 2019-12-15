@@ -13,7 +13,7 @@ with lib;
       npm-tools =
         let
           nixNodePackage = builtins.fetchGit {
-            url = "git@github.com:mkg20001/nix-node-package";
+            url = "https://github.com/mkg20001/nix-node-package";
             rev = "da66d39148c360c4959f42fe10521f2a19395984";
           };
           makeNode = import "${nixNodePackage}/nix/default.nix" pkgs {
