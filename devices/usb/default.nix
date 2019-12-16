@@ -21,4 +21,9 @@
   # Use MBR
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/disk/by-id/usb-058f_6387_14071696000303-0:0";
+
+  fileSystems."/" =
+    { device = "/dev/disk/by-label/nix-usb";
+      fsType = "ext4";
+    };
 }

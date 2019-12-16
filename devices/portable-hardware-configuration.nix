@@ -13,11 +13,6 @@
   #boot.kernelModules = [ "kvm-amd" ];
   #boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-label/nix-portable";
-      fsType = "ext4";
-    };
-
   swapDevices = [ ];
 
   nix.maxJobs = lib.mkDefault 4;
