@@ -13,6 +13,8 @@ with lib;
     arc-theme
     ant-theme
     papirus-icon-theme
+    breeze-icons
+    breeze-gtk
     # TODO: add patched yaru & ant
     (import ../../pkgs/yaru-blue.nix pkgs)
   ];
