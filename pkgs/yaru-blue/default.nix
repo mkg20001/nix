@@ -1,5 +1,5 @@
 { stdenv, fetchFromGitHub, meson, sassc, pkg-config, glib, ninja,
-  python3, gtk3, gnome3, gtk-engine-murrine, ... }:
+  python3, gtk3, gnome3, gtk-engine-murrine }:
 
 stdenv.mkDerivation rec {
   version = "19.10.4";

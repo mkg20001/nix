@@ -5,8 +5,7 @@
 , glib
 , lightdm
 , gobject-introspection
-, lib
-, ... }:
+, lib }:
 
 stdenv.mkDerivation {
   pname = "lightdm-tiny-greeter";

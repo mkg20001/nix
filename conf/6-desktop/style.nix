@@ -16,6 +16,6 @@ with lib;
     breeze-icons
     breeze-gtk
     # TODO: add patched yaru & ant
-    (import ../../pkgs/yaru-blue.nix pkgs)
+    yaru-blue # from overlay
   ];
 }

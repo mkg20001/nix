@@ -26,7 +26,13 @@ in
         ./channel.nix
       ] else []);
 
-    nixpkgs.overlays = [ mkgOverlay ];
+    nixpkgs.overlays = [
+      mkgOverlay
+      (self: super: {
+        iso2boot = pkgs.callPackage ./pkgs/iso2boot { };
+        yaru-blue = pkgs.callPackage ./pkgs/yaru-blue { };
+      })
+    ];
     nixpkgs.config.allowUnfree = true;
 
     # The global useDHCP flag is deprecated, therefore explicitly set to false here.
@@ -44,7 +50,7 @@ in
     environment.systemPackages = with pkgs; [
       wget vim nano htop nload iotop git tree nix-prefetch-git jq
 
-      (pkgs.callPackage ./tools/iso2boot.nix)
+      iso2boot # from overlay
     ] ++ (if channel then [
       # Include nixpkgs config
       ./nixpkgs.nix
