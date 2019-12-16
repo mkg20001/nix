@@ -13,6 +13,7 @@ with lib;
     gimp
     mypaint
     inkscape
+    shotwell
     # TODO: add rgbpaint
   ];
 }
