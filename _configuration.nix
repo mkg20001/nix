@@ -44,7 +44,7 @@ in
     environment.systemPackages = with pkgs; [
       wget vim nano htop nload iotop git tree nix-prefetch-git jq
 
-      (import ./tools/iso2boot.nix pkgs)
+      (pkgs.callPackage ./tools/iso2boot.nix)
     ] ++ (if channel then [
       # Include nixpkgs config
       ./nixpkgs.nix

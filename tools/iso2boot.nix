@@ -2,8 +2,7 @@
 , grub2_full
 , grub2_efi
 , xorriso
-, mtools
-, ... }:
+, mtools }:
 stdenv.mkDerivation {
   pname = "iso2boot";
   version = "0.0.1";
