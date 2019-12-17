@@ -10,5 +10,7 @@ with lib;
 
   environment.systemPackages = with pkgs; [
     redshift
+    xsel
+    geoclue2
   ];
 }
