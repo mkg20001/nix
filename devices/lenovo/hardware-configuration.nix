@@ -14,7 +14,7 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/TODO";
+    { device = "/dev/disk/by-label/mkg-lenovo";
       fsType = "ext4";
     };
 
