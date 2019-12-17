@@ -11,5 +11,11 @@ with lib;
   environment.systemPackages = with pkgs; [
     binutils # strings
     strace
+    gitAndTools.gitFull
+    gitAndTools.gitRemoteGcrypt
+    git-lfs
+    git-secrets
+    git-sizer
+    # gitAndTools.diff-so-fancy
   ];
 }

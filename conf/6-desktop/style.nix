@@ -18,4 +18,12 @@ with lib;
     # TODO: add patched yaru & ant
     yaru-blue # from overlay
   ];
+  
+  fonts.fonts = with pkgs; [
+    cantarell-fonts
+    dejavu_fonts
+    source-code-pro # Default monospace font in 3.32
+    source-sans-pro
+    ubuntu_font_family
+  ];
 }
