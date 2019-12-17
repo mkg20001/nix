@@ -25,5 +25,6 @@ with lib;
     source-code-pro # Default monospace font in 3.32
     source-sans-pro
     ubuntu_font_family
+    symbola
   ];
 }
