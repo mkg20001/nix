@@ -10,5 +10,6 @@ with lib;
 
   environment.systemPackages = with pkgs; [
     pass
+    oathToolkit
   ];
 }
