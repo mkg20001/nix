@@ -17,5 +17,8 @@ with lib;
     git-secrets
     git-sizer
     # gitAndTools.diff-so-fancy
+    
+    # stuff
+    python3
   ];
 }
