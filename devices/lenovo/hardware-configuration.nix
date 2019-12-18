@@ -8,13 +8,13 @@
     [ <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
     ];
 
-  boot.initrd.availableKernelModules = [ "ahci" "usb_storage" "rtsx_usb_sdmmc" ];
+  boot.initrd.availableKernelModules = [ "ehci_pci" "ahci" "sd_mod" "rtsx_usb_sdmmc" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-label/mkg-lenovo";
+    { device = "/dev/disk/by-uuid/c0507eb5-8760-41d2-a88c-18fd2612bb46";
       fsType = "ext4";
     };
 

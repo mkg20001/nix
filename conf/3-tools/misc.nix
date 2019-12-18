@@ -13,4 +13,13 @@ with lib;
     xsel
     geoclue2
   ];
+  
+  services.geoclue2 = {
+    enable = true;
+    appConfig.redshift = {
+      isAllowed = true;
+      isSystem = false;
+      users = [ "" ];
+    };
+  };
 }
