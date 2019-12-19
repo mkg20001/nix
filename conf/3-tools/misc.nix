@@ -12,6 +12,8 @@ with lib;
     redshift
     xsel
     geoclue2
+    file
+    macchanger
   ];
   
   services.geoclue2 = {
