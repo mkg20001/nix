@@ -20,5 +20,6 @@ with lib;
     
     # stuff
     python3
+    gnumake
   ];
 }
