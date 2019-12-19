@@ -49,6 +49,9 @@ in
   #  ln -sfn ${val} ${path join "/"}.tmp
   #  mv ${path join "/"}.tmp ${path join "/"}
 
+  system.activationScripts.binsh = stringAfter [ "stdio" ]
+    joinLines (convertLinksRecursive linkList)
+
   /* system.actinationScripts.shelllinks = stringAfter [ "stdio" ]
     builtins.concatMap (key: ) (builtins.attrNames linkList)
 
