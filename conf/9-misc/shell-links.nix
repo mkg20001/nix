@@ -6,12 +6,14 @@
 with lib;
 
 let
-  joinPath = builtins.concatStringsSep "/";
+  joinPath = p:
+    if builtins.length p > 0 then builtins.concatStringsSep "/" p
+    else "/";
   joinLines = builtins.concatStringsSep "\n";
 
   linkList = {
     bin.bash = "${pkgs.bash}/bin/bash";
-    etc.nixpkgs = "${pkgs.nixpkgs}/etc/nixpkgs";
+    # etc.nixpkgs = "${pkgs.nixpkgs}/etc/nixpkgs";
   };
 
   convertLinksRecursive = { attr, path ? [] }:
@@ -20,16 +22,16 @@ let
         newPath = path ++ [ key ];
         value = attr.${key};
       in
-        if builtins.isAttr value then
+        if builtins.isAttrs value then
           [
             ''
               mkdir -p ${joinPath newPath}
             ''
-          ] ++ (convertLinksRecursive { path = newPath; })
+          ] ++ (convertLinksRecursive { path = newPath; attr = value; })
         else if builtins.isString value then
           [
             ''
-              ln -sfn ${val} ${joinPath newPath}.tmp
+              ln -sfn ${value} ${joinPath newPath}.tmp
               mv ${joinPath newPath}.tmp ${joinPath newPath}
             ''
           ]
@@ -49,8 +51,8 @@ in
   #  ln -sfn ${val} ${path join "/"}.tmp
   #  mv ${path join "/"}.tmp ${path join "/"}
 
-  system.activationScripts.binsh = stringAfter [ "stdio" ]
-    joinLines (convertLinksRecursive linkList)
+  system.activationScripts.shellLinks = # stringAfter [ "stdio" ]
+    joinLines (convertLinksRecursive { attr = linkList; });
 
   /* system.actinationScripts.shelllinks = stringAfter [ "stdio" ]
     builtins.concatMap (key: ) (builtins.attrNames linkList)
