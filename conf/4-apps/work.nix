@@ -11,6 +11,6 @@ with lib;
   environment.systemPackages = with pkgs; [
     thunderbird # email client
     twinkle # twinkle SIP
-    paperwork # openpaper.work burocrazy managment
+    # paperwork # openpaper.work burocrazy managment
   ];
 }
