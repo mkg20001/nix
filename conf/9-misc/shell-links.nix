@@ -51,8 +51,11 @@ in
   #  ln -sfn ${val} ${path join "/"}.tmp
   #  mv ${path join "/"}.tmp ${path join "/"}
 
-  system.activationScripts.shellLinks = # stringAfter [ "stdio" ]
-    joinLines (convertLinksRecursive { attr = linkList; });
+  system.activationScripts.shellLinks = {
+    text = joinLines (convertLinksRecursive { attr = linkList; });
+    deps = [ ]; # FIXME: add correct deps
+  };
+
 
   /* system.actinationScripts.shelllinks = stringAfter [ "stdio" ]
     builtins.concatMap (key: ) (builtins.attrNames linkList)
