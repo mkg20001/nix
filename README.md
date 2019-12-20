@@ -1,5 +1,16 @@
 # mkgs-nix
 
+# bootstrap script
+
+If you want to bootstrap an install, prepare /mnt and do
+
+```
+cd /mnt
+DEVICE=device-name bash /etc/nixos/bootstrap.sh
+```
+
+This should take care of everything (will re-clone from master)
+
 # conf
 
 ```
@@ -11,11 +22,10 @@ git clone https://github.com/mkg20001/nix nixos
 
 # hw conf
 
-Link `hardware/<name>.nix` to `hardware-configuration.nix`
+Link `devices/<name>` to `device`
 
 ```
-ln -s hardware/NAME.nix hardware-configuration.nix
-ln -s device/NAME/index.nix device.nix
+ln -s devices/NAME device
 ```
 
 # install
