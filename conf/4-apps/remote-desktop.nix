@@ -9,7 +9,7 @@ with lib;
   imports = [];
 
   environment.systemPackages = with pkgs; [
-    # BROKEN anydesk
+    anydesk
     remmina
     x2goclient
   ];
