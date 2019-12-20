@@ -24,4 +24,7 @@ with lib;
       users = [ "" ];
     };
   };
+
+  # Faster boot through entropy seeding
+  services.haveged.enable = true;
 }
