@@ -11,5 +11,5 @@ with lib;
 
   # Cinnamon
   services.xserver.desktopManager.cinnamon.enable = true;
-  services.xserver.desktopManager.default = "cinnamon";
+  services.xserver.displayManager.defaultSession = "cinnamon";
 }

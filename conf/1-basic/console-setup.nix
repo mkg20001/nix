@@ -9,5 +9,5 @@ with lib;
 {
   imports = [];
 
-  boot.extraTTYs = ["tty7" "tty8" "tty9"];
+  console.extraTTYs = ["tty7" "tty8" "tty9"];
 }

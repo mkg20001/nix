@@ -9,11 +9,11 @@ with lib;
   imports = [];
 
   # Select internationalisation properties.
-  i18n = {
+  console = {
     consoleFont = "Lat2-Terminus16";
     consoleKeyMap = "de";
-    defaultLocale = "de_DE.UTF-8";
   };
+  i18n.defaultLocale = "de_DE.UTF-8";
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
