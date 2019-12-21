@@ -57,5 +57,5 @@ if [[ "$(hostname)" == "mkg-portable" ]]; then
   iso2boot "/boot" "/nix/store" "/zalman/_iso/iso2boot.iso"
 fi
 
-nix-collect-garbage
+nix-collect-garbage --delete-older-than 30d
 fstrim -av
