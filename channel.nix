@@ -9,8 +9,20 @@ with lib;
 {
   imports = [];
 
+  nixpkgs.overlays = [
+    (self: super: {
+      nixpkgs = import ./nixpkgs.nix;
+    })
+  ];
+
+  environment.systemPackages = with pkgs; [
+    nixpkgs
+  ];
+
   nix.nixPath = lib.mkDefault [
     "nixpkgs=/etc/nixpkgs"
     "nixos-config=/etc/nixos/configuration.nix"
   ];
+
+  etc.nixpkgs.source = "${pkgs.nixpkgs}/etc/nixpkgs";
 }

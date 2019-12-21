@@ -51,9 +51,6 @@ in
       wget vim nano htop nload iotop git tree nix-prefetch-git jq
 
       iso2boot # from overlay
-    ] ++ (if channel then [
-      # Include nixpkgs config
-      ./nixpkgs.nix
-    ] else []);
+    ];
 
   }
