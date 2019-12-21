@@ -56,7 +56,6 @@ in
     deps = [ ]; # FIXME: add correct deps
   };
 
-
   /* system.actinationScripts.shelllinks = stringAfter [ "stdio" ]
     builtins.concatMap (key: ) (builtins.attrNames linkList)
 

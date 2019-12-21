@@ -10,8 +10,8 @@ with lib;
 
   # Select internationalisation properties.
   console = {
-    consoleFont = "Lat2-Terminus16";
-    consoleKeyMap = "de";
+    font = "Lat2-Terminus16";
+    keyMap = "de";
   };
   i18n.defaultLocale = "de_DE.UTF-8";
 
