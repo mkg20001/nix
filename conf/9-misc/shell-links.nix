@@ -7,9 +7,9 @@ with lib;
 
 let
   joinPath = p:
-    if builtins.length p > 0 then builtins.concatStringsSep "/" p
-    else "/";
-  joinLines = builtins.concatStringsSep "\n";
+    builtins.concatStringsSep "/" ([ "" ] ++ p);
+  joinLines =
+    builtins.concatStringsSep "\n";
 
   linkList = {
     bin.bash = "${pkgs.bash}/bin/bash";

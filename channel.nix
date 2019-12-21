@@ -24,5 +24,5 @@ with lib;
     "nixos-config=/etc/nixos/configuration.nix"
   ];
 
-  etc.nixpkgs.source = "${pkgs.nixpkgs}/etc/nixpkgs";
+  environment.etc.nixpkgs.source = "${pkgs.nixpkgs}/etc/nixpkgs";
 }
