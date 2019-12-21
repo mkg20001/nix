@@ -7,7 +7,7 @@ nixpkgs_need_update() {
   CURRENT_SHA=$(cat /etc/nixpkgs/sha; true)
   LATEST_SHA=$(curl -s https://api.github.com/repos/mkg20001/nixpkgs/branches/mkg-patch | jq -r .commit.sha)
 
-  if [ ! -e /nixpkgs ]; then
+  if [ ! -e /etc/nixpkgs ]; then
     return 0
   fi
 
