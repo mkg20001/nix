@@ -8,7 +8,15 @@ with lib;
 {
   imports = [];
 
-  environment.systemPackages = with pkgs; [
-    brscan4 # sane support for brother
-  ];
+  hardware.sane.brscan4 = {
+    enable = true;
+    netDevices = {
+      /*
+      name = {
+        ip = "";
+        model = ""; # ex MFC-XXXX
+      };
+      */
+    };
+  };
 }

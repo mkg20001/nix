@@ -32,4 +32,7 @@ with lib;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
+
+  # And sane to scan
+  hardware.sane.enable = true;
 }

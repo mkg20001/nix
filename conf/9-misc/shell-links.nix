@@ -14,6 +14,7 @@ let
   linkList = {
     bin.bash = "${pkgs.bash}/bin/bash";
     # etc.nixpkgs = "${pkgs.nixpkgs}/etc/nixpkgs";
+    usr.bin.free = "${pkgs.procps}/bin/free";
   };
 
   convertLinksRecursive = { attr, path ? [] }:

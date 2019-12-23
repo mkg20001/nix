@@ -43,7 +43,7 @@ nixpkgs_update() {
   ln -sfv /tmp/nixpkgs/etc/nixpkgs /etc/nixpkgs
 }
 
-nix-channel --update
+nix-channel --update -v
 
 # TODO: once the future arrives, we could just do `nixpkgs=https://github.com/mkg20001/nixpkgs/archive/$LATEST_SHA.tar.gz`
 
