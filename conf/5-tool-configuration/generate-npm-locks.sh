@@ -16,7 +16,7 @@ _() {
 # _ jay-repl # better repl
 
 # the badly needed, until argument list too long error is resolved
-_ npm-check-updates diff-so-fancy
+_ npm-check-updates diff-so-fancy nodemon
 
 rm -f package-lock.json
 NPKG=$(cat package.json | jq -r 'del(.dependencies)')

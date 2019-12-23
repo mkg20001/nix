@@ -6,6 +6,7 @@
   "license": "MIT",
   "dependencies": {
     "diff-so-fancy": "^1.2.7",
+    "nodemon": "^2.0.2",
     "npm-check-updates": "^4.0.1"
   }
 }
