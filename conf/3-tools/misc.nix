@@ -14,7 +14,7 @@ with lib;
     geoclue2
     file
     macchanger
-    qpaeq
+    (hiPrio qpaeq)
   ];
   
   services.geoclue2 = {
