@@ -14,6 +14,7 @@ with lib;
     geoclue2
     file
     macchanger
+    qpaeq
   ];
   
   services.geoclue2 = {
