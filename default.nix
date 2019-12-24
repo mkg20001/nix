@@ -13,10 +13,5 @@ in
 {
   inherit machines;
 
-  all = [ # TODO: instead just turn machines into a list using lib or sth
-    machines.pc
-    machines.portable
-    machines.usb
-    machines.lenovo
-  ];
+  all = builtins.concatMap (iter: [machines.${iter}]) (builtins.attrNames machines);
 }

@@ -10,6 +10,8 @@ with lib;
 let
   mkgRepo = (builtins.fromJSON(builtins.readFile ./mkgpkgs.json));
   mkgOverlay = (import (builtins.fetchGit mkgRepo));
+
+  overlay = (import ./pkgs);
 in
   {
     imports =
@@ -28,10 +30,7 @@ in
 
     nixpkgs.overlays = [
       mkgOverlay
-      (self: super: {
-        iso2boot = pkgs.callPackage ./pkgs/iso2boot { };
-        yaru-blue = pkgs.callPackage ./pkgs/yaru-blue { };
-      })
+      overlay
     ];
     nixpkgs.config.allowUnfree = true;
 
