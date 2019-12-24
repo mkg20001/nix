@@ -1,9 +1,10 @@
 let
-  pkgs = (import <nixpkgs> { });
+  pkgs = (import <nixpkgs> { config.allowUnfree = true; });
   overlay = (self: super: {
+    # override pangox_compat instead?
     anydesk = pkgs.anydesk.override {
       pangox_compat = pkgs.pangox_compat.override {
-        pango = pkgs.callPackage ./pango-for-anydesk pkgs;
+        pango = pkgs.callPackage ./pango-for-anydesk.nix pkgs;
       };
     };
     iso2boot = pkgs.callPackage ./iso2boot { };
