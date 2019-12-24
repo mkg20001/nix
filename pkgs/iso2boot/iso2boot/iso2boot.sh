@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+set -euo pipefail
 
 GRUB_PC="@@GRUB@@"
 GRUB_EFI="@@GEFI@@"
