@@ -1,7 +1,7 @@
 build-and-push:
   image: nixos/nix
   script:
-    - 'mkdir -p /cache/store && echo "trusted-substituters = local?root=/cache/store" >> $HOME/.config/nix/nix.conf'
+    - 'mkdir -p /cache/store && echo "trusted-substituters = local?root=/cache/store" >> /etc/nix/nix.conf'
     - nix-env -iA cachix -f https://cachix.org/api/v1/install
     - cachix use mkg20001
     - nix-env -iA nixpkgs.git nixpkgs.bash
