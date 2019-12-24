@@ -1,0 +1,3 @@
+[
+{ name = "nodemon"; root = ./nodemon; }
+]
