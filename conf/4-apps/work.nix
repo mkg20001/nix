@@ -9,7 +9,7 @@ with lib;
   imports = [];
 
   environment.systemPackages = with pkgs; [
-    (thunderbird.override({ enableOfficialBranding = true; })) # email client
+    thunderbird # email client
     twinkle # twinkle SIP
     # paperwork # openpaper.work burocrazy managment
   ];

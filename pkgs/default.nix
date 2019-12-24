@@ -7,6 +7,11 @@ let
         pango = pkgs.callPackage ./backportz/pango.nix { };
       };
     };
+
+    thunderbird = pkgs.thunderbird.override {
+      enableOfficialBranding = true;
+    };
+
     iso2boot = pkgs.callPackage ./iso2boot { };
     yaru-blue = pkgs.callPackage ./yaru-blue { };
   });
