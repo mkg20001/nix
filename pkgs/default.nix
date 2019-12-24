@@ -4,7 +4,7 @@ let
     # override pangox_compat instead?
     anydesk = pkgs.anydesk.override {
       pangox_compat = pkgs.pangox_compat.override {
-        pango = pkgs.callPackage ./pango-for-anydesk.nix pkgs;
+        pango = pkgs.callPackage ./pango-for-anydesk.nix { };
       };
     };
     iso2boot = pkgs.callPackage ./iso2boot { };
