@@ -13,5 +13,10 @@ in
 {
   inherit machines;
 
+  current =
+    if builtins.pathExists ./device
+      then e ./device
+      else null;
+
   all = builtins.concatMap (iter: [machines.${iter}]) (builtins.attrNames machines);
 }
