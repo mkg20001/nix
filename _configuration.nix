@@ -11,7 +11,7 @@ let
   mkgRepo = (builtins.fromJSON(builtins.readFile ./mkgpkgs.json));
   mkgOverlay = (import (builtins.fetchGit mkgRepo));
 
-  overlay = (import ./pkgs);
+  overlay = (import ./pkgs/overlay.nix);
 in
   {
     imports =
