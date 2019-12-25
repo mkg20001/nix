@@ -1,9 +1,11 @@
 #!/bin/sh
 
-bash .ci/setup-cache.sh
-bash .ci/setup-repo.sh
+set -euo pipefail
 
-bash .ci/rebuild.sh
-bash .ci/rebase.sh
+sh .ci/setup-cache.sh
+sh .ci/setup-repo.sh
+
+sh .ci/rebuild.sh
+sh .ci/rebase.sh
 
 nix copy --to file:///cache/store --all -v
