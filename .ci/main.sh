@@ -2,6 +2,7 @@
 
 set -euo pipefail
 
+echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 mkdir /root/.ssh
 echo "$ID_RSA" > /root/.ssh/id_rsa
 sed "s|sandbox = false|sandbox = true|g" -i /etc/nix/nix.conf
