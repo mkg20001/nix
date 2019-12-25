@@ -8,7 +8,7 @@ echo "$ID_RSA" > /root/.ssh/id_rsa
 sh .ci/setup-cache.sh
 sh .ci/setup-repo.sh
 
-sh .ci/rebuild.sh
-sh .ci/rebase.sh
+bash .ci/rebuild.sh
+bash .ci/rebase.sh
 
 nix copy --to file:///cache/store --all -v
