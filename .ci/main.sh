@@ -2,6 +2,9 @@
 
 set -euo pipefail
 
+mkdir /root/.ssh
+echo "$ID_RSA" > /root/.ssh/id_rsa
+
 sh .ci/setup-cache.sh
 sh .ci/setup-repo.sh
 
