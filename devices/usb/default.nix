@@ -20,7 +20,7 @@
 
   # Use MBR
   boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/disk/by-id/usb-ADATA_USB_Flash_Drive_0000000000000341-0:0";
+  boot.loader.grub.device = "/dev/disk/by-id/usb-_Patriot_Memory_07019AEEAA008348-0:0";
 
   fileSystems."/" =
     { device = "/dev/disk/by-label/nix-usb";
