@@ -24,7 +24,11 @@ gen_pkg() {
 
   npm i --package-lock-only $*
 
-  echo "{ name = \"$OUT_NAME\"; root = ./$OUT_NAME; }" >> "$PKGS/default.nix"
+  VERSION=$(cat package.json | jq -r ".dependencies[\"$OUT_NAME\"]" | sed "s|^.||g")
+
+  echo "  { name = \"$OUT_NAME\"; version = \"$VERSION\"; root = ./$OUT_NAME; }" >> "$PKGS/default.nix"
+
+  popd
 }
 
 rm -rf "$PKGS"
@@ -32,6 +36,6 @@ mkdir "$PKGS"
 
 echo "[" >> "$PKGS/default.nix"
 
-gen_pkg nodemon nodemon
+. pkgs.sh
 
 echo "]" >> "$PKGS/default.nix"

@@ -28,11 +28,11 @@ let
     let
       pkg = makePkg nodejs;
     in
-      builtins.listToAttrs (forEach pkgLocks ({ name, root }:
+      builtins.listToAttrs (forEach pkgLocks ({ name, version, root }:
         (pkgs.lib.nameValuePair name (pkg {
           inherit root;
           args = {
-            inherit name;
+            name = "${name}-${version}";
           };
         }))
       ));
