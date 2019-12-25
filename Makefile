@@ -1,5 +1,5 @@
 watch:
-	nodemon -e nix -x "nix-build -j auto -A current -v --show-trace -I nixpkgs=/etc/nixpkgs"
+	nodemon -e nix -x "nix-build -j auto -A current -v --show-trace -I nixpkgs=../nixpkgs"
 
 conf-merge:
 	cd conf && bash merge.sh
