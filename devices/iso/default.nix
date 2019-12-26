@@ -1,7 +1,9 @@
 { config, lib, pkgs, ... }:
 
+with lib;
 let
   README = (pkgs.writeTextDir "README.txt" (builtins.readFile ./README.txt));
+  date = (builtins.readFile ../../rev);
 in
 {
   imports = [
@@ -10,6 +12,11 @@ in
 
   # Name the child
   networking.hostName = "mkg-iso";
+
+  # Brand
+  isoImage.isoName = "mkgnix-${date}-${config.isoImage.isoBaseName}-${config.system.nixos.label}-${pkgs.stdenv.hostPlatform.system}.iso";
+
+  isoImage.volumeID = substring 0 11 "MKGNIX_ISO";
 
   # Auto-login & default pw
   services.xserver.displayManager.gdm.autoLogin = {

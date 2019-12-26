@@ -10,6 +10,7 @@ sed "s|sandbox = false|sandbox = true|g" -i /etc/nix/nix.conf
 
 sh .ci/setup-cache.sh
 sh .ci/setup-repo.sh
+sh .ci/tag.sh
 
 bash .ci/rebuild.sh
 bash .ci/rebase.sh
