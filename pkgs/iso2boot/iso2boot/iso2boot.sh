@@ -61,7 +61,7 @@ EOF
   # copy all the boot files
   storeCopy "${TMP}/scratch/grub.cfg" "$store_dir" "${TMP}/image"
 
-  if [ ! -z "$ENABLE_COPY" ]; then
+  if [ ! -z "${ENABLE_COPY:""}" ]; then
     # this bricks booting on some devices, but makes it look shiny. choose.
 
     COPY="background.png converted-font.pf2 grub/locale grub/fonts grub/i386-pc"
