@@ -8,6 +8,7 @@ let
     portable = e ./devices/portable;
     usb = e ./devices/usb;
     lenovo = e ./devices/lenovo;
+    iso = (e ./devices/iso).build.isoImage;
   };
 in
 {
