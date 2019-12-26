@@ -13,6 +13,8 @@ let
 
   linkList = {
     bin.bash = "${pkgs.bash}/bin/bash";
+    bin.true = "${pkgs.coreutils}/bin/coreutils";
+    bin.false = "${pkgs.coreutils}/bin/coreutils";
     # etc.nixpkgs = "${pkgs.nixpkgs}/etc/nixpkgs";
     usr.bin.free = "${pkgs.procps}/bin/free";
   };
