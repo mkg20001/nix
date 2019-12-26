@@ -39,7 +39,7 @@ in
 
   in ''
     mkdir -p ${desktopDir}
-    chown nixos ${homeDir} ${desktopDir}
+    chown maciej ${homeDir} ${desktopDir}
 
     ln -sfT ${pkgs.gparted}/share/applications/gparted.desktop ${desktopDir + "gparted.desktop"}
     ln -sfT ${pkgs.gnome3.gnome_terminal}/share/applications/gnome-terminal.desktop ${desktopDir + "gnome-terminal.desktop"}
