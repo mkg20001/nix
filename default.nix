@@ -1,14 +1,15 @@
 let
   e = device: (import <nixpkgs/nixos> {
     configuration = import ./_configuration.nix { device = device; };
-  }).system;
+  });
+  f = device: (e device).system;
 
   machines = {
-    pc = e ./devices/pc;
-    portable = e ./devices/portable;
-    usb = e ./devices/usb;
-    lenovo = e ./devices/lenovo;
-    iso = (e ./devices/iso).build.isoImage;
+    pc = f ./devices/pc;
+    portable = f ./devices/portable;
+    usb = f ./devices/usb;
+    lenovo = f ./devices/lenovo;
+    iso = (e ./devices/iso).config.system.build.isoImage;
   };
 in
 {
