@@ -3,7 +3,7 @@
 with lib;
 let
   README = (pkgs.writeTextDir "README.txt" (builtins.readFile ./README.txt));
-  date = (builtins.readFile ../../rev);
+  date = replaceChars ["\n"] [""] (builtins.readFile ../../rev);
 in
 {
   imports = [
