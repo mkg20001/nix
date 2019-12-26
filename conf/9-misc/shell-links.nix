@@ -15,6 +15,7 @@ let
     bin.bash = "${pkgs.bash}/bin/bash";
     bin.true = "${pkgs.coreutils}/bin/coreutils";
     bin.false = "${pkgs.coreutils}/bin/coreutils";
+    bin."2fa" = "/home/maciej/.bin/2fa";
     # etc.nixpkgs = "${pkgs.nixpkgs}/etc/nixpkgs";
     usr.bin.free = "${pkgs.procps}/bin/free";
   };
