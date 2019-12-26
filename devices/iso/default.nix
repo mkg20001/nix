@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 let
-  README = (pkgs.writeText "README.txt" (builtins.readFile ./README.txt));
+  README = (pkgs.writeTextDir "README.txt" (builtins.readFile ./README.txt));
 in
 {
   imports = [
@@ -43,7 +43,7 @@ in
 
     ln -sfT ${pkgs.gparted}/share/applications/gparted.desktop ${desktopDir + "gparted.desktop"}
     ln -sfT ${pkgs.gnome3.gnome_terminal}/share/applications/gnome-terminal.desktop ${desktopDir + "gnome-terminal.desktop"}
-    ln -sfT ${README} ${desktopDir + "README.txt"}
+    ln -sfT ${README}/README.txt ${desktopDir + "README.txt"}
   '';
 
   environment.systemPackages = [
