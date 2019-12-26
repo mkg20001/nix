@@ -21,7 +21,7 @@ with lib;
 
     UDPInterface = {
       bind = "0.0.0.0:12024";
-      # connectTo = {}; # private config
+      connectTo = builtins.fromTOML (builtins.readFile ../9-private/cjdns.toml);
     };
   };
 
