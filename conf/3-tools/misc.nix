@@ -24,6 +24,7 @@ with lib;
     cmatrix
     lxqt.pavucontrol-qt
     youtube-dl
+    (hiPrio ntfs3g)
   ];
 
   services.geoclue2 = {
