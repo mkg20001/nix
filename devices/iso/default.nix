@@ -16,7 +16,12 @@ in
     enable = true;
     user = "maciej";
   };
-  users.users.maciej.initialPassword = "install";
+
+  # Write cache
+  boot.kernel.sysctl = {
+    "vm.dirty_background_ratio" = 50;
+    "vm.dirty_ratio" = 80;
+  };
 
   # Whitelist wheel users to do anything
   # This is useful for things like pkexec

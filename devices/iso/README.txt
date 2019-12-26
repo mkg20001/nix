@@ -1,7 +1,5 @@
 === INSTALLATION ===
 
-User password: install
-
 Commands:
 
 - nixos-generate-config --root /mnt

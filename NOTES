@@ -1,0 +1,7 @@
+# ntfs
+
+Fixing RO:
+
+$ sudo ntfsfix /dev/sdX
+
+&& install ntfs3g
