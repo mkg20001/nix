@@ -15,8 +15,17 @@ with lib;
     file
     macchanger
     (hiPrio qpaeq)
+
+    sshpass
+    borgbackup
+
+    lm_sensors
+    inetutils
+    cmatrix
+    lxqt.pavucontrol-qt
+    youtube-dl
   ];
-  
+
   services.geoclue2 = {
     enable = true;
     appConfig.redshift = {
