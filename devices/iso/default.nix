@@ -19,10 +19,11 @@ in
   isoImage.volumeID = substring 0 11 "MKGNIX_ISO";
 
   # Auto-login & default pw
-  services.xserver.displayManager.gdm.autoLogin = {
+  /* services.xserver.displayManager.gdm.autoLogin = {
     enable = true;
     user = "maciej";
-  };
+  }; */
+  users.users.maciej.initialPassword = "install";
 
   # Write cache
   boot.kernel.sysctl = {
