@@ -17,8 +17,8 @@ with lib;
   services.xserver.displayManager.defaultSession = "cinnamon";
 
   # Gnome bits
-  config.services.gnome3.core-os-services.enable = true;
-  config.services.gnome3.core-utilities.enable = true;
+  services.gnome3.core-os-services.enable = true;
+  services.gnome3.core-utilities.enable = true;
 
   # Style
   environment.systemPackages = with pkgs; [
