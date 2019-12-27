@@ -17,7 +17,7 @@ with lib;
 
     # disk utils
     gparted
-    gnome-disk-utility
+    gnome3.gnome-disk-utility
 
     # gnome
     gnome3.gedit # TODO: plugins
@@ -27,7 +27,7 @@ with lib;
     gnome3.gnome-todo
     gnome3.rhythmbox
     gnome3.nautilus
-    gnome3.gnome-disk-utility
+    # gnome3.gnome-disk-utility
 
     # graphics
     gimp
