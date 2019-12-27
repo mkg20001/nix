@@ -39,7 +39,7 @@ in
 
   systemd.services.oomadj = rec {
     description = "Run oom score adj";
-    startAt = "1m";
+    startAt = "minutely";
 
     serviceConfig = {
       ExecStart = "${oomadj}/bin/oomadj";
