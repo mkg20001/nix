@@ -11,7 +11,13 @@ with lib;
     ./sub/utils
 
     ./sub/desktop.nix
-    ./sub/oom.nix
+    (import ./sub/oom.nix [
+      # OOM: max 1000, min -1000. the higher the faster killed
+      { proc = "telegram-desktop"; score = 1000; }
+      { proc = "chrome"; score = 990; }
+      { proc = "firefox"; score = 980; }
+      { proc = "atom"; score = 970; }
+    ])
     ./sub/printer.nix
   ];
 

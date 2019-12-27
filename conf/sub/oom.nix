@@ -1,16 +1,9 @@
+list:
 { config, lib, pkgs, ... }:
 
 with lib;
 
 let
-  # OOM: max 1000, min -1000. the higher the faster killed
-  list = [
-    { proc = "telegram-desktop"; score = 1000; }
-    { proc = "chrome"; score = 990; }
-    { proc = "firefox"; score = 980; }
-    { proc = "atom"; score = 970; }
-  ];
-
   cmds = forEach list (iter: escapeShellArgs [ "adj" iter.proc iter.score ]);
 
   oomadj = pkgs.writeShellScriptBin "oomadj" ''
