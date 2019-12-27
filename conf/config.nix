@@ -8,17 +8,10 @@ with lib;
     ./mod/shell-links.nix
 
     ./sub/network
+    ./sub/utils
 
-    ./sub/android.nix
-    ./sub/apps.nix
     ./sub/desktop.nix
-    ./sub/docker.nix
-    ./sub/lxd.nix
     ./sub/printer.nix
-    ./sub/qemu.nix
-    ./sub/sysadmin-tools.nix
-    ./sub/tools.nix
-    ./sub/vbox.nix
   ];
 
   # Enable system cleaning cronjobs
