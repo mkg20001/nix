@@ -32,6 +32,7 @@ in
       mkgOverlay
       overlay
     ];
+
     nixpkgs.config.allowUnfree = true;
 
     # The global useDHCP flag is deprecated, therefore explicitly set to false here.
@@ -52,4 +53,13 @@ in
       iso2boot # from overlay
     ];
 
+    # This value determines the NixOS release with which your system is to be
+    # compatible, in order to avoid breaking some software such as database
+    # servers. You should change this only after NixOS release notes say you
+    # should.
+    # system.stateVersion = "20.03"; # Did you read the comment?
+    system.stateVersion = "unstable"; # Did you read the comment?
+
+    # system.autoUpgrade.enable = true;
+    # system.autoUpgrade.channel = https://nixos.org/channels/nixos-19.09;
   }
