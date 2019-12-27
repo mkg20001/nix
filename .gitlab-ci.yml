@@ -2,3 +2,7 @@ build-and-push:
   image: nixos/nix
   script:
     - sh .ci/main.sh
+  artifacts:
+    paths:
+    - result/iso/*
+    expire_in: 1 month
