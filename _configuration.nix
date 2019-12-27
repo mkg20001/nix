@@ -16,7 +16,7 @@ in
   {
     imports =
       [ # Include merged config
-        ./conf/merged.nix
+        ./conf
         # Include cachix-managed conf
         ./cachix.nix
         # Include the results of the hardware scan.
