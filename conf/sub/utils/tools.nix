@@ -76,6 +76,10 @@ with lib;
     sshpass
     borgbackup
 
+    # nixpkgs
+    nixpkgs-fmt
+    nixpkgs-review
+
     # fun
     lolcat
     cmatrix
