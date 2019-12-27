@@ -11,6 +11,7 @@ with lib;
     ./sub/utils
 
     ./sub/desktop.nix
+    ./sub/oom.nix
     ./sub/printer.nix
   ];
 
