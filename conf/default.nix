@@ -13,10 +13,11 @@ with lib;
     ./sub/desktop.nix
     (import ./sub/oom.nix [
       # OOM: max 1000, min -1000. the higher the faster killed
+      { proc = "thunderbird"; score = 1000; }
       { proc = "telegram-desktop"; score = 1000; }
-      { proc = "chrome"; score = 990; }
-      { proc = "firefox"; score = 980; }
-      { proc = "atom"; score = 970; }
+      { proc = "chrome"; score = 950; }
+      { proc = "firefox"; score = 900; }
+      { proc = "atom"; score = 800; }
     ])
     ./sub/printer.nix
   ];
