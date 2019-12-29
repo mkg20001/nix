@@ -20,3 +20,5 @@ _ ndb
 _ 0x
 _ jay-repl
 _ diff-so-fancy
+_ eslint
+_ stylelint

@@ -11,4 +11,6 @@
   { name = "0x"; version = "4.9.1"; root = ./0x; }
   { name = "jay-repl"; version = "0.2.2"; root = ./jay-repl; }
   { name = "diff-so-fancy"; version = "1.2.7"; root = ./diff-so-fancy; }
+  { name = "eslint"; version = "6.8.0"; root = ./eslint; }
+  { name = "stylelint"; version = "12.0.1"; root = ./stylelint; }
 ]
