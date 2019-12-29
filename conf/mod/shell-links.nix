@@ -18,7 +18,7 @@ let
     bin."2fa" = "/home/maciej/.bin/2fa";
     # etc.nixpkgs = "${pkgs.nixpkgs}/etc/nixpkgs";
     usr.bin.free = "${pkgs.procps}/bin/free";
-    usr.share = "/run/current-system/sw/share";
+    # usr.share = "/run/current-system/sw/share";
   };
 
   convertLinksRecursive = { attr, path ? [] }:
