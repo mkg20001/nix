@@ -2,6 +2,7 @@ build-and-push:
   image: nixos/nix
   script:
     - sh .ci/main.sh
+    - ls result
   artifacts:
     paths:
     - result*/iso/*
