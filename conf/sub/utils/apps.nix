@@ -13,7 +13,9 @@ with lib;
     bless # gtk# hex editor
 
     # browsers
-    firefox google-chrome
+    firefox
+    firefox-devedition-bin
+    google-chrome
 
     # disk utils
     gparted
