@@ -15,6 +15,6 @@ sh .ci/tag.sh
 bash .ci/rebuild.sh
 bash .ci/rebase.sh
 
-nix-build -A machines.iso -I nixpkgs=$PWD/../../nixpkgs
+nix-build -A machines.iso -I nixpkgs=$PWD/../nixpkgs
 
 nix copy --to file:///cache/store --all -v
