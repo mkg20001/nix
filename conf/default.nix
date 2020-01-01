@@ -10,6 +10,7 @@ with lib;
     ./sub/network
     ./sub/utils
 
+    ./sub/cron.nix
     ./sub/desktop.nix
     (import ./sub/oom.nix [
       # OOM: max 1000, min -1000. the higher the faster killed
@@ -21,18 +22,6 @@ with lib;
     ])
     ./sub/printer.nix
   ];
-
-  # Enable system cleaning cronjobs
-
-  # TODO: use internal jobs & use timers
-
-  services.cron = {
-    enable = true;
-    systemCronJobs = [
-      "0 0 * * *      root    bash /etc/nixos/cron/daily.sh"
-      "0 0 * * 1      root    bash /etc/nixos/cron/weekly.sh"
-    ];
-  };
 
   # Select internationalisation properties.
   console = {
@@ -76,7 +65,7 @@ with lib;
   users.users.maciej = {
     createHome = true;
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "audio" "video" ];
+    extraGroups = [ "wheel" "networkmanager" "audio" "video" "wireshark" ];
   };
 
   # Enable GPG agent
