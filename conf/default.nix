@@ -76,4 +76,7 @@ with lib;
 
   # Faster boot through entropy seeding
   services.haveged.enable = true;
+
+  # Shutdown speed-up
+  systemd.services.fwupd.serviceConfig = { TimeoutStopSec = 5; };
 }
