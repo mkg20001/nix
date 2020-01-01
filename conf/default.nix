@@ -4,7 +4,6 @@ with lib;
 
 {
   imports = [
-    ./mod/cron.nix
     ./mod/flags.nix
     ./mod/shell-links.nix
 
