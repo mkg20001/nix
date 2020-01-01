@@ -23,6 +23,8 @@ let
         description = "mkg cron ${intv}";
         startAt = intv;
 
+        path = config.environment.systemPackages;
+
         serviceConfig = {
           ExecStart = "${pkg}/bin/cron-${intv}";
         };
