@@ -79,4 +79,8 @@ with lib;
 
   # Shutdown speed-up
   systemd.services.fwupd.serviceConfig = { TimeoutStopSec = 5; };
+  
+  systemd.extraConfig = ''
+    DefaultTimeoutStopSec=20s
+  '';
 }
