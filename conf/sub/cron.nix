@@ -11,24 +11,12 @@ with lib;
 }; */
 
 let
-  cDaily = pkgs.writeShellScriptBin "cron-daily" (builtins.readFile ../../cron/daily.sh);
-  cWeekly = pkgs.writeShellScriptBin "cron-weekly" (builtins.readFile ../../cron/weekly.sh);
-
   c = intv:
-    let
-      pkg = pkgs.writeShellScriptBin "cron-${intv}" (builtins.readFile (../../cron + "/${intv}.sh"));
-    in
     {
-      systemd.services."cron-${intv}" = rec {
-        description = "mkg cron ${intv}";
-        startAt = intv;
-
-        serviceConfig = {
-          ExecStart = "${pkg}/bin/cron-${intv}";
-        };
+      cron.${intv} = {
+        inherit intv;
+        script = (builtins.readFile (../../cron + "/${intv}.sh"));
       };
-
-      environment.systemPackages = [ pkg ];
     };
 in
 {
