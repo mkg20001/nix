@@ -17,4 +17,4 @@ bash .ci/rebase.sh
 
 nix-build -A machines.iso -I nixpkgs=$PWD/../nixpkgs
 
-nix copy --to file:///cache/store --all -v
+# nix copy --to file:///cache/store --all -v
