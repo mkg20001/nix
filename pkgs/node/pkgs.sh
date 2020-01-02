@@ -22,3 +22,8 @@ _ jay-repl
 _ diff-so-fancy
 _ eslint
 _ stylelint
+
+# thingy
+_ thingycreate
+_ thingycontrol
+_ thingymodulecreate

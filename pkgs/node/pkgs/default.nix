@@ -13,4 +13,7 @@
   { name = "diff-so-fancy"; version = "1.2.7"; root = ./diff-so-fancy; }
   { name = "eslint"; version = "6.8.0"; root = ./eslint; }
   { name = "stylelint"; version = "12.0.1"; root = ./stylelint; }
+  { name = "thingycreate"; version = "0.3.3"; root = ./thingycreate; }
+  { name = "thingycontrol"; version = "0.1.2"; root = ./thingycontrol; }
+  { name = "thingymodulecreate"; version = "0.1.1"; root = ./thingymodulecreate; }
 ]
