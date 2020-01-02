@@ -9,11 +9,12 @@ let
     portable = f ./devices/portable;
     usb = f ./devices/usb;
     lenovo = f ./devices/lenovo;
-    iso = (e ./devices/iso).config.system.build.isoImage;
   };
 in
 {
   inherit machines;
+
+  iso = (e ./devices/iso).config.system.build.isoImage;
 
   current =
     if builtins.pathExists ./device
