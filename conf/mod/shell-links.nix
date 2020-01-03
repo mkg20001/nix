@@ -15,7 +15,7 @@ let
     bin.bash = "${pkgs.bash}/bin/bash";
     bin.true = "${pkgs.coreutils}/bin/coreutils";
     bin.false = "${pkgs.coreutils}/bin/coreutils";
-    bin."2fa" = "/home/maciej/.bin/2fa";
+    # bin."2fa" = "/home/maciej/.bin/2fa";
     # etc.nixpkgs = "${pkgs.nixpkgs}/etc/nixpkgs";
     usr.bin.free = "${pkgs.procps}/bin/free";
     # usr.share = "/run/current-system/sw/share";
@@ -44,7 +44,8 @@ let
       ) (builtins.attrNames attr);
 in
 {
-  imports = [];
+  imports = []
+  ++ optional (builtins.pathExists /home/maciej/.bin/2fa) { environment.systemPackages = [ (pkgs.writeShellScriptBin "2fa" (builtins.readFile /home/maciej/.bin/2fa)) ]; };
 
   # iterate over keys:
   # path ? []
