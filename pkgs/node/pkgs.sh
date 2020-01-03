@@ -27,3 +27,4 @@ _ stylelint
 _ thingycreate
 _ thingycontrol
 _ thingymodulecreate
+_ thingysync

@@ -16,4 +16,5 @@
   { name = "thingycreate"; version = "0.3.3"; root = ./thingycreate; }
   { name = "thingycontrol"; version = "0.1.2"; root = ./thingycontrol; }
   { name = "thingymodulecreate"; version = "0.1.1"; root = ./thingymodulecreate; }
+  { name = "thingysync"; version = "0.1.0"; root = ./thingysync; }
 ]
