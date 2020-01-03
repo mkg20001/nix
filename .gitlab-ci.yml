@@ -5,5 +5,5 @@ build-and-push:
     - ls -laR result
   artifacts:
     paths:
-    - *.iso
+    - '*.iso'
     expire_in: 1 month
