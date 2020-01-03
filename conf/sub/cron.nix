@@ -11,22 +11,20 @@ with lib;
 }; */
 
 let
-  cDaily = pkgs.writeShellScriptBin "cron-daily" (builtins.readFile ../../cron/daily.sh);
-  cWeekly = pkgs.writeShellScriptBin "cron-weekly" (builtins.readFile ../../cron/weekly.sh);
-
-  c = intv:
+  c = name: intv:
     let
-      pkg = pkgs.writeShellScriptBin "cron-${intv}" (builtins.readFile (../../cron + "/${intv}.sh"));
+      pkg = pkgs.writeShellScriptBin "cron-${name}" (builtins.readFile (../../cron + "/${name}.sh"));
     in
     {
-      systemd.services."cron-${intv}" = rec {
-        description = "mkg cron ${intv}";
+      systemd.services."cron-${name}" = rec {
+        description = "mkg cron ${name}";
         startAt = intv;
+        restartIfChanged = false;
 
         path = config.environment.systemPackages;
 
         serviceConfig = {
-          ExecStart = "${pkg}/bin/cron-${intv}";
+          ExecStart = "${pkg}/bin/cron-${name}";
         };
 
         environment.NIX_PATH = "nixpkgs=/etc/nixpkgs:nixos-config=/etc/nixos/configuration.nix:/nix/var/nix/profiles/per-user/root/channels";
@@ -37,7 +35,8 @@ let
 in
 {
   imports = [
-    (c "daily")
-    (c "weekly")
+    (c "daily" "daily")
+    (c "weekly" "weekly")
+    (c "clean-node-modules" "daily")
   ];
 }
