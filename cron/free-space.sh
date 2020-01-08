@@ -11,3 +11,4 @@ is_running_full() {
 
 is_running_full /nix/store $GB cron-weekly
 is_running_full /home $GB cron-clean-node-modules
+is_running_full /nix/store $GB nix-collect-garbage

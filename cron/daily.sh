@@ -58,4 +58,3 @@ if [[ "$(hostname)" == "mkg-portable" ]]; then
 fi
 
 nix-collect-garbage --delete-older-than 30d
-fstrim -av
