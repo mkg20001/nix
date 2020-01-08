@@ -1,6 +1,6 @@
 [
   { name = "nodemon"; version = "2.0.2"; root = ./nodemon; }
-  { name = "http-server"; version = "0.12.0"; root = ./http-server; }
+  { name = "http-server"; version = "0.12.1"; root = ./http-server; }
   { name = "pino-pretty"; version = "3.5.0"; root = ./pino-pretty; }
   { name = "npm-check-updates"; version = "4.0.1"; root = ./npm-check-updates; }
   { name = "google-font-installer"; version = "1.1.0"; root = ./google-font-installer; }
@@ -16,5 +16,5 @@
   { name = "thingycreate"; version = "0.3.3"; root = ./thingycreate; }
   { name = "thingycontrol"; version = "0.1.2"; root = ./thingycontrol; }
   { name = "thingymodulecreate"; version = "0.1.1"; root = ./thingymodulecreate; }
-  { name = "thingysync"; version = "0.1.0"; root = ./thingysync; }
+  { name = "thingysync"; version = "0.1.1"; root = ./thingysync; }
 ]
