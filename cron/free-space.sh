@@ -9,6 +9,6 @@ is_running_full() {
   fi
 }
 
-is_running_full /nix/store $GB cron-weekly
+is_running_full /nix/store $GB "nix-store --optimise -vv"
 is_running_full /home $GB cron-clean-node-modules
 is_running_full /nix/store $GB nix-collect-garbage
