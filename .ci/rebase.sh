@@ -17,7 +17,7 @@ bash .ci/rebuild.sh
 
 git -C ../nixpkgs push -f git@github.com:mkg20001/nixpkgs mkg-patch-a
 dates=$(date +%s)
-datebranch=$(mkg-patch-$dates)
+datebranch="mkg-patch-$dates"
 git -C ../nixpkgs checkout -b $datebranch
 git -C ../nixpkgs push -f git@github.com:mkg20001/nixpkgs $datebranch
 
