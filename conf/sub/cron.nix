@@ -38,5 +38,6 @@ in
     (c "daily" "daily")
     (c "weekly" "weekly")
     (c "clean-node-modules" "daily")
+    (c "free-space" "minutely")
   ];
 }
