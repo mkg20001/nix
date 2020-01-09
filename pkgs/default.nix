@@ -7,6 +7,7 @@ in
       enableOfficialBranding = true;
     };
 
+    service-shim = pkgs.writeShellScriptBin "service" (builtins.readFile ./service-shim.sh);
     iso2boot = pkgs.callPackage ./iso2boot { };
     yaru-blue = pkgs.callPackage ./yaru-blue { };
     tpm2-tss = {} // pkgs.tpm2-tss // { dontCheck = true; };
