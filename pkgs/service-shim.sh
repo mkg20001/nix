@@ -10,7 +10,7 @@ set -euo pipefail
 # service <action> <name> => systemctl/journalctl
 
 if [ -z "$name" ]; then
-  case "$action"
+  case "$action" in
     logs)
       journalctl -xef "$@"
       ;;
@@ -20,7 +20,7 @@ if [ -z "$name" ]; then
       ;;
   esac
 else
-  case "$action"
+  case "$action" in
     logs)
       journalctl -xefu "$name" "$@"
       ;;
