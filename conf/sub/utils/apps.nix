@@ -74,6 +74,7 @@ with lib;
     # work
     thunderbird # email client
     twinkle # twinkle SIP
+    heimer
     # paperwork # openpaper.work burocrazy managment
   ];
 }
