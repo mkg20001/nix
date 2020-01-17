@@ -24,6 +24,7 @@ with lib;
     strace
     python3
     gnumake # make
+    nushell
 
     # node
     nodejs-10_x
