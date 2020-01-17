@@ -83,4 +83,9 @@ with lib;
   systemd.extraConfig = ''
     DefaultTimeoutStopSec=20s
   '';
+
+  services.journald.extraConfig = ''
+    SystemKeepFree=10G
+    SystemMaxUse=1G
+  '';
 }
