@@ -12,7 +12,8 @@
   { name = "jay-repl"; version = "0.2.2"; root = ./jay-repl; }
   { name = "diff-so-fancy"; version = "1.2.7"; root = ./diff-so-fancy; }
   { name = "eslint"; version = "6.8.0"; root = ./eslint; }
-  { name = "stylelint"; version = "12.0.1"; root = ./stylelint; }
+  { name = "stylelint"; version = "13.0.0"; root = ./stylelint; }
+  { name = "eslint-config-aegir-standalone"; version = "20.4.1"; root = ./eslint-config-aegir-standalone; }
   { name = "thingycreate"; version = "0.3.3"; root = ./thingycreate; }
   { name = "thingycontrol"; version = "0.1.2"; root = ./thingycontrol; }
   { name = "thingymodulecreate"; version = "0.1.1"; root = ./thingymodulecreate; }

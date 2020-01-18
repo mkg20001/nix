@@ -7,6 +7,8 @@ with lib;
     ./cjdns.nix
   ];
 
+  services.teamviewer.enable = true;
+
   # Network manager ftw
   networking.networkmanager.enable = true;
   # TODO: do we need this?

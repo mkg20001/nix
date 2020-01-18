@@ -19,6 +19,15 @@ let
     # etc.nixpkgs = "${pkgs.nixpkgs}/etc/nixpkgs";
     usr.bin.free = "${pkgs.procps}/bin/free";
     # usr.share = "/run/current-system/sw/share";
+    usr.lib.node_modules.eslint = "${pkgs.eslint}/node_modules/eslint";
+    usr.lib.node_modules.eslint-config-aegir-standalone = "${pkgs.eslint-config-aegir-standalone}";
+    node_modules = "/usr/lib/node_modules"; # summoning the darkest of dark js-magic, beware
+
+    usr.lib.node_modules.eslint-plugin-no-only-tests = "${pkgs.eslint-config-aegir-standalone}/node_modules/eslint-plugin-no-only-tests";
+    usr.lib.node_modules.eslint-plugin-import = "${pkgs.eslint-config-aegir-standalone}/node_modules/eslint-plugin-import";
+    usr.lib.node_modules.eslint-plugin-node = "${pkgs.eslint-config-aegir-standalone}/node_modules/eslint-plugin-node";
+    usr.lib.node_modules.eslint-plugin-promise = "${pkgs.eslint-config-aegir-standalone}/node_modules/eslint-plugin-promise";
+    usr.lib.node_modules.eslint-plugin-standard = "${pkgs.eslint-config-aegir-standalone}/node_modules/eslint-plugin-standard";
   };
 
   convertLinksRecursive = { attr, path ? [] }:
@@ -37,6 +46,7 @@ let
           [
             ''
               ln -sfn ${value} ${joinPath newPath}.tmp
+              rm -f ${joinPath newPath}
               mv ${joinPath newPath}.tmp ${joinPath newPath}
             ''
           ]
