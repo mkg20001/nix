@@ -3,6 +3,8 @@
 set -eu
 set -o pipefail
 
+cd /etc/nixos
+
 nixpkgs_need_update() {
   CURRENT_SHA=$(cat /etc/nixpkgs/sha; true)
   LATEST_SHA=$(curl -s https://api.github.com/repos/mkg20001/nixpkgs/branches/mkg-patch-a | jq -r .commit.sha)
