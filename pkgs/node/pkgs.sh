@@ -23,6 +23,7 @@ _ diff-so-fancy
 _ eslint eslint-config-aegir-standalone eslint-plugin-no-only-tests
 _ stylelint
 _ eslint-config-aegir-standalone eslint-plugin-no-only-tests
+_ oclif
 
 # thingy
 _ thingycreate
