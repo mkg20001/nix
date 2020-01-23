@@ -55,6 +55,7 @@ if nixpkgs_need_update; then
 fi
 
 nixos-rebuild switch -I nixpkgs=/etc/nixpkgs -j auto -v 2>&1 | grep -v evaluating
+nix-env -uv
 
 if [[ "$(hostname)" == "mkg-portable" ]]; then
   iso2boot "/boot" "/nix/store" "/zalman/_iso/iso2boot.iso"
