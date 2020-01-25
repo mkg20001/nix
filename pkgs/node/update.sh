@@ -39,3 +39,5 @@ echo "[" >> "$PKGS/default.nix"
 . pkgs.sh
 
 echo "]" >> "$PKGS/default.nix"
+
+. extra.sh
