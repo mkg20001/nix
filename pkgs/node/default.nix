@@ -41,9 +41,12 @@ let
         }))
       ));
 
+  node13Pkgs = iterate pkgs.nodejs-13_x;
   node12Pkgs = iterate pkgs.nodejs-12_x;
   node10Pkgs = iterate pkgs.nodejs-10_x;
 in
   {
-    inherit node12Pkgs node10Pkgs;
-  } // node10Pkgs
+    inherit node13Pkgs node12Pkgs node10Pkgs;
+
+    node_lts = pkgs.nodejs-12_x;
+  } // node12Pkgs

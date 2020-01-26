@@ -27,7 +27,7 @@ with lib;
     nushell
 
     # node
-    nodejs-10_x
+    node_lts # nodejs-12_x
     yarn
 
     # overmind
