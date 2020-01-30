@@ -27,6 +27,10 @@ with lib;
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
+  # keybase
+  services.keybase.enable = true;
+  services.kbfs.enable = true;
+
   # Enable tor
   # docref: <nixpkgs/nixos/modules/services/networking/tor.nix>
   # TODO: obfs4 tor service & move to seperate conf
