@@ -32,7 +32,7 @@ with lib;
 
     # overmind
     overmind # Process manager for Procfile-based projects
-    pueue # for long-running tasks
+    # pueue # for long-running tasks
 
     # git
     gitAndTools.gitFull
