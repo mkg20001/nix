@@ -27,9 +27,9 @@ with lib;
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
-  # keybase
-  services.keybase.enable = true;
-  services.kbfs.enable = true;
+  # keybase... fck'd my ram
+  # services.keybase.enable = true;
+  # services.kbfs.enable = true;
 
   # Enable tor
   # docref: <nixpkgs/nixos/modules/services/networking/tor.nix>
@@ -38,6 +38,9 @@ with lib;
     tor # onions
     obfs4 # onion hide tool
     nyx # and control panel
+
+
+    keybase keybase-gui # bruh
   ];
 
   # Enable the yggdrasil daemon.
