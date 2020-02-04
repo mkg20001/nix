@@ -21,7 +21,7 @@
 
   # Use MBR
   boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/sdc";
+  boot.loader.grub.device = "/dev/sdb";
 
   # Bleeeeddd.... xD
   nix.nixPath = [
