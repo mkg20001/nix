@@ -13,17 +13,11 @@
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
-  # TODO: possibly switch to btrfs? or at least for home?
+  # possibly switch to btrfs? or at least for home?
+  # => no, since it's bad for small files, which is making boot & shit slow https://www.synology-forum.de/showthread.html?83271-BTRFS-oder-EXT4
 
   fileSystems."/" =
-    { #device = "/dev/disk/by-uuid/04f9c231-7127-46ef-b539-dfa29c1eaf47";
-      device = "/dev/disk/by-label/nixos-root";
-      fsType = "ext4";
-    };
-
-  fileSystems."/boot" =
-    { #device = "/dev/disk/by-uuid/f7ddf94d-1584-44e6-b845-1e45e2a29983";
-      device = "/dev/disk/by-label/nixos-boot";
+    { device = "/dev/disk/by-label/mkg-pc";
       fsType = "ext4";
     };
 
