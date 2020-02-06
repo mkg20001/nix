@@ -6,6 +6,7 @@ with lib;
   imports = [
     ./mod/flags.nix
     ./mod/shell-links.nix
+    ./mod/shell-aliases.nix
 
     ./sub/network
     ./sub/utils
@@ -78,7 +79,7 @@ with lib;
 
   # Shutdown speed-up
   systemd.services.fwupd.serviceConfig = { TimeoutStopSec = 5; };
-  
+
   systemd.extraConfig = ''
     DefaultTimeoutStopSec=20s
   '';
