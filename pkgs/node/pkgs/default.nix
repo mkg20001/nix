@@ -15,8 +15,8 @@
   { name = "stylelint"; version = "13.0.0"; root = ./stylelint; }
   { name = "eslint-config-aegir-standalone"; version = "20.4.1"; root = ./eslint-config-aegir-standalone; }
   { name = "oclif"; version = "1.15.2"; root = ./oclif; }
-  { name = "thingycreate"; version = "0.3.3"; root = ./thingycreate; }
-  { name = "thingycontrol"; version = "0.1.2"; root = ./thingycontrol; }
-  { name = "thingymodulecreate"; version = "0.1.1"; root = ./thingymodulecreate; }
+  { name = "thingycreate"; version = "0.3.5"; root = ./thingycreate; }
+  { name = "thingycontrol"; version = "0.1.4"; root = ./thingycontrol; }
+  { name = "thingymodulecreate"; version = "0.1.4"; root = ./thingymodulecreate; }
   { name = "thingysync"; version = "0.1.1"; root = ./thingysync; }
 ]
