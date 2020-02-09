@@ -91,8 +91,10 @@ with lib;
     enable = true;
     appConfig.redshift = {
       isAllowed = true;
-      isSystem = false;
-      users = [ "" ];
+      isSystem = true;
+      users = [ "maciej" ];
     };
   };
+
+  location.provider = "geoclue2";
 }

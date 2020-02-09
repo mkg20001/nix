@@ -24,8 +24,8 @@
   boot.loader.grub.device = "/dev/sdb";
 
   # Bleeeeddd.... xD
-  nix.nixPath = [
-    "nixpkgs=/home/maciej/cinnamon"
-    "nixos-config=/etc/nixos/configuration.nix"
-  ];
+  #nix.nixPath = [
+  #  "nixpkgs=/home/maciej/cinnamon"
+  #  "nixos-config=/etc/nixos/configuration.nix"
+  #];
 }

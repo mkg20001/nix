@@ -41,7 +41,7 @@ with lib;
   ];
 
   # Night light
-  /* services.redshift = {
+  /*services.redshift = {
     enable = true;
 
     temperature.day = 4000;
@@ -49,7 +49,7 @@ with lib;
 
     brightness.night = "0.25";
     brightness.day = "0.5";
-  }; */
+  };*/
 
   # Enable sound.
   sound.enable = true;
