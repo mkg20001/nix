@@ -2,6 +2,14 @@
 
 with lib;
 
+let
+  ports = [
+    22000 # syncthing
+    5060 5061 5062 # SIP
+    30000 30001 30002 30003 30004 30005 # RTP (SIP)
+          30006 30007 30008 30009 30010
+  ];
+in
 {
   imports = [
     ./cjdns.nix
@@ -16,8 +24,8 @@ with lib;
 
   # Open ports in the firewall.
   # FW
-  networking.firewall.allowedTCPPorts = [ 22000 ];
-  networking.firewall.allowedUDPPorts = [ 22000 ];
+  networking.firewall.allowedTCPPorts = ports;
+  networking.firewall.allowedUDPPorts = ports;
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
