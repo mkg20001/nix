@@ -71,4 +71,9 @@ with lib;
   powerManagement.enable = true;
   services.upower.enable = true;
   services.acpid.enable = true;
+
+  hardware.opengl = {
+    enable = true;
+    driSupport32Bit = true;
+  };
 }

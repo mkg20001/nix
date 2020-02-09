@@ -7,7 +7,8 @@
   # Enable CUPS to print documents.
   services.printing = {
     enable = true;
-    drivers = with pkgs; [ gutenprint hplip samsungUnifiedLinuxDriver splix brlaser brgenml1lpr brgenml1cupswrapper cups-googlecloudprint ];
+    # drivers = with pkgs; [ gutenprint hplip samsungUnifiedLinuxDriver splix brlaser brgenml1lpr brgenml1cupswrapper cups-googlecloudprint ];
+    drivers = with pkgs; [ brother.mfcj890dw.driver brother.mfcj890dw.cupswrapper gutenprint hplip samsungUnifiedLinuxDriver splix brlaser brgenml1lpr brgenml1cupswrapper cups-googlecloudprint ];
     # this enables avahi+browsed autodiscover
     browsing = true;
     defaultShared = true;

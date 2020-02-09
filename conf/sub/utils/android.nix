@@ -13,4 +13,6 @@ mkIf config.flags.highSpec {
   ];
 
   virtualisation.anbox.enable = true;
+} // {
+  programs.adb.enable = true;
 }
