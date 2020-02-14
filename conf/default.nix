@@ -73,7 +73,7 @@ with lib;
     splashImage = ./grub-scaled.png;
     # black=transparent, tf
     extraEntries = ''
-      set color_normal=dark-gray/black
+      set color_normal=light-gray/black
       set color_highlight=white/cyan
     '';
   };
