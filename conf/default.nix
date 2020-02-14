@@ -69,6 +69,8 @@ with lib;
     extraGroups = [ "wheel" "networkmanager" "audio" "video" "wireshark" ];
   };
 
+  boot.loader.grub.splashImage = ./grub-scaled.png;
+
   # Enable GPG agent
   programs.gnupg.agent = { enable = true; enableSSHSupport = true; };
 
