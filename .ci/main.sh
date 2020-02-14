@@ -16,6 +16,9 @@ sh .ci/tag.sh
 bash .ci/rebase.sh
 
 nix-build -A iso -I nixpkgs=$PWD/../nixpkgs
-cp -v result/iso/* .
+cp -v result/iso/* mkg.iso
 
 # nix copy --to file:///cache/store --all -v
+
+echo put mkg.iso | sftp -b /dev/stdin sftp://dpl@argon.mkg20001.io:13701/../../var/www/tmp
+

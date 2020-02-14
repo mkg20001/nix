@@ -3,7 +3,7 @@ build-and-push:
   script:
     - sh .ci/main.sh
     - ls -laR result
-  artifacts:
-    paths:
-    - '*.iso'
-    expire_in: 1 month
+#  artifacts:
+#    paths:
+#    - '*.iso'
+#    expire_in: 1 month
