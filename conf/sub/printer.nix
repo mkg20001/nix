@@ -40,12 +40,10 @@ BrowseProtocols all
   hardware.sane.brscan4 = {
     enable = true;
     netDevices = {
-      /*
       name = {
-        ip = "";
-        model = ""; # ex MFC-XXXX
+        ip = "192.168.178.30";
+        model = "MFC-J890DW"; # ex MFC-XXXX
       };
-      */
     };
   };
 }
