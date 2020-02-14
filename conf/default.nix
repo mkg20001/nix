@@ -69,7 +69,13 @@ with lib;
     extraGroups = [ "wheel" "networkmanager" "audio" "video" "wireshark" ];
   };
 
-  boot.loader.grub.splashImage = ./grub-scaled.png;
+  boot.loader.grub = {
+    splashImage = ./grub-scaled.png;
+    extraEntries = ''
+      set color_normal=dark-gray/light-gray
+      set color_highlight=white/cyan
+    '';
+  };
 
   # Enable GPG agent
   programs.gnupg.agent = { enable = true; enableSSHSupport = true; };
