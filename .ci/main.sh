@@ -12,7 +12,7 @@ sh .ci/setup-cache.sh
 sh .ci/setup-repo.sh
 sh .ci/tag.sh
 
-bash .ci/rebuild.sh
+#bash .ci/rebuild.sh
 bash .ci/rebase.sh
 
 nix-build -A iso -I nixpkgs=$PWD/../nixpkgs
