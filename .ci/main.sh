@@ -20,5 +20,5 @@ cp -v result/iso/* mkg.iso
 
 # nix copy --to file:///cache/store --all -v
 
+nix-env -iA openssh
 echo put mkg.iso | sftp -b /dev/stdin sftp://dpl@argon.mkg20001.io:13701/../../var/www/tmp
-
