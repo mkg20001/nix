@@ -3,7 +3,7 @@
 
 { config, lib, pkgs, ... }:
 
-with lib;
+with (import ../../util.nix lib);
 
 {
   imports = [];
@@ -20,7 +20,7 @@ with lib;
 
     UDPInterface = {
       bind = "0.0.0.0:12024";
-      # connectTo = {}; # private config
+      connectTo = loadPriv "cjdns_nodes.toml";
     };
   };
 

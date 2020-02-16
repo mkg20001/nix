@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }:
 
-with lib;
+with (import ./util.nix lib);
 
 {
   imports = [

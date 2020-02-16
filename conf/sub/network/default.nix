@@ -48,7 +48,6 @@ in
     obfs4 # onion hide tool
     nyx # and control panel
 
-
     keybase keybase-gui # bruh
   ];
 
