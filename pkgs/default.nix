@@ -13,4 +13,6 @@ in
     iso2boot = pkgs.callPackage ./iso2boot { };
     yaru-blue = pkgs.callPackage ./yaru-blue { };
     kseistrup-filters = pkgs.callPackage ./kseistrup-filters { };
+
+    break-symmetry = pkgs.callPackage ./break-symmetry { };
   } // node

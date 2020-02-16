@@ -21,7 +21,12 @@ with (import ./util.nix lib);
       { proc = "atom"; score = 800; }
     ])
     ./sub/printer.nix
+
+    ../pkgs/break-symmetry/module.nix
   ];
+
+  # My own stuff
+  break-symmetry.enable = true;
 
   # Select internationalisation properties.
   console = {
