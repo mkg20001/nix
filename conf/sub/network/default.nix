@@ -34,7 +34,16 @@ in
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
+    # sanity
+    permitRootLogin = "no";
+    openFirewall = true;
+    # security
+    passwordAuthentication = false;
+    # pubkey only
+    challengeResponseAuthentication = true;
+  };
 
   # keybase... fck'd my ram
   # services.keybase.enable = true;
