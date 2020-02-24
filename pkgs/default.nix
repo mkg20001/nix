@@ -10,6 +10,7 @@ in
     brother = pkgs.callPackage ./brother { };
 
     service-shim = pkgs.writeShellScriptBin "service" (builtins.readFile ./service-shim.sh);
+    nix-call-package = pkgs.writeShellScriptBin "nix-call-package" (builtins.readFile ./nix-call-package.sh);
     iso2boot = pkgs.callPackage ./iso2boot { };
     yaru-blue = pkgs.callPackage ./yaru-blue { };
     kseistrup-filters = pkgs.callPackage ./kseistrup-filters { };
