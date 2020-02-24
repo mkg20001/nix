@@ -65,6 +65,8 @@ with lib;
     xsel
     file
     macchanger
+    screen
+    nix-call-package
 
     tmux
 
