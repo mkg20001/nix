@@ -33,7 +33,7 @@ let
       environment.systemPackages = [ pkg ];
     };
 in
-{
+mkIf (!config.flags.portable) {
   imports = [
     (c "daily" "daily")
     (c "weekly" "weekly")

@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
-set -euo pipefail
-
 STORE_PATH="$1"
 OUT="$2"
 
-if [ -z "$2" ]; then
-  echo "Usage: $0 <store-path> <out(.png)>" &>2
-  echo "e.g: $0 /run/current-system current-system.png" &>2
+set -euo pipefail
+
+if [ -z "$OUT" ]; then
+  echo "Usage: $0 <store-path> <out(.png)>" >&2
+  echo "e.g: $0 /run/current-system current-system.png" >&2
   exit 2
 fi
 
