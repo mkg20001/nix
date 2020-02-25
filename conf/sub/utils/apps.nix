@@ -15,7 +15,7 @@ with lib;
     # browsers
     firefox
     firefox-devedition-bin
-    # firefoxPackages.tor-browser
+    torbrowser
     google-chrome
 
     # disk utils
