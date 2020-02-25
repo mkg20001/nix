@@ -5,7 +5,7 @@ with (pkgs.lib);
 let
   nixNodePackage = builtins.fetchGit {
     url = "https://github.com/mkg20001/nix-node-package";
-    rev = "2b7a5d1dff02ca7f95e651c60476f17c720a3e72";
+    rev = "d651d6f46358cec2af468821a0488ce211d7067c";
   };
   makeNodeFnc = import "${nixNodePackage}/nix/default.nix" pkgs;
 
