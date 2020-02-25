@@ -33,11 +33,10 @@ let
       environment.systemPackages = [ pkg ];
     };
 in
-mkIf (!config.flags.portable) {
-  imports = [
-    (c "daily" "daily")
-    (c "weekly" "weekly")
-    (c "clean-node-modules" "daily")
+ mkIf (!config.flags.portable)
+  (
+    (c "daily" "daily") //
+    (c "weekly" "weekly") //
+    (c "clean-node-modules" "daily") //
     (c "free-space" "minutely")
-  ];
-}
+  )
