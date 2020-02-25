@@ -37,7 +37,7 @@ in
   services.openssh = {
     enable = true;
     # sanity
-    permitRootLogin = "no";
+    permitRootLogin = mkDefault "no";
     openFirewall = true;
     # security
     passwordAuthentication = false;
