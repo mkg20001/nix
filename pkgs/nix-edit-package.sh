@@ -24,6 +24,17 @@ elif [ -z "$NIXPKGS_ROOT" ]; then
   exit 1
 fi
 
-pushd "$NIXPKGS_ROOT/pkgs"
+cd "$NIXPKGS_ROOT/pkgs"
+
 BASE=$(find -iname "$PKG")
-${EDITOR:"nano"} "$BASE/default.nix"
+
+if [ -z "$BASE" ]; then
+  echo "No such package" >&2
+  exit 2
+fi
+
+if [ ! -e "$BASE/default.nix" ]; then
+  read -p "No default.nix, press enter to create..." foo
+fi
+
+${EDITOR+"nano"} "$BASE/default.nix"
