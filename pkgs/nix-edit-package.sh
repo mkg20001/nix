@@ -33,8 +33,12 @@ if [ -z "$BASE" ]; then
   exit 2
 fi
 
-if [ ! -e "$BASE/default.nix" ]; then
-  read -p "No default.nix, press enter to create..." foo
+if [ -e "$BASE/default.nix" ]; then
+  ${EDITOR+"nano"} "$BASE/default.nix"
+else
+  if [ -e "$NIXPKGS_ROOT/pkgs/default.nix" ]; then
+    nix edit -f "$NIXPKGS_ROOT/pkgs" "$PKG"
+  else
+    nix edit -f "$NIXPKGS_ROOT" "$PKG"
+  fi
 fi
-
-${EDITOR+"nano"} "$BASE/default.nix"
