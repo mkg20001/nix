@@ -21,4 +21,5 @@ cp -v result/iso/* mkg.iso
 # nix copy --to file:///cache/store --all -v
 
 nix-env -iA nixpkgs.openssh
+(echo rm mkg.iso | sftp -o StrictHostKeyChecking=no -b /dev/stdin sftp://dpl@argon.mkg20001.io:13701/../../var/www/tmp) || /bin/true
 echo put mkg.iso | sftp -o StrictHostKeyChecking=no -b /dev/stdin sftp://dpl@argon.mkg20001.io:13701/../../var/www/tmp
