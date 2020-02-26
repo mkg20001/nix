@@ -18,6 +18,7 @@ in
 
     service-shim = pkgs.writeShellScriptBin "service" (builtins.readFile ./service-shim.sh);
     nix-call-package = pkgs.writeShellScriptBin "nix-call-package" (builtins.readFile ./nix-call-package.sh);
+    nix-edit-package = pkgs.writeShellScriptBin "nix-edit-package" (builtins.readFile ./nix-edit-package.sh);
     nix-visualize = writeShellScriptBinPath "nix-visualize" [ pkgs.graphviz pkgs.nix ] (builtins.readFile ./nix-visualize.sh);
 
     iso2boot = pkgs.callPackage ./iso2boot { };

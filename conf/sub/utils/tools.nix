@@ -67,6 +67,7 @@ with lib;
     macchanger
     screen
     nix-call-package
+    nix-edit-package
     nix-visualize
 
     tmux
