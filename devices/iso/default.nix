@@ -21,6 +21,13 @@ in
 
   isoImage.volumeID = substring 0 11 "MKGNIX_ISO";
 
+  isoImage.prependItems = [
+    { class = "installer+persistent"; params = "boot.persistence=/dev/disk/by-label/mkg-portable"; }
+    { class = "nomodeset+persistent"; params = "boot.persistence=/dev/disk/by-label/mkg-portable nomodeset"; }
+    { class = "copytoram+persistent"; params = "boot.persistence=/dev/disk/by-label/mkg-portable copytoram"; }
+    { class = "debug+persistent";     params = "boot.persistence=/dev/disk/by-label/mkg-portable debug"; }
+  ];
+
   # Auto-login & default pw
   /* services.xserver.displayManager.gdm.autoLogin = {
     enable = true;
@@ -48,14 +55,7 @@ in
     });
   '';
 
-  boot.initrd.postMountCommands = ''
-    REAL_DEV="/dev/disk/by-label/mkg-portable"
-
-    if [ -e "$REAL_DEV" ]; then
-      mount -o rw,remount "$REAL_DEV" "/"
-      touch "/.portable-rw"
-    fi
-  '';
+  # TODO: make persistence dynamicly configurable
 
   # Desktop
   system.activationScripts.installerDesktop = let
