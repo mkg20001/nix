@@ -22,10 +22,10 @@ in
   isoImage.volumeID = substring 0 11 "MKGNIX_ISO";
 
   isoImage.prependItems = [
-    { class = "installer+persistent"; params = "boot.persistence=/dev/disk/by-label/mkg-portable"; }
-    { class = "nomodeset+persistent"; params = "boot.persistence=/dev/disk/by-label/mkg-portable nomodeset"; }
-    { class = "copytoram+persistent"; params = "boot.persistence=/dev/disk/by-label/mkg-portable copytoram"; }
-    { class = "debug+persistent";     params = "boot.persistence=/dev/disk/by-label/mkg-portable debug"; }
+    { class = "installer-persistent"; params = "boot.persistence=/dev/disk/by-label/mkg-portable"; }
+    { class = "nomodeset-persistent"; params = "boot.persistence=/dev/disk/by-label/mkg-portable nomodeset"; }
+    { class = "copytoram-persistent"; params = "boot.persistence=/dev/disk/by-label/mkg-portable copytoram"; }
+    { class = "debug-persistent";     params = "boot.persistence=/dev/disk/by-label/mkg-portable debug"; }
   ];
 
   # Auto-login & default pw
