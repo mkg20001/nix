@@ -52,7 +52,7 @@ in
     REAL_DEV="/dev/disk/by-label/mkg-portable"
 
     if [ -e "$REAL_DEV" ]; then
-      mount "$REAL_DEV" "/"
+      mount -o rw,remount "$REAL_DEV" "/"
       touch "/.portable-rw"
     fi
   '';
