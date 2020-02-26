@@ -13,6 +13,9 @@ in
   # Name the child
   networking.hostName = "mkg-iso";
 
+  # Raise da flags
+  flags.portable = true;
+
   # Brand
   isoImage.isoName = "mkgnix-${date}-${config.isoImage.isoBaseName}-${config.system.nixos.label}-${pkgs.stdenv.hostPlatform.system}.iso";
 
