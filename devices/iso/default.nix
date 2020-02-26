@@ -48,6 +48,15 @@ in
     });
   '';
 
+  boot.initrd.postMountCommands = ''
+    REAL_DEV="/dev/disk/by-label/mkg-portable"
+
+    if [ -e "$REAL_DEV" ]; then
+      mount "$REAL_DEV" "/"
+      touch "/.portable-rw"
+    fi
+  '';
+
   # Desktop
   system.activationScripts.installerDesktop = let
     homeDir = "/home/maciej/";

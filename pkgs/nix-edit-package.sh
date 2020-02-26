@@ -28,14 +28,10 @@ cd "$NIXPKGS_ROOT/pkgs"
 
 BASE=$(find -iname "$PKG")
 
-if [ -z "$BASE" ]; then
-  echo "No such package" >&2
-  exit 2
-fi
-
 if [ -e "$BASE/default.nix" ]; then
   ${EDITOR+"nano"} "$BASE/default.nix"
 else
+  # TODO: EDITOR=echo, turn ro into writable path
   if [ -e "$NIXPKGS_ROOT/pkgs/default.nix" ]; then
     nix edit -f "$NIXPKGS_ROOT/pkgs" "$PKG"
   else
