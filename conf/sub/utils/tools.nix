@@ -101,4 +101,10 @@ with lib;
   };
 
   location.provider = "geoclue2";
+
+  # Adds netdata service
+  # docref: <nixpkgs/nixos/modules/services/monitoring/netdata.nix>
+  services.netdata.enable = true;
+
+  services.netdata.config.global."OOM score" = 0;
 }
