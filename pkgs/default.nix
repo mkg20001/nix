@@ -26,5 +26,7 @@ in
     yaru-blue = pkgs.yaru-theme; # TODO: fix yaru patch
     kseistrup-filters = pkgs.callPackage ./kseistrup-filters { };
 
+    atom = pkgs.callPackage ./atom {};
+
     break-symmetry = pkgs.callPackage ./break-symmetry { };
   } // node
