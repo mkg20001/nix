@@ -13,6 +13,7 @@ in
 {
   imports = [
     ./cjdns.nix
+    ./dot.nix
   ];
 
   services.teamviewer.enable = true;
