@@ -77,4 +77,6 @@ with lib;
     heimer
     # paperwork # openpaper.work burocrazy managment
   ];
+
+  services.flatpak.enable = true;
 }

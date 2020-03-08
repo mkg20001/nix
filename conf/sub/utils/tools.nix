@@ -69,6 +69,7 @@ with lib;
     nix-call-package
     nix-edit-package
     nix-visualize
+    jdk
 
     tmux
 
