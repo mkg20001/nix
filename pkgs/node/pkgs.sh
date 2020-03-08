@@ -6,9 +6,9 @@ _() {
 
 # some packages are commented out due to a bug that doesn't allow for 2500+ deps
 
-# _ aegir
+_ aegir
 _ nodemon
-# _ parcel
+_ parcel
 _ http-server
 _ pino-pretty
 _ npm-check-updates
