@@ -5,7 +5,7 @@ with lib;
 let
   common = builtins.fetchGit {
     url = "https://github.com/mkg20001/mkg-nix";
-    rev = "2947964be1b86ee8e24feaddc94c342a00183f0e";
+    rev = "053139f91d01b00292d08d7de30b16a6b6ca901a";
   };
 in
 {
