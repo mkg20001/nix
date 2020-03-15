@@ -33,6 +33,10 @@ in
       overlay
     ];
 
+    nixpkgs.config.permittedInsecurePackages = [
+      "openssl-1.0.2u"
+     ];
+
     nixpkgs.config.allowUnfree = true;
 
     # TODO: split
