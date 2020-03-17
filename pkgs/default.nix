@@ -8,6 +8,9 @@ let
 
     ${text}
     '';
+
+  recreatePackage = orig: override:
+    orig.overrideAttrs (orig: override);
 in
   {
     thunderbird = pkgs.thunderbird.override {
@@ -22,11 +25,14 @@ in
     nix-visualize = writeShellScriptBinPath "nix-visualize" [ pkgs.graphviz pkgs.nix ] (builtins.readFile ./nix-visualize.sh);
 
     iso2boot = pkgs.callPackage ./iso2boot { };
-    # yaru-blue = pkgs.callPackage ./yaru-blue { };
+    # yaru-blue = pkgs.callPackage ./yaru-blue { inherit recreatePackage };
     yaru-blue = pkgs.yaru-theme; # TODO: fix yaru patch
     kseistrup-filters = pkgs.callPackage ./kseistrup-filters { };
 
-    atom = pkgs.callPackage ./atom {};
+    atom = pkgs.callPackage ./atom { inherit recreatePackage; };
 
     break-symmetry = pkgs.callPackage ./break-symmetry { };
+
+    # space fix
+    firmwareLinuxNonfree = pkgs.callPackage ./firmware-linux-nonfree { inherit recreatePackage; };
   } // node

@@ -1,11 +1,10 @@
 { stdenv
 , fetchFromGitHub
 , yaru-theme
+, recreatePackage
 }:
 
-stdenv.mkDerivation rec {
-  inherit (yaru-theme) src nativeBuildInputs buildInputs propagatedUserEnvPkgs postPatch meta version;
-
+recreatePackage yaru-theme {
   pname = "yaru-blue";
 
   patches = [

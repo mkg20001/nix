@@ -1,6 +1,7 @@
 { stdenv
 , atom
 , callPackage
+, recreatePackage
 }:
 
 with stdenv.lib;
@@ -22,9 +23,7 @@ if [ -x "$WA_BIN" ]; then
 fi
   '';
 in
-stdenv.mkDerivation {
-  inherit (atom) name version src nativeBuildInputs buildInputs buildCommand meta;
-
+recreatePackage atom {
   preFixup = atom.preFixup + ''
     substituteInPlace $out/bin/atom --replace ${escapeShellArgs [snipStart snip]}
   '';
