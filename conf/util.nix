@@ -10,9 +10,9 @@ let
 in
 rec {
   _withPriv = file: fnc:
-    mkIf (pathExists file) (fnc (loadFile file));
+    if (pathExists file) then (fnc (loadFile file)) else {};
   _loadPriv = file:
-    mkIf (pathExists file) (loadFile file);
+    if (pathExists file) then (loadFile file) else {};
 
   loadFile = file:
     let
