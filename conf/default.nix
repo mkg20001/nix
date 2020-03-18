@@ -11,6 +11,7 @@ with (import ./util.nix lib);
     ./sub/network
     ./sub/utils
 
+    ./sub/builders.nix
     ./sub/cron.nix
     ./sub/desktop.nix
     (import ./sub/oom.nix [
