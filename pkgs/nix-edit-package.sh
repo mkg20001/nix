@@ -4,6 +4,10 @@
 
 PKG="$1"
 
+if [ -z "$EDITOR" ]; then
+  export EDITOR=nano
+fi
+
 set -euo pipefail
 
 if [ -z "$PKG" ]; then
@@ -29,7 +33,7 @@ cd "$NIXPKGS_ROOT/pkgs"
 BASE=$(find -iname "$PKG")
 
 if [ -e "$BASE/default.nix" ]; then
-  ${EDITOR:"nano"} "$BASE/default.nix"
+  "$EDITOR" "$BASE/default.nix"
 else
   # TODO: EDITOR=echo, turn ro into writable path
   if [ -e "$NIXPKGS_ROOT/pkgs/default.nix" ]; then
