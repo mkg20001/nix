@@ -10,10 +10,14 @@ with (import ../util.nix lib);
   nix.distributedBuilds = true;
   # optional, useful when the builder has a faster internet connection than yours
   nix.extraOptions = ''
+    # enable builders to use stuff from cache, not local
     builders-use-substitutes = true
+    # actually enable
+    builders = @/etc/nix/machines
   '';
 
   nix.buildMachines = builtins.attrValues (loadPriv "build_machines.toml");
+
 /*
 
 [your_server]

@@ -60,6 +60,8 @@ with (import ./util.nix lib);
       # narinfo-cache-positive-ttl = 0
       narinfo-cache-negative-ttl = 0
       '';
+
+    trustedUsers = [ "root" "@wheel" ];
   };
 
   # Swap, watch fixes
