@@ -29,7 +29,7 @@ cd "$NIXPKGS_ROOT/pkgs"
 BASE=$(find -iname "$PKG")
 
 if [ -e "$BASE/default.nix" ]; then
-  ${EDITOR+"nano"} "$BASE/default.nix"
+  ${EDITOR:"nano"} "$BASE/default.nix"
 else
   # TODO: EDITOR=echo, turn ro into writable path
   if [ -e "$NIXPKGS_ROOT/pkgs/default.nix" ]; then
