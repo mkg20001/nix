@@ -1,5 +1,6 @@
 { stdenv
 , makeWrapper
+, patchelf
 
 , name
 , deps
@@ -17,6 +18,10 @@ stdenv.mkDerivation {
 
   nativeBuildInputs = [
     makeWrapper
+  ];
+
+  buildInputs = [
+    patchelf
   ];
 
   installPhase = ''
