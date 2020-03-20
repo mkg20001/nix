@@ -13,7 +13,7 @@ sh .ci/setup-repo.sh
 sh .ci/tag.sh
 
 # tmp
-nix-store --realise /nix/store/43ak31a4saxl8cjilrxv0l3jad3qipvf-nix-2.4pre7307_c1f1e6f.drv
+nix-store --realise /nix/store/43ak31a4saxl8cjilrxv0l3jad3qipvf-nix-2.4pre7307_c1f1e6f.drv | cachix push
 
 #bash .ci/rebuild.sh
 bash .ci/rebase.sh
