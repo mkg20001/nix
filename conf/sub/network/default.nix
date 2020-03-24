@@ -16,7 +16,7 @@ in
     ./dot.nix
   ];
 
-  services.teamviewer.enable = true;
+  # services.teamviewer.enable = true;
 
   # Network manager ftw
   networking.networkmanager.enable = true;
