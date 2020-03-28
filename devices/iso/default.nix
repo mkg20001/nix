@@ -10,6 +10,21 @@ in
     <nixpkgs/nixos/modules/installer/cd-dvd/installation-cd-base.nix>
   ];
 
+  services.xserver.videoDrivers = mkOverride 10 [
+    # def
+    "radeon"
+    "cirrus"
+    "vesa"
+    "vmware"
+    "modesetting"
+    # added
+    "qemu"
+    "virtualbox" # by virtualisation module
+    "nvidia"
+  ];
+
+  virtualisation.virtualbox.guest = { enable = true; x11 = true; };
+
   # Name the child
   networking.hostName = "mkg-iso";
 
