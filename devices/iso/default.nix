@@ -24,6 +24,7 @@ in
   ];
 
   virtualisation.virtualbox.guest = { enable = true; x11 = true; };
+  services.qemuGuest.enable = true;
 
   # Name the child
   networking.hostName = "mkg-iso";

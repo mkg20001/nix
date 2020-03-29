@@ -30,6 +30,7 @@ in
     kseistrup-filters = pkgs.callPackage ./kseistrup-filters { };
 
     atom = pkgs.callPackage ./atom { inherit recreatePackage; };
+    yarn = pkgs.yarn.override { nodejs = node.node_lts; };
 
     break-symmetry = pkgs.callPackage ./break-symmetry { };
 
