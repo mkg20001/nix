@@ -8,7 +8,7 @@
   { name = "google-font-installer"; version = "1.2.0"; root = ./google-font-installer; }
   { name = "wscat"; version = "4.0.0"; root = ./wscat; }
   { name = "json5"; version = "2.1.2"; root = ./json5; }
-  { name = "pkg"; version = "4.4.4"; root = ./pkg; }
+  { name = "pkg"; version = "4.4.5"; root = ./pkg; }
   { name = "ndb"; version = "1.1.5"; root = ./ndb; }
   { name = "0x"; version = "4.9.1"; root = ./0x; }
   { name = "jay-repl"; version = "0.2.2"; root = ./jay-repl; }
