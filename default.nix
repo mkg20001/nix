@@ -9,6 +9,7 @@ let
     portable = f ./devices/portable;
     usb = f ./devices/usb;
     lenovo = f ./devices/lenovo;
+    razer = f ./devices/razer;
   };
 in
 {

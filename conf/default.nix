@@ -110,4 +110,6 @@ with (import ./util.nix lib);
     SystemKeepFree=10G
     SystemMaxUse=1G
   '';
+
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 }
