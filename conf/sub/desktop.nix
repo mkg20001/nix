@@ -2,7 +2,7 @@
 # Enables X11, Pulse & power managment
 # docref: <nixpkgs/..>
 
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, ... } @ args:
 
 with lib;
 
@@ -15,10 +15,12 @@ with lib;
   # Cinnamon
   services.xserver.desktopManager.cinnamon.enable = true;
   services.xserver.displayManager.defaultSession = "cinnamon";
+  environment.sessionVariables.NIX_GSETTINGS_OVERRIDES_DIR = mkForce (import <nixpkgs/nixos/modules/services/x11/desktop-managers/cinnamon.nix> args).config.content.environment.sessionVariables.NIX_GSETTINGS_OVERRIDES_DIR;
 
   # Gnome bits
   services.gnome3.core-os-services.enable = true;
   services.gnome3.core-utilities.enable = true;
+  services.xserver.desktopManager.gnome3.enable = true; # let's just enable all the shit, since it's pretty useful
 
   # Style
   environment.systemPackages = with pkgs; [
