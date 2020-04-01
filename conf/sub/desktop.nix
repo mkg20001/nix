@@ -20,7 +20,7 @@ with lib;
   # Gnome bits
   services.gnome3.core-os-services.enable = true;
   services.gnome3.core-utilities.enable = true;
-  services.xserver.desktopManager.gnome3.enable = true; # let's just enable all the shit, since it's pretty useful
+  # services.xserver.desktopManager.gnome3.enable = true; # let's just enable all the shit, since it's pretty useful - update: breaks some other shit
 
   # Style
   environment.systemPackages = with pkgs; [
