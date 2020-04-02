@@ -16,7 +16,7 @@ with (import ../util.nix lib);
     builders = @/etc/nix/machines
   '';
 
-  nix.buildMachines = builtins.attrValues (loadPriv "build_machines.toml");
+  nix.buildMachines = if config.flags.highSpec then [] else builtins.attrValues (loadPriv "build_machines.toml");
 
 /*
 

@@ -33,6 +33,8 @@ stdenv.mkDerivation {
         exit 2
       fi
 
+      export PATH="${patchelf}/bin:$PATH"
+
       set -euo pipefail
 
       #wrapProgram \"\$elf\" \
