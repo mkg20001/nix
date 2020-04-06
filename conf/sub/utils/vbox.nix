@@ -10,6 +10,6 @@ mkIf config.flags.highSpec {
 
   environment.systemPackages = with pkgs; [
     packer
-    vagrant
+    # vagrant
   ];
 }

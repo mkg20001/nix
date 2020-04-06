@@ -12,6 +12,15 @@ let
   mkgOverlay = (import (builtins.fetchGit mkgRepo)); */
 
   overlay = (import ./pkgs/overlay.nix);
+
+  # <dwarffs> / <dwarffs/flake.nix> also an option if you add it to NIX_PATH
+  dwpath = builtins.fetchGit https://github.com/edolstra/dwarffs;
+  dwarffs =
+    { __toString = _: dwpath; } //
+    (import "${dwpath}/flake.nix").outputs {
+      self = dwarffs;
+      nixpkgs = pkgs;
+    };
 in
   {
     imports =
@@ -23,6 +32,8 @@ in
         # ./hardware-configuration.nix
         # Include per-device config
         device
+
+        dwarffs.nixosModules.dwarffs
       ] ++ (if channel then [
         # Include channel config
         ./channel.nix
