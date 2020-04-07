@@ -22,7 +22,7 @@ with lib;
     # development
     binutils # strings
     strace
-    python3
+    (python3.withPackages(ps: with ps; [ python-language-server ]))
     gnumake # make
     nushell
 
