@@ -13,6 +13,10 @@ mkIf config.flags.highSpec {
   ];
 
   virtualisation.anbox.enable = true;
-} // {
+
   programs.adb.enable = true;
+  users.users.maciej.extraGroups = ["adbusers"];
+  services.udev.packages = [
+    pkgs.android-udev-rules
+  ];
 }

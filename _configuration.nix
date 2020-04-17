@@ -20,6 +20,7 @@ let
     (import "${dwpath}/flake.nix").outputs {
       self = dwarffs;
       nixpkgs = pkgs;
+      nix = pkgs.nix;
     };
 in
   {
@@ -33,7 +34,7 @@ in
         # Include per-device config
         device
 
-        dwarffs.nixosModules.dwarffs
+        # dwarffs.nixosModules.dwarffs
       ] ++ (if channel then [
         # Include channel config
         ./channel.nix
