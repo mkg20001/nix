@@ -74,6 +74,9 @@ with lib;
   services.upower.enable = true;
   services.acpid.enable = true;
 
+  # More stuff
+  services.gvfs.enable = true;
+
   hardware.opengl = {
     enable = true;
     # driSupport32Bit = true;
