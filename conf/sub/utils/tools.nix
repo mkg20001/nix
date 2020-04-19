@@ -25,6 +25,7 @@ with lib;
     (python3.withPackages(ps: with ps; [ python-language-server ]))
     gnumake # make
     nushell
+    rustup
 
     # node
     node_lts # nodejs-12_x
