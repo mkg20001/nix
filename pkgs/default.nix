@@ -19,6 +19,8 @@ in
 
     brother = pkgs.callPackage ./brother { };
 
+    nix = pkgs.nixStable.overrideAttrs(p: p // { patches = [ ./nix.patch ]; });
+
     service-shim = pkgs.writeShellScriptBin "service" (builtins.readFile ./service-shim.sh);
     nix-call-package = pkgs.writeShellScriptBin "nix-call-package" (builtins.readFile ./nix-call-package.sh);
     nix-edit-package = pkgs.writeShellScriptBin "nix-edit-package" (builtins.readFile ./nix-edit-package.sh);

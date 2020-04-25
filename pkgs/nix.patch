@@ -1,0 +1,68 @@
+From 356b8bae4eaec3eb33953d0ef3d2a8bf9d6970d7 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Maciej=20Kr=C3=BCger?= <mkg20001@gmail.com>
+Date: Sat, 25 Apr 2020 16:07:41 +0200
+Subject: [PATCH] feat: add user@address:port support
+
+---
+ src/libstore/ssh.cc | 14 ++++++++++----
+ src/libstore/ssh.hh |  3 ++-
+ 2 files changed, 12 insertions(+), 5 deletions(-)
+
+diff --git a/src/libstore/ssh.cc b/src/libstore/ssh.cc
+index 84548a6e..eba40a04 100644
+--- a/src/libstore/ssh.cc
++++ b/src/libstore/ssh.cc
+@@ -2,14 +2,18 @@
+ 
+ namespace nix {
+ 
+-SSHMaster::SSHMaster(const std::string & host, const std::string & keyFile, bool useMaster, bool compress, int logFD)
+-    : host(host)
+-    , fakeSSH(host == "localhost")
+-    , keyFile(keyFile)
++SSHMaster::SSHMaster(const std::string & hostNport, const std::string & keyFile, bool useMaster, bool compress, int logFD)
++    : keyFile(keyFile)
+     , useMaster(useMaster && !fakeSSH)
+     , compress(compress)
+     , logFD(logFD)
+ {
++    auto res = tokenizeString<std::vector<string>>(hostNport, ":");
++    port = res.size() > 1 ? atoi(res[1].c_str()) : 0; // if we have a port, parse that
++    host = res[0];
++
++    fakeSSH = host == "localhost" && !port;
++
+     if (host == "" || hasPrefix(host, "-"))
+         throw Error("invalid SSH host name '%s'", host);
+ }
+@@ -22,6 +26,8 @@ void SSHMaster::addCommonSSHOpts(Strings & args)
+         args.insert(args.end(), {"-i", keyFile});
+     if (compress)
+         args.push_back("-C");
++    if (port != 0)
++        args.insert(args.end(), {"-p", std::to_string(port)});
+ }
+ 
+ std::unique_ptr<SSHMaster::Connection> SSHMaster::startCommand(const std::string & command)
+diff --git a/src/libstore/ssh.hh b/src/libstore/ssh.hh
+index 4f0f0bd2..bdffdaa1 100644
+--- a/src/libstore/ssh.hh
++++ b/src/libstore/ssh.hh
+@@ -9,12 +9,13 @@ class SSHMaster
+ {
+ private:
+ 
+-    const std::string host;
++    std::string host;
+     bool fakeSSH;
+     const std::string keyFile;
+     const bool useMaster;
+     const bool compress;
+     const int logFD;
++    int port;
+ 
+     struct State
+     {
+-- 
+2.25.1
+
