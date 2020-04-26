@@ -60,8 +60,8 @@ with (import ./util.nix lib);
       # narinfo-cache-positive-ttl = 0
       narinfo-cache-negative-ttl = 0
 
-      # Fix
-      experimental-features = nix-command
+      ## Fix
+      #experimental-features = nix-command
       '';
 
     trustedUsers = [ "root" "@wheel" ];
