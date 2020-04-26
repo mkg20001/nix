@@ -30,7 +30,7 @@ with lib;
     breeze-icons
     breeze-gtk
     # TODO: add patched yaru & ant
-    yaru-blue # from overlay
+    # yaru-blue # from overlay
   ];
 
   fonts.fonts = with pkgs; [

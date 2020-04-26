@@ -27,8 +27,7 @@ in
     nix-visualize = writeShellScriptBinPath "nix-visualize" [ pkgs.graphviz pkgs.nix ] (builtins.readFile ./nix-visualize.sh);
 
     iso2boot = pkgs.callPackage ./iso2boot { };
-    # yaru-blue = pkgs.callPackage ./yaru-blue { inherit recreatePackage };
-    yaru-blue = pkgs.yaru-theme; # TODO: fix yaru patch
+    # yaru-blue = pkgs.callPackage ./yaru-blue { inherit recreatePackage }; # TODO: fix yaru.patch
     kseistrup-filters = pkgs.callPackage ./kseistrup-filters { };
 
     atom = pkgs.callPackage ./atom { inherit recreatePackage; };

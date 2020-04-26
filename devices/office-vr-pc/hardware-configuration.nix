@@ -28,6 +28,11 @@
       fsType = "vfat";
     };
 
+  fileSystems."/tmp" =
+    { device = "/data/tmp";
+      options = [ "bind" ];
+    };
+
   swapDevices = [ ];
 
   nix.maxJobs = lib.mkDefault 16;
