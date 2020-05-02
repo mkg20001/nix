@@ -110,6 +110,7 @@ with (import ./util.nix lib);
     SystemMaxUse=1G
   '';
 
+  boot.extraModulePackages = [ config.boot.kernelPackages.wireguard ];
   boot.kernelPackages = pkgs.linuxPackages; # uses latest LTS (currently 5.4)
   # boot.kernelPackages = pkgs.linuxPackages_latest;
 }
