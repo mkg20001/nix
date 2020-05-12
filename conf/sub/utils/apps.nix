@@ -59,7 +59,7 @@ with lib;
     syncthing-tray
 
     # utils
-    trilium # for notes
+    trilium-desktop # for notes
     pick-colour-picker # color picker that saves picks
     pavucontrol # pulseaudio control
     (hiPrio qpaeq) # pulseaudio equalizer control
