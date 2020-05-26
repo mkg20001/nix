@@ -24,6 +24,7 @@ _ eslint eslint-config-aegir-standalone eslint-plugin-no-only-tests
 _ stylelint
 _ eslint-config-aegir-standalone eslint-plugin-no-only-tests
 _ oclif
+_ taskbook
 
 # thingy
 _ thingycreate
