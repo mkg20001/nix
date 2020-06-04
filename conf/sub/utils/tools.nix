@@ -108,5 +108,8 @@ with lib;
   # docref: <nixpkgs/nixos/modules/services/monitoring/netdata.nix>
   services.netdata.enable = true;
 
-  services.netdata.config.global."OOM score" = 0;
+  services.netdata.config.global = {
+    "OOM score" = 0;
+    "error log" = "syslog";
+  };
 }
