@@ -24,7 +24,7 @@ with lib;
     strace
     (python3.withPackages(ps: with ps; [ /* python-language-server */ ]))
     gnumake # make
-    nushell
+    # nushell
     rustup
 
     # node
