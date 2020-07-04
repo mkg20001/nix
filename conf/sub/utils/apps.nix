@@ -63,6 +63,7 @@ with lib;
     pick-colour-picker # color picker that saves picks
     pavucontrol # pulseaudio control
     (hiPrio qpaeq) # pulseaudio equalizer control
+    jdownloader # the one and only
 
     vlc # player
 
@@ -73,7 +74,7 @@ with lib;
 
     # work
     thunderbird # email client
-    twinkle # twinkle SIP
+    #twinkle # twinkle SIP
     heimer
     # paperwork # openpaper.work burocrazy managment
   ];

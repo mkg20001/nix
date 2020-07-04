@@ -34,6 +34,7 @@ in
     yarn = pkgs.yarn.override { nodejs = node.node_lts; };
 
     break-symmetry = pkgs.callPackage ./break-symmetry { };
+    jdownloader = pkgs.callPackage ./jdownloader { };
 
     # space fix
     firmwareLinuxNonfree = pkgs.callPackage ./firmware-linux-nonfree { inherit recreatePackage; };
