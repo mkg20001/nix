@@ -15,6 +15,7 @@ in
 {
   imports = [
     ./cjdns.nix
+    ./syncthing.nix
     ./dot.nix
   ];
 
