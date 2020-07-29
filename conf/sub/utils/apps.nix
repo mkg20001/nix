@@ -42,7 +42,7 @@ with lib;
 
     # instant messaging
     tdesktop # telegram.org
-    riot-desktop # riot.im
+    element-desktop # riot.im
 
     # remote desktop
     anydesk
