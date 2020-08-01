@@ -44,8 +44,8 @@ with lib;
     # gitAndTools.diff-so-fancy
 
     # pentesting tools
-    wireshark # old but gold, sniffer
-    mitmproxy # mitm
+    # wireshark # old but gold, sniffer
+    # mitmproxy # mitm
     ettercap # ARP/DHCP spoofing
     termshark # wireshark for the terminal
     nmap # address/service scanning
@@ -103,6 +103,9 @@ with lib;
   };
 
   location.provider = "geoclue2";
+
+  users.users.maciej.extraGroups = [ "wireshark" ];
+  programs.wireshark.enable = true;
 
   # Adds netdata service
   # docref: <nixpkgs/nixos/modules/services/monitoring/netdata.nix>
