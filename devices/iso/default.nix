@@ -24,16 +24,19 @@ in
     "i915"
     "nvidia"
 
+    # remember: "nix search xf86-video" lists the drivers
+
     # inxi
     # list is from sgfxi plus non-free drivers, plus ARM drivers
-    "amdgpu" "apm" "ark" "armsoc" "atimisc" "ati"
-    "chips" "cirrus" "cyrix" "fbdev" "fbturbo" "fglrx" "geode" "glide" "glint"
-    "i128" "i740" "i810-dec100" "i810e" "i810" "i815" "i830" "i845" "i855" "i865" "i915" "i945" "i965"
+    # broken ones commented out
+    "amdgpu" "apm" "armsoc" "atimisc" "ati" # "ark"
+    "chips" "cirrus" "cyrix" "fbdev" "fbturbo" "fglrx" "glint" # "geode" "glide"
+    "i740" "i810-dec100" "i810e" "i810" "i815" "i830" "i845" "i855" "i865" "i915" "i945" "i965" # "i128"
     "iftv" "imstt" "intel" "ivtv" "mach64" "mesa" "mga" "modesetting"
-    "neomagic" "newport" "nouveau" "nsc" "nvidia" "nv" "openchrome" "r128" "radeonhd" "radeon"
-    "rendition" "s3virge" "s3" "savage" "siliconmotion" "sisimedia" "sisusb" "sis"
+    "neomagic" "nouveau" "nsc" "nvidia" "nv" "openchrome" "r128" "radeonhd" "radeon" # "newport"
+    "rendition" "s3" "siliconmotion" "sisimedia" "sisusb" "sis" # "s3virge" "savage"
     "sunbw2" "suncg14" "suncg3" "suncg6" "sunffb" "sunleo" "suntcx"
-    "tdfx" "tga" "trident" "tseng" "unichrome" "v4l" "vboxvideo" "vesa" "vga" "via" "vmware" "vmwgfx"
+    "tdfx" "trident" "tseng" "unichrome" "vboxvideo" "vesa" "vga" "via" "vmware" "vmwgfx" # "tga" "v4l"
   ];
 
   virtualisation.virtualbox.guest = { enable = true; x11 = true; };
