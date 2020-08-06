@@ -20,6 +20,7 @@ in
     # added
     "qemu"
     "virtualbox" # by virtualisation module
+    "i915"
     "nvidia"
   ];
 
