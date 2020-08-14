@@ -1,0 +1,162 @@
+diff --git a/src/build-remote/build-remote.cc b/src/build-remote/build-remote.cc
+index 69d1c6f7e46..4e8e8de9b52 100644
+--- a/src/build-remote/build-remote.cc
++++ b/src/build-remote/build-remote.cc
+@@ -142,6 +142,7 @@ static int _main(int argc, char * * argv)
+                             }
+                         }
+                         if (!free) {
++                            debug("skipping '%s': no slots free", m.storeUri);
+                             continue;
+                         }
+                         bool best = false;
+@@ -162,7 +163,15 @@ static int _main(int argc, char * * argv)
+                             bestLoad = load;
+                             bestSlotLock = std::move(free);
+                             bestMachine = &m;
++                        } else {
++                            debug("skipping '%s': there is a better machine", m.storeUri);
+                         }
++                    } else {
++                            debug("skipping '%s': does not meet all condiditions\n - enabled = %s\n - system: type is matching = %s / required %s / got %s\n - features: all supported = %s / mandatory supported = %s / required %s / got %s", m.storeUri,
++                                m.enabled,
++                                std::find(m.systemTypes.begin(), m.systemTypes.end(), neededSystem) != m.systemTypes.end(), neededSystem, join(m.systemTypes, ","),
++                                m.allSupported(requiredFeatures), m.mandatoryMet(requiredFeatures), "", ""
++                            );
+                     }
+                 }
+ 
+diff --git a/src/libstore/build.cc b/src/libstore/build.cc
+index 9c6aedfa51c..0a7a45422ce 100644
+--- a/src/libstore/build.cc
++++ b/src/libstore/build.cc
+@@ -1468,6 +1468,7 @@ void DerivationGoal::tryToBuild()
+                 return;
+             case rpDecline:
+                 /* We should do it ourselves. */
++                debug("skip remote build...");
+                 break;
+         }
+     }
+@@ -1738,7 +1739,10 @@ void DerivationGoal::buildDone()
+ 
+ HookReply DerivationGoal::tryBuildHook()
+ {
+-    if (!worker.tryBuildHook || !useDerivation) return rpDecline;
++    if (!worker.tryBuildHook || !useDerivation) {
++        debug("ignore build hook for '%s'...", worker.store.printStorePath(drvPath));
++        return rpDecline;
++    }
+ 
+     if (!worker.hook)
+         worker.hook = std::make_unique<HookInstance>();
+diff --git a/src/libstore/ssh.cc b/src/libstore/ssh.cc
+index 84548a6e4eb..0d3c4eeb5b4 100644
+--- a/src/libstore/ssh.cc
++++ b/src/libstore/ssh.cc
+@@ -2,14 +2,18 @@
+ 
+ namespace nix {
+ 
+-SSHMaster::SSHMaster(const std::string & host, const std::string & keyFile, bool useMaster, bool compress, int logFD)
+-    : host(host)
+-    , fakeSSH(host == "localhost")
+-    , keyFile(keyFile)
++SSHMaster::SSHMaster(const std::string & hostNport, const std::string & keyFile, bool useMaster, bool compress, int logFD)
++    : keyFile(keyFile)
+     , useMaster(useMaster && !fakeSSH)
+     , compress(compress)
+     , logFD(logFD)
+ {
++    auto res = split(hostNport, ':');
++    port = res.size() > 1 ? atoi(res[1].c_str()) : 0; // if we have a port, parse that
++    host = res[0];
++
++    fakeSSH = host == "localhost" && !port;
++
+     if (host == "" || hasPrefix(host, "-"))
+         throw Error("invalid SSH host name '%s'", host);
+ }
+@@ -22,6 +26,8 @@ void SSHMaster::addCommonSSHOpts(Strings & args)
+         args.insert(args.end(), {"-i", keyFile});
+     if (compress)
+         args.push_back("-C");
++    if (port != 0)
++        args.insert(args.end(), {"-p", std::to_string(port)});
+ }
+ 
+ std::unique_ptr<SSHMaster::Connection> SSHMaster::startCommand(const std::string & command)
+diff --git a/src/libstore/ssh.hh b/src/libstore/ssh.hh
+index 4f0f0bd29f9..bdffdaa14d8 100644
+--- a/src/libstore/ssh.hh
++++ b/src/libstore/ssh.hh
+@@ -9,12 +9,13 @@ class SSHMaster
+ {
+ private:
+ 
+-    const std::string host;
++    std::string host;
+     bool fakeSSH;
+     const std::string keyFile;
+     const bool useMaster;
+     const bool compress;
+     const int logFD;
++    int port;
+ 
+     struct State
+     {
+diff --git a/src/libutil/util.cc b/src/libutil/util.cc
+index 012f1d07139..8168ae8e12b 100644
+--- a/src/libutil/util.cc
++++ b/src/libutil/util.cc
+@@ -1308,6 +1308,32 @@ bool hasSuffix(std::string_view s, std::string_view suffix)
+         && s.substr(s.size() - suffix.size()) == suffix;
+ }
+ 
++std::vector<std::string> split(const std::string& value,
++                               char separator)
++{
++    std::vector<std::string> result;
++    std::string::size_type p = 0;
++    std::string::size_type q;
++    while ((q = value.find(separator, p)) != std::string::npos)
++    {
++        result.emplace_back(value, p, q - p);
++        p = q + 1;
++    }
++    result.emplace_back(value, p);
++    return result;
++}
++
++std::string join(const std::vector<std::string> strings,
++                        const char* delim)
++{
++    std::ostringstream imploded;
++    std::copy(strings.begin(), strings.end(),
++               std::ostream_iterator<std::string>(imploded, delim));
++    std::string res = imploded.str();
++    res.erase(res.size() - 1);
++    return res;
++}
++
+ 
+ std::string toLower(const std::string & s)
+ {
+diff --git a/src/libutil/util.hh b/src/libutil/util.hh
+index 3bfebcd153a..1ca9d805384 100644
+--- a/src/libutil/util.hh
++++ b/src/libutil/util.hh
+@@ -409,6 +409,13 @@ bool hasPrefix(const string & s, const string & prefix);
+ /* Return true iff `s' ends in `suffix'. */
+ bool hasSuffix(std::string_view s, std::string_view suffix);
+ 
++/* Returns a vector with the result of the split */
++std::vector<std::string> split(const std::string& value,
++                               char separator);
++
++/* Returns a stream with the joined string */
++std::string join(const std::vector<std::string> strings,
++                        const char* delim);
+ 
+ /* Convert a string to lower case. */
+ std::string toLower(const std::string & s);

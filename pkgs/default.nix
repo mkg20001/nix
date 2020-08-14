@@ -13,10 +13,6 @@ let
     orig.overrideAttrs (orig: override);
 in
   {
-    thunderbird = pkgs.thunderbird.override {
-      enableOfficialBranding = true;
-    };
-
     brother = pkgs.callPackage ./brother { };
 
     nix = pkgs.nixStable.overrideAttrs(p: p // { patches = [ ./nix.patch ]; });
