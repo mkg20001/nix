@@ -15,7 +15,7 @@ in
 {
   imports = [
     ./cjdns.nix
-    ./syncthing.nix
+    ./screen.nix
     ./dot.nix
   ];
 
@@ -63,6 +63,8 @@ in
 
     keybase keybase-gui # bruh
   ];
+
+  services.i2p.enable = true;
 
   # Enable the yggdrasil daemon.
   # docref: <nixpkgs/nixos/modules/services/networking/yggdrasil.nix>
