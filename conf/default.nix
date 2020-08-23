@@ -124,6 +124,7 @@ with (import ./util.nix lib);
   systemd.services.mkg-up = {
     startAt = "hourly";
     script = (builtins.readFile ../up.sh);
+    path = with pkgs; [ jq curl config.nix.package ];
   };
   # update os
   services.sunshine = {
