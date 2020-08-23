@@ -119,4 +119,23 @@ with (import ./util.nix lib);
   hardware.bluetooth = {
     enable = true;
   };
+
+  # get newest rev
+  systemd.services.mkg-up = {
+    startAt = "hourly";
+    script = (builtins.readFile ../up.sh);
+  };
+  # update os
+  services.sunshine = {
+    enable = true;
+    extraConfig = ''
+      gc: {}
+      user:
+        gc: {}
+        upgrade: {}
+      system:
+        gc: {}
+        upgrade: {}
+    '';
+  };
 }

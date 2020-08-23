@@ -12,16 +12,7 @@ let
   mkgOverlay = (import (builtins.fetchGit mkgRepo)); */
 
   overlay = (import ./pkgs/overlay.nix);
-
-  # <dwarffs> / <dwarffs/flake.nix> also an option if you add it to NIX_PATH
-  dwpath = builtins.fetchGit https://github.com/edolstra/dwarffs;
-  dwarffs =
-    { __toString = _: dwpath; } //
-    (import "${dwpath}/flake.nix").outputs {
-      self = dwarffs;
-      nixpkgs = pkgs;
-      nix = pkgs.nix;
-    };
+  sunshine = builtins.fetchGit https://github.com/ssd-solar/sunshine;
 in
   {
     imports =
@@ -33,8 +24,7 @@ in
         # ./hardware-configuration.nix
         # Include per-device config
         device
-
-        # dwarffs.nixosModules.dwarffs
+        "${sunshine}/module.nix"
       ] ++ (if channel then [
         # Include channel config
         ./channel.nix
@@ -64,8 +54,8 @@ in
     # compatible, in order to avoid breaking some software such as database
     # servers. You should change this only after NixOS release notes say you
     # should.
-    # system.stateVersion = "20.03"; # Did you read the comment?
-    system.stateVersion = "unstable"; # Did you read the comment?
+    system.stateVersion = "20.03"; # Did you read the comment?
+    # system.stateVersion = "unstable"; # Did you read the comment?
 
     # system.autoUpgrade.enable = true;
     # system.autoUpgrade.channel = https://nixos.org/channels/nixos-19.09;

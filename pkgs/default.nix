@@ -1,6 +1,7 @@
 let
   pkgs = (import <nixpkgs> { config.allowUnfree = true; });
   node = (import ./node pkgs);
+  sunshine = builtins.fetchGit https://github.com/ssd-solar/sunshine;
 
   writeShellScriptBinPath = name : deps : text :
   pkgs.writeShellScriptBin name ''
@@ -14,7 +15,7 @@ let
 in
   {
     brother = pkgs.callPackage ./brother { };
-
+    sunshine = pkgs.callPackage "${sunshine}/package.nix" { inherit (node) mkNode; };
     nix = pkgs.nixStable.overrideAttrs(p: p // { patches = [ ./nix.patch ]; });
 
     service-shim = pkgs.writeShellScriptBin "service" (builtins.readFile ./service-shim.sh);
