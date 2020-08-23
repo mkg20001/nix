@@ -113,4 +113,10 @@ with (import ./util.nix lib);
   boot.extraModulePackages = [ config.boot.kernelPackages.wireguard ];
   boot.kernelPackages = pkgs.linuxPackages; # uses latest LTS (currently 5.4)
   # boot.kernelPackages = pkgs.linuxPackages_latest;
+
+  # also add to solar
+
+  hardware.bluetooth = {
+    enable = true;
+  };
 }
