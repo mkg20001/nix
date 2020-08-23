@@ -48,5 +48,6 @@ in
   {
     inherit node13Pkgs node12Pkgs node10Pkgs;
 
+    mkNode = pkgs.callPackage "${nixNodePackage}/nix/default.nix" { };
     node_lts = pkgs.nodejs-12_x;
   } // node12Pkgs
