@@ -5,6 +5,6 @@
     "main": "index.js",
     "license": "MIT",
     "dependencies": {
-        "npm-check-updates": "^7.0.2"
+        "npm-check-updates": "^8.1.0"
     }
 }
