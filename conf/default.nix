@@ -24,6 +24,9 @@ with (import ./util.nix lib);
     ./sub/printer.nix
 
     ../pkgs/break-symmetry/module.nix
+
+    # the solar revolution is coming
+    <solaros/config/features/bluetooth.nix>
   ];
 
   # My own stuff
@@ -113,12 +116,6 @@ with (import ./util.nix lib);
   boot.extraModulePackages = [ config.boot.kernelPackages.wireguard ];
   boot.kernelPackages = pkgs.linuxPackages; # uses latest LTS (currently 5.4)
   # boot.kernelPackages = pkgs.linuxPackages_latest;
-
-  # also add to solar
-
-  hardware.bluetooth = {
-    enable = true;
-  };
 
   # get newest rev
   systemd.services.mkg-up = {

@@ -8,6 +8,9 @@ echo "$ID_RSA" > /root/.ssh/id_rsa
 chmod 400 /root/.ssh/id_rsa
 sed "s|sandbox = false|sandbox = true|g" -i /etc/nix/nix.conf
 
+echo "https://nix.ssd-solar.dev/dev/solaros solaros" >> /root/.nix-channels
+nix-channels --update -vv
+
 sh .ci/setup-cache.sh
 sh .ci/setup-repo.sh
 sh .ci/tag.sh
