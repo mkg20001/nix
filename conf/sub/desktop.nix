@@ -15,7 +15,6 @@ with lib;
   # Cinnamon
   services.xserver.desktopManager.cinnamon.enable = true;
   services.xserver.displayManager.defaultSession = "cinnamon";
-  environment.sessionVariables.NIX_GSETTINGS_OVERRIDES_DIR = mkForce (import <nixpkgs/nixos/modules/services/x11/desktop-managers/cinnamon.nix> args).config.content.environment.sessionVariables.NIX_GSETTINGS_OVERRIDES_DIR;
 
   # Gnome bits
   services.gnome3.core-os-services.enable = true;
