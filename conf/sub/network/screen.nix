@@ -17,6 +17,19 @@ let
   } // extra;
   };
 in
-(serv "syncthing" "${pkgs.syncthing}/bin/syncthing" {}) //
-(serv "tor" "${pkgs.tor}/bin/tor" {})
+# (serv "syncthing" "${pkgs.syncthing}/bin/syncthing" {}) //
+(serv "tor" "${pkgs.tor}/bin/tor" {}) //
+{
+  systemd.services = {
+    syncthing = {
+      wantedBy = [ "multi-user.target" ]; 
+      after = [ "network.target" ];
+      description = "Synchronisation service";
+      serviceConfig = {
+        User = "maciej";
+        ExecStart = "${pkgs.syncthing}/bin/syncthing";
+      };
+    };
+  };
+}
 
