@@ -59,6 +59,13 @@
         - address_data: 37.252.185.232
           tls_auth_name: "dot1.appliedprivacy.net"
           tls_port: 443 # In case default 853 is blocked
+      # The Surfnet/Sinodun servers
+        - address_data: 145.100.185.15
+          tls_auth_name: "dnsovertls.sinodun.com"
+          tls_pubkey_pinset:
+            - digest: "sha256"
+              value: 62lKu9HsDVbyiPenApnc4sfmSYTHOVfFgL3pyB+cBL4=
+
       ## IPv6 ##
       # The Uncensored DNS server
         - address_data: 2a01:3a0:53:53::0
