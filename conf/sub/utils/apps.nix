@@ -7,6 +7,8 @@ with lib;
 {
   imports = [];
 
+  programs.steam.enable = true;
+
   environment.systemPackages = with pkgs; [
     # editors
     atom # the one and only

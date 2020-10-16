@@ -41,7 +41,7 @@ BrowseProtocols all
     enable = true;
     netDevices = {
       name = {
-        ip = "192.168.178.130";
+        ip = "192.168.77.130";
         model = "MFC-J890DW"; # ex MFC-XXXX
       };
     };
