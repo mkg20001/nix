@@ -17,6 +17,8 @@ in
 
   iso = (e ./devices/iso).config.system.build.isoImage;
 
+  vme = (e ./devices/vme).config.system.build.virtualBoxOVA;
+
   current =
     if builtins.pathExists ./device
       then e ./device
