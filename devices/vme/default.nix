@@ -11,13 +11,17 @@ with lib;
     # <nixpkgs/nixos/modules/installer/cd-dvd/channel.nix>
   ];
 
+  environment.systemPackages = [
+    (pkgs.writeShellScriptBin "bootstrap" (builtins.readFile ../../bootstrap-vm.sh))
+  ];
+
   users.users.maciej.password = "1234potato";
 
   # FIXME: UUID detection is currently broken
   boot.loader.grub.fsIdentifier = "provided";
 
   # Allow mounting of shared folders.
-  users.users.demo.extraGroups = [ "vboxsf" ];
+  users.users.maciej.extraGroups = [ "vboxsf" ];
 
   # Add some more video drivers to give X11 a shot at working in
   # VMware and QEMU.
