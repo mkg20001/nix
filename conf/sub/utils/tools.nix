@@ -67,6 +67,7 @@ with lib;
     file
     macchanger
     screen
+    pueue
     nix-call-package
     nix-edit-package
     nix-visualize
