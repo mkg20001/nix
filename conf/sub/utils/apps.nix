@@ -66,6 +66,7 @@ with lib;
     pavucontrol # pulseaudio control
     (hiPrio qpaeq) # pulseaudio equalizer control
     jdownloader # the one and only
+    flameshot # screenshot tool
 
     vlc # player
 

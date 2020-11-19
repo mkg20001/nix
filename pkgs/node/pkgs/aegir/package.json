@@ -5,6 +5,6 @@
     "main": "index.js",
     "license": "MIT",
     "dependencies": {
-        "aegir": "^26.0.0"
+        "aegir": "^28.1.0"
     }
 }

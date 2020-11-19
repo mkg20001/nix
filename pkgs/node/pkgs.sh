@@ -27,6 +27,7 @@ _ stylelint
 _ eslint-config-aegir-standalone
 _ oclif
 _ taskbook
+_ localtunnel localtunnel
 
 # thingy
 _ thingycreate
