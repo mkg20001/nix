@@ -16,7 +16,7 @@ with lib;
     clipit
 
     # deploy
-    nixops
+    # nixops # TODO: re-enable after v2 mess
     terraform
 
     # development
