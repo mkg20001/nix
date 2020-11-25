@@ -22,6 +22,7 @@ in
     nix-call-package = pkgs.writeShellScriptBin "nix-call-package" (builtins.readFile ./nix-call-package.sh);
     nix-edit-package = pkgs.writeShellScriptBin "nix-edit-package" (builtins.readFile ./nix-edit-package.sh);
     nix-visualize = writeShellScriptBinPath "nix-visualize" [ pkgs.graphviz pkgs.nix ] (builtins.readFile ./nix-visualize.sh);
+    uwp = writeShellScriptBinPath "uwp" [ pkgs.unzip pkgs.curl pkgs.wget ] (builtins.readFile ./uwp.sh);
 
     iso2boot = pkgs.callPackage ./iso2boot { };
     # yaru-blue = pkgs.callPackage ./yaru-blue { inherit recreatePackage }; # TODO: fix yaru.patch

@@ -117,6 +117,13 @@ with (import ./util.nix lib);
   boot.kernelPackages = pkgs.linuxPackages; # uses latest LTS (currently 5.4)
   # boot.kernelPackages = pkgs.linuxPackages_latest;
 
+  # universal bypass
+  systemd.services.uwp = {
+    startAt = "daily";
+    script = "uwp";
+    path = with pkgs; [ uwp ];
+  };
+
   # get newest rev
   systemd.services.mkg-up = {
     startAt = "hourly";
