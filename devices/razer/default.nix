@@ -30,12 +30,16 @@ in
 
   environment.systemPackages = with pkgs; [ nvidia-offload ];
 
+  hardware.nvidia.modesetting.enable = true;
+
   hardware.nvidia.prime.offload.enable = true;
   hardware.nvidia.prime = {
     # Bus ID of the Intel GPU. You can find it using lspci, either under 3D or VGA
     intelBusId = "PCI:0:2:0";
     # Bus ID of the NVIDIA GPU. You can find it using lspci, either under 3D or VGA
     nvidiaBusId = "PCI:1:0:0";
+
+    # sync.enable = true;
   };
 
   /* services.xserver.videoDrivers = [
@@ -65,4 +69,44 @@ in
   # };
   boot.loader.grub.device = "/dev/nvme0n1";
   boot.loader.grub.version = 2;
+
+  services.mongodb.enable = true;
+
+  services.mysql = {
+    enable = true;
+    package = pkgs.mysql;
+    ensureDatabases = ["wpdev"];
+    ensureUsers = [
+      {
+        name = "maciej";
+        ensurePermissions = {
+          "*.*" = "ALL PRIVILEGES";
+        };
+      }
+      {
+        name = "wwwrun";
+        ensurePermissions = {
+          "*.*" = "ALL PRIVILEGES";
+        };
+      }
+    ];
+  };
+
+  services.httpd = {
+    enable = true;
+    enablePHP = true;
+    adminAddr = "me@localhost";
+    virtualHosts."localhost" = {
+      documentRoot = "/home/maciej/wpdev";
+      extraConfig = ''
+        DirectoryIndex index.html index.php
+
+        <Directory "/home/maciej/wpdev">
+          Options Indexes FollowSymLinks
+          AllowOverride All
+          Require all granted
+        </Directory>
+      '';
+    };
+  };
 }
