@@ -8,7 +8,7 @@ with lib;
 mkIf config.flags.highSpec {
   environment.systemPackages = with pkgs; [
     android-studio
-    apktool
+    # apktool
     fastlane
   ];
 
