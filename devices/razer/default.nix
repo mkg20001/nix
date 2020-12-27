@@ -109,4 +109,9 @@ in
       '';
     };
   };
+
+  security.sudo.extraConfig = ''
+maciej ALL=(ALL) NOPASSWD:/run/current-system/sw/bin/insmod /home/maciej/Projekte/sig-exec-module/cmake-build-debug/src/sig-exec.ko
+maciej ALL=(ALL) NOPASSWD:/run/current-system/sw/bin/rmmod sig_exec
+  '';
 }
