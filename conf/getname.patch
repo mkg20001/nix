@@ -1,0 +1,19 @@
+diff --git a/fs/namei.c b/fs/namei.c
+index 5b5759d70..6a96ff745 100644
+--- a/fs/namei.c
++++ b/fs/namei.c
+@@ -202,12 +202,14 @@ getname_flags(const char __user *filename, int flags, int *empty)
+ 	audit_getname(result);
+ 	return result;
+ }
++EXPORT_SYMBOL(getname_flags);
+ 
+ struct filename *
+ getname(const char __user * filename)
+ {
+ 	return getname_flags(filename, 0, NULL);
+ }
++EXPORT_SYMBOL(getname);
+ 
+ struct filename *
+ getname_kernel(const char * filename)

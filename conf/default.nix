@@ -36,10 +36,6 @@ with (import ./util.nix lib);
   console = {
     font = "Lat2-Terminus16";
     keyMap = "de";
-
-    # Setup some extra TTYs, because we can ^^
-    # docref: <nixpkgs/nixos/modules/tasks/kbd.nix>
-    extraTTYs = ["tty7" "tty8" "tty9"];
   };
 
   i18n.defaultLocale = "de_DE.UTF-8";
@@ -115,6 +111,15 @@ with (import ./util.nix lib);
 
   boot.extraModulePackages = [ config.boot.kernelPackages.wireguard ];
   boot.kernelPackages = pkgs.linuxPackages; # uses latest LTS (currently 5.4)
+  
+  boot.kernelPatches = lib.singleton {
+    name = "getname";
+    patch = ./getname.patch;
+    /* extraConfig = ''
+      LIRC y
+    ''; */
+  };
+
   # boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # universal bypass
