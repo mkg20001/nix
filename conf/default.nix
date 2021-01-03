@@ -137,7 +137,7 @@ with (import ./util.nix lib);
   };
   # update os
   services.sunshine = {
-    # enable = true;
+    enable = true;
     extraConfig = ''
 gc:
   onInterval: true # true=daily, false=never or string containing cron interval
