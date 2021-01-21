@@ -16,7 +16,7 @@ in
   {
     brother = pkgs.callPackage ./brother { };
     sunshine = pkgs.callPackage "${sunshine}/package.nix" { inherit (node) mkNode; };
-    nix = pkgs.nixStable.overrideAttrs(p: p // { patches = [ ./nix.patch ]; });
+    # nix = pkgs.nixStable.overrideAttrs(p: p // { patches = [ ./nix.patch ]; });
 
     service-shim = pkgs.writeShellScriptBin "service" (builtins.readFile ./service-shim.sh);
     nix-call-package = pkgs.writeShellScriptBin "nix-call-package" (builtins.readFile ./nix-call-package.sh);

@@ -8,12 +8,15 @@ with (import ./util.nix lib);
     ./mod/shell-links.nix
     ./mod/shell-aliases.nix
 
+    ./sub/flakes.nix
+
     ./sub/network
     ./sub/utils
 
     ./sub/builders.nix
     ./sub/cron.nix
     ./sub/desktop.nix
+    ./sub/japan.nix
     (import ./sub/oom.nix [
       # OOM: max 1000, min -1000. the higher the faster killed
       { proc = "telegram-desktop"; score = 1000; }
