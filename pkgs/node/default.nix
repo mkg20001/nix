@@ -41,13 +41,13 @@ let
         }))
       ));
 
-  node13Pkgs = iterate pkgs.nodejs-13_x;
-  node12Pkgs = iterate pkgs.nodejs-12_x;
-  node10Pkgs = iterate pkgs.nodejs-10_x;
+  node14Pkgs = iterate pkgs.nodejs-14_x;
+  node15Pkgs = iterate pkgs.nodejs-15_x;
 in
   {
-    inherit node13Pkgs node12Pkgs node10Pkgs;
+    inherit node15Pkgs node14Pkgs;
 
     mkNode = pkgs.callPackage "${nixNodePackage}/nix/default.nix" { };
-    node_lts = pkgs.nodejs-12_x;
-  } // node12Pkgs
+    node_lts = pkgs.nodejs-14_x;
+    node_lts_pkgs = node14Pkgs;
+  } // node14Pkgs

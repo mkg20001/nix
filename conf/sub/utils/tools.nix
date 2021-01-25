@@ -92,7 +92,7 @@ with lib;
     # fun
     lolcat
     cmatrix
-  ] ++ builtins.attrValues(pkgs.node10Pkgs);
+  ] ++ builtins.attrValues(pkgs.node_lts_pkgs);
 
   services.geoclue2 = {
     enable = true;
