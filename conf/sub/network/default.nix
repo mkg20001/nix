@@ -64,7 +64,7 @@ in
     keybase keybase-gui # bruh
   ];
 
-  services.i2p.enable = true;
+  services.i2p.enable = config.flags.highSpec;
 
   # Enable the yggdrasil daemon.
   # docref: <nixpkgs/nixos/modules/services/networking/yggdrasil.nix>
