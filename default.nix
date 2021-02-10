@@ -10,6 +10,7 @@ let
     usb = f ./devices/usb;
     lenovo = f ./devices/lenovo;
     razer = f ./devices/razer;
+		work = f ./devices/work;
   };
 in
 {
