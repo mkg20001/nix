@@ -110,7 +110,7 @@ with lib;
 
   # Adds netdata service
   # docref: <nixpkgs/nixos/modules/services/monitoring/netdata.nix>
-  services.netdata.enable = true;
+  services.netdata.enable = false;
 
   services.netdata.config.global = {
     "OOM score" = 0;

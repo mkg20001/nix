@@ -21,4 +21,8 @@
   # Use MBR
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";
+
+  services.xserver.displayManager.sessionCommands = ''
+    ${pkgs.xorg.xinput}/bin/xinput disable 'SynPS/2 Synaptics TouchPad'
+  '';
 }
