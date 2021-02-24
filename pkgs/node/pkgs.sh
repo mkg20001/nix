@@ -8,7 +8,7 @@ _() {
 _ nix-dev
 
 # tools
-_ aegir
+# _ aegir
 _ nodemon
 _ parcel
 _ http-server

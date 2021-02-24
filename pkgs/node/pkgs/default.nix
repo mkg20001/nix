@@ -1,6 +1,5 @@
 [
   { name = "nix-dev"; version = "0.1.2"; root = ./nix-dev; }
-  { name = "aegir"; version = "31.0.0"; root = ./aegir; }
   { name = "nodemon"; version = "2.0.7"; root = ./nodemon; }
   { name = "parcel"; version = "1.12.4"; root = ./parcel; }
   { name = "http-server"; version = "0.12.3"; root = ./http-server; }
