@@ -30,6 +30,8 @@ with lib;
     # node
     node_lts # nodejs-12_x
     yarn
+    yarnPatched
+    yarnRoutine
 
     # overmind
     overmind # Process manager for Procfile-based projects

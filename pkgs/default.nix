@@ -24,6 +24,9 @@ in
     nix-visualize = writeShellScriptBinPath "nix-visualize" [ pkgs.graphviz pkgs.nix ] (builtins.readFile ./nix-visualize.sh);
     uwp = writeShellScriptBinPath "uwp" [ pkgs.unzip pkgs.curl pkgs.wget ] (builtins.readFile ./uwp.sh);
 
+    yarnPatched = writeShellScriptBinPath "yyarn" [ pkgs.yarn ] (builtins.readFile ./yarn.sh);
+    yarnRoutine = writeShellScriptBinPath "yroutine" [ pkgs.yarn ] (builtins.readFile ./yroutine.sh);
+
     iso2boot = pkgs.callPackage ./iso2boot { };
     # yaru-blue = pkgs.callPackage ./yaru-blue { inherit recreatePackage }; # TODO: fix yaru.patch
     kseistrup-filters = pkgs.callPackage ./kseistrup-filters { };
