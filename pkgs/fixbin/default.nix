@@ -1,12 +1,13 @@
 { stdenv
 , makeWrapper
 , patchelf
+, lib
 
 , name
 , deps
 }:
 
-with stdenv.lib;
+with lib;
 
 stdenv.mkDerivation {
   inherit name;

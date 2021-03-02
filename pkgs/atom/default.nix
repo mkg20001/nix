@@ -2,9 +2,10 @@
 , atom
 , callPackage
 , recreatePackage
+, lib
 }:
 
-with stdenv.lib;
+with lib;
 
 let
   wakafix = callPackage ./wakafix.nix {};
