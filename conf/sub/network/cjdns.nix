@@ -5,28 +5,68 @@
 
 with (import ../../util.nix lib);
 
+let
+  cfg = config.mod.cjdns;
+in
 {
-  imports = [];
+  options = {
+    mod.cjdns = {
+      port = mkOption {
+        type = types.int;
+        default = 12024;
+      };
 
-  # Enable the cjdns daemon.
-  services.cjdns = {
-    enable = true;
-
-    ETHInterface = {
-      bind = "all";
-      beacon = 2; # 0=off, 1=accept, 2=accept & send
-      # connectTo = {};
-    };
-
-    UDPInterface = {
-      bind = "0.0.0.0:12024";
-      connectTo = loadPriv "cjdns_nodes.toml";
+      passwords = mkOption {
+        type = types.attrs;
+        # default = (loadPriv "cjdns_pw.toml").${machine};
+        default = {};
+      };
     };
   };
 
-  # TODO: fw
+  config = {
+    # Enable the cjdns daemon.
+    services.cjdns = {
+      enable = true;
 
-  environment.systemPackages = with pkgs; [
-    yrd
-  ];
+      ETHInterface = # otherwise the assertion fails
+        {
+          bind = "all";
+          beacon = 2; # 0=off, 1=accept, 2=accept & send
+          # connectTo = {};
+        };
+
+      extraConfig = {
+        authorizedPasswords = mapAttrsToList (user: password: { inherit user password; }) cfg.passwords;
+
+        interfaces = {
+          UDPInterface = [
+            {
+              bind = "0.0.0.0:${toString cfg.port}";
+              connectTo = filterAttrs (n: v: v.hostname != config.networking.hostName) # prevent connecting to ourselves
+                (loadPriv "cjdns_nodes.toml");
+
+              beacon = 2;
+              beconDevices = ["all"];
+              beaconPort = cfg.port + 1;
+            }
+            {
+              bind = "[::]:${toString cfg.port}";
+
+              beacon = 2;
+            }
+          ];
+        };
+      };
+    };
+
+    networking.firewall.allowedUDPPorts = [
+      cfg.port
+      (cfg.port + 1)
+    ];
+
+    environment.systemPackages = with pkgs; [
+      yrd
+    ];
+  };
 }
