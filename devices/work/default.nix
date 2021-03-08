@@ -25,4 +25,8 @@
   services.xserver.displayManager.sessionCommands = ''
     ${pkgs.xorg.xinput}/bin/xinput disable 'SynPS/2 Synaptics TouchPad'
   '';
+
+  environment.systemPackages = with pkgs; [
+    (writeShellScriptBin "disable-touchpad" "${xorg.xinput}/bin/xinput disable 'SynPS/2 Synaptics TouchPad'")
+  ];
 }
