@@ -37,6 +37,22 @@ in
     break-symmetry = pkgs.callPackage ./break-symmetry { };
     jdownloader = pkgs.callPackage ./jdownloader { };
 
+    nixFlakes = pkgs.nixUnstable.overrideAttrs(attrs: attrs // rec {
+      name = "nix-2.4${suffix}";
+      suffix = "mkg_e64cf8e0a330590ef200359b91f98332e46791c7";
+
+      src = pkgs.fetchFromGitHub {
+        owner = "NixOS";
+        repo = "nix";
+        rev = "e64cf8e0a330590ef200359b91f98332e46791c7";
+        sha256 = "tQu2FB8SK/OogngHtHK5ua/Q210veC7418lnzP5wO74=";
+      };
+
+      buildInputs = attrs.buildInputs ++ (with pkgs; [ libcpuid ]);
+
+      patches = [];
+    });
+
     # space fix
     firmwareLinuxNonfree = pkgs.callPackage ./firmware-linux-nonfree { inherit recreatePackage; };
   } // node
