@@ -36,6 +36,7 @@ in
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  networking.firewall.logRefusedPackets = false;
 
   # Enable the OpenSSH daemon.
   services.openssh = {
@@ -53,6 +54,8 @@ in
   # services.keybase.enable = true;
   # services.kbfs.enable = true;
 
+  services.mullvad-vpn.enable = true;
+
   # Enable tor
   # docref: <nixpkgs/nixos/modules/services/networking/tor.nix>
   # TODO: obfs4 tor service & move to seperate conf
@@ -62,6 +65,9 @@ in
     nyx # and control panel
 
     keybase keybase-gui # bruh
+
+    # mullvad
+    mullvad-vpn
   ];
 
   services.i2p.enable = config.flags.highSpec;
