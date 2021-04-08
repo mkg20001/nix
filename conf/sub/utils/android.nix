@@ -12,7 +12,7 @@ mkIf config.flags.highSpec {
     fastlane
   ];
 
-  virtualisation.anbox.enable = true;
+  # virtualisation.anbox.enable = true;
 
   programs.adb.enable = true;
   users.users.maciej.extraGroups = ["adbusers"];
