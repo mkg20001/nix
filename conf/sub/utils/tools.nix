@@ -107,7 +107,7 @@ with lib;
 
   location.provider = "geoclue2";
 
-  users.users.maciej.extraGroups = [ "wireshark" ];
+  users.users.maciej.extraGroups = [ "wireshark" "vboxusers" ];
   programs.wireshark.enable = true;
 
   # Adds netdata service

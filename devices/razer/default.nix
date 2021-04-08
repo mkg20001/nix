@@ -72,6 +72,19 @@ in
 
   services.mongodb.enable = true;
 
+  services.postgresql = {
+    enable = true;
+    # TODO: setup reticulum db
+
+    ensureUsers = [{
+      name = "root";
+      ensurePermissions = { "DATABASE ret_production" = "ALL PRIVILEGES"; };
+    }];
+    ensureDatabases = [ "ret_production" ];
+
+  };
+
+
   services.mysql = {
     enable = true;
     package = pkgs.mysql;
