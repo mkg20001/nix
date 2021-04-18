@@ -15,7 +15,8 @@ let
 in
   {
     brother = pkgs.callPackage ./brother { };
-    sunshine = pkgs.callPackage "${sunshine}/package.nix" { inherit (node) mkNode; };
+    # sunshine = pkgs.callPackage "${sunshine}/package.nix" { inherit (node) mkNode; };
+    sunshine = pkgs.coreutils;
     # nix = pkgs.nixStable.overrideAttrs(p: p // { patches = [ ./nix.patch ]; });
 
     service-shim = pkgs.writeShellScriptBin "service" (builtins.readFile ./service-shim.sh);
@@ -26,6 +27,10 @@ in
 
     yarnPatched = writeShellScriptBinPath "yyarn" [ pkgs.yarn ] (builtins.readFile ./yarn.sh);
     yarnRoutine = writeShellScriptBinPath "yroutine" [ pkgs.yarn ] (builtins.readFile ./yroutine.sh);
+
+    /*mullvad-vpn = pkgs.callPackage ./mullvad-vpn {
+      mkNode = node.mkNode;
+    };*/
 
     iso2boot = pkgs.callPackage ./iso2boot { };
     # yaru-blue = pkgs.callPackage ./yaru-blue { inherit recreatePackage }; # TODO: fix yaru.patch
