@@ -1,7 +1,7 @@
 [
   { name = "nix-dev"; version = "0.1.3"; root = ./nix-dev; }
   { name = "nodemon"; version = "2.0.7"; root = ./nodemon; }
-  { name = "parcel"; version = ""; root = ./parcel; }
+  # { name = "parcel"; version = ""; root = ./parcel; }
   { name = "http-server"; version = "0.12.3"; root = ./http-server; }
   { name = "pino-pretty"; version = "4.7.1"; root = ./pino-pretty; }
   { name = "npm-check-updates"; version = "11.5.1"; root = ./npm-check-updates; }
