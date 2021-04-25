@@ -1,22 +1,22 @@
 [
   { name = "nix-dev"; version = "0.1.3"; root = ./nix-dev; }
   { name = "nodemon"; version = "2.0.7"; root = ./nodemon; }
-  { name = "parcel"; version = "1.12.4"; root = ./parcel; }
+  { name = "parcel"; version = ""; root = ./parcel; }
   { name = "http-server"; version = "0.12.3"; root = ./http-server; }
-  { name = "pino-pretty"; version = "4.5.0"; root = ./pino-pretty; }
-  { name = "npm-check-updates"; version = "11.1.9"; root = ./npm-check-updates; }
+  { name = "pino-pretty"; version = "4.7.1"; root = ./pino-pretty; }
+  { name = "npm-check-updates"; version = "11.5.1"; root = ./npm-check-updates; }
   { name = "google-font-installer"; version = "1.2.0"; root = ./google-font-installer; }
   { name = "wscat"; version = "4.0.1"; root = ./wscat; }
   { name = "json5"; version = "2.2.0"; root = ./json5; }
-  { name = "pkg"; version = "4.4.9"; root = ./pkg; }
+  { name = "pkg"; version = "5.0.0"; root = ./pkg; }
   { name = "ndb"; version = "1.1.5"; root = ./ndb; }
   { name = "0x"; version = "4.10.2"; root = ./0x; }
   { name = "jay-repl"; version = "0.2.2"; root = ./jay-repl; }
   { name = "diff-so-fancy"; version = "1.3.0"; root = ./diff-so-fancy; }
-  { name = "eslint"; version = "7.20.0"; root = ./eslint; }
-  { name = "stylelint"; version = "13.11.0"; root = ./stylelint; }
+  { name = "eslint"; version = "7.25.0"; root = ./eslint; }
+  { name = "stylelint"; version = "13.13.0"; root = ./stylelint; }
   { name = "eslint-config-aegir-standalone"; version = "25.0.0"; root = ./eslint-config-aegir-standalone; }
-  { name = "oclif"; version = "1.16.1"; root = ./oclif; }
+  { name = "oclif"; version = "1.17.0"; root = ./oclif; }
   { name = "taskbook"; version = "0.3.0"; root = ./taskbook; }
   { name = "localtunnel"; version = "2.0.1"; root = ./localtunnel; }
   { name = "thingycreate"; version = "0.3.9"; root = ./thingycreate; }
