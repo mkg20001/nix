@@ -43,11 +43,12 @@ let
 
   node14Pkgs = iterate pkgs.nodejs-14_x;
   node15Pkgs = iterate pkgs.nodejs-15_x;
+  node16Pkgs = iterate pkgs.nodejs-16_x;
 in
   {
     inherit node15Pkgs node14Pkgs;
 
     mkNode = makeNodeFnc;
-    node_lts = pkgs.nodejs-14_x;
-    node_lts_pkgs = node14Pkgs;
-  } // node14Pkgs
+    node_lts = pkgs.nodejs-16_x;
+    node_lts_pkgs = node16Pkgs;
+  } // node16Pkgs
