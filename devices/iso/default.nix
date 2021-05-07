@@ -23,6 +23,21 @@ in
     "virtualbox" # by virtualisation module
     "i915"
     "nvidia"
+  ];
+
+  /* services.xserver.videoDrivers = mkOverride 10 [
+    # def nixos
+    "radeon"
+    "cirrus"
+    "vesa"
+    "modesetting"
+
+    # added
+    "vmware"
+    "qemu"
+    "virtualbox" # by virtualisation module
+    "i915"
+    "nvidia"
 
     # remember: "nix search xf86-video" lists the drivers
 
@@ -38,7 +53,7 @@ in
     "rendition" "s3" "siliconmotion" "sisimedia" "sisusb" "sis" # "s3virge" "savage"
     "sunbw2" "suncg14" "suncg3" "suncg6" "sunffb" "sunleo" "suntcx"
     "tdfx" "trident" "tseng" "unichrome" "vboxvideo" "vesa" "vga" "via" "vmware" "vmwgfx" # "tga" "v4l"
-  ];
+  ]; */
 
   virtualisation.virtualbox.guest = { enable = true; x11 = true; };
   services.qemuGuest.enable = true;
