@@ -18,7 +18,7 @@ sh .ci/tag.sh
 #bash .ci/rebuild.sh
 bash .ci/rebase.sh
 
-nix-build -A iso -I nixpkgs=$PWD/../nixpkgs
+nix-build --option build-use-sandbox true -A iso -I nixpkgs=$PWD/../nixpkgs
 cp -v result/iso/* mkg.iso
 
 # nix copy --to file:///cache/store --all -v
