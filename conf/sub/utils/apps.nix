@@ -22,18 +22,18 @@ with lib;
 
     # disk utils
     gparted
-    gnome3.gnome-disk-utility
+    gnome.gnome-disk-utility
 
     # gnome
-    gnome3.gedit # TODO: plugins
-    gnome3.gnome-terminal
+    gnome.gedit # TODO: plugins
+    gnome.gnome-terminal
     evince
-    gnome3.eog
-    gnome3.gnome-todo
-    gnome3.rhythmbox
-    gnome3.nautilus
-    gnome3.gnome-online-accounts
-    # gnome3.gnome-disk-utility
+    gnome.eog
+    gnome.gnome-todo
+    gnome.rhythmbox
+    gnome.nautilus
+    gnome.gnome-online-accounts
+    # gnome.gnome-disk-utility
 
     # graphics
     gimp
