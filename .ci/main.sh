@@ -11,7 +11,6 @@ sed "s|sandbox = false|sandbox = true|g" -i /etc/nix/nix.conf
 echo "https://nix.ssd-solar.dev/dev/solaros solaros" >> /root/.nix-channels
 nix-channel --update -vv
 
-sh .ci/setup-cache.sh
 sh .ci/setup-repo.sh
 sh .ci/tag.sh
 

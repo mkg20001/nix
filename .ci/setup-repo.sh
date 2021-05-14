@@ -2,7 +2,10 @@
 
 set -euo pipefail
 
-nix-env -iA nixpkgs.git nixpkgs.bash
+if ! which git >/dev/null 2>/dev/null; then
+  nix-env -iA nixpkgs.git nixpkgs.bash
+fi
+
 if [ ! -e /cache/nixpkgs ]; then
   git clone https://github.com/mkg20001/nixpkgs /cache/nixpkgs -b mkg-patch
   ln -s /cache/nixpkgs ../nixpkgs

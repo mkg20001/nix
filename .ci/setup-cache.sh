@@ -9,6 +9,7 @@ echo "trusted-substituters = " >> /etc/nix/nix.conf
 if ! which cachix >/dev/null 2>/dev/null; then
   nix-env -iA nixpkgs.cachix
 fi
+
 cachix use mkg20001
 
 sed "s|substituters = |substituters = local?root=/cache/store file:///cache/store |g" -i /etc/nix/nix.conf
