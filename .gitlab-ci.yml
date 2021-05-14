@@ -1,5 +1,6 @@
 build-and-push:
-  image: nixos/nix
+  tags:
+  - nix-image
   script:
     - sh .ci/main.sh
     - ls -laR result
@@ -7,3 +8,4 @@ build-and-push:
 #    paths:
 #    - '*.iso'
 #    expire_in: 1 month
+
