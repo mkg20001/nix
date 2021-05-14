@@ -96,13 +96,15 @@ with lib;
     cmatrix
   ] ++ builtins.attrValues(pkgs.node_lts_pkgs);
 
+  services.redshift.enable = true;
+
   services.geoclue2 = {
     enable = true;
-    appConfig.redshift = {
+    /* appConfig.redshift = {
       isAllowed = true;
       isSystem = true;
       users = [ "maciej" ];
-    };
+    }; */
   };
 
   location.provider = "geoclue2";
