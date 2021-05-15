@@ -12,7 +12,7 @@ let
   extra = import ./extra.nix pkgs;
 
   makePkg = nodejs: { root, args ? {} }:
-    makeNodeFnc { inherit root nodejs; }
+    makeNodeFnc { inherit root nodejs; build = false; }
     ({
       postPhases = [ "linkAllBins" ];
 
