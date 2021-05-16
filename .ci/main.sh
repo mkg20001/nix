@@ -19,7 +19,7 @@ bash .ci/rebase.sh
 
 nix-build --option build-use-sandbox true -A vme -I nixpkgs=$PWD/../nixpkgs
 cp -v result/*.ova mkg.ova
-(echo rm mkg.ova | sftp -o StrictHostKeyChecking=no -b /dev/stdin sftp://dpl@argon.mkg20001.io:13701/../../var/www/tmp) || /bin/true
+(echo rm mkg.ova | sftp -o StrictHostKeyChecking=no -b /dev/stdin sftp://dpl@argon.mkg20001.io:13701/../../var/www/tmp) || true
 echo put mkg.ova | sftp -o StrictHostKeyChecking=no -b /dev/stdin sftp://dpl@argon.mkg20001.io:13701/../../var/www/tmp
 
 nix-build --option build-use-sandbox true -A iso -I nixpkgs=$PWD/../nixpkgs
@@ -30,5 +30,5 @@ cp -v result/iso/* mkg.iso
 if ! which sftp >/dev/null 2>/dev/null; then
   nix-env -iA nixpkgs.openssh
 fi
-(echo rm mkg.iso | sftp -o StrictHostKeyChecking=no -b /dev/stdin sftp://dpl@argon.mkg20001.io:13701/../../var/www/tmp) || /bin/true
+(echo rm mkg.iso | sftp -o StrictHostKeyChecking=no -b /dev/stdin sftp://dpl@argon.mkg20001.io:13701/../../var/www/tmp) || true
 echo put mkg.iso | sftp -o StrictHostKeyChecking=no -b /dev/stdin sftp://dpl@argon.mkg20001.io:13701/../../var/www/tmp
