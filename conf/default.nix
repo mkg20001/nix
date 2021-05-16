@@ -115,13 +115,13 @@ with (import ./util.nix lib);
   # boot.extraModulePackages = [ config.boot.kernelPackages.wireguard ];
   boot.kernelPackages = pkgs.linuxPackages; # uses latest LTS (currently 5.4)
   
-  boot.kernelPatches = lib.singleton {
+  /* boot.kernelPatches = lib.singleton {
     name = "getname";
     patch = ./getname.patch;
-    /* extraConfig = ''
+    * extraConfig = ''
       LIRC y
-    ''; */
-  };
+    ''; *
+  }; */
 
   # boot.kernelPackages = pkgs.linuxPackages_latest;
 
