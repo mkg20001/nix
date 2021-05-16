@@ -60,7 +60,7 @@ with (import ./util.nix lib);
 
       # Cache TTLs
       # narinfo-cache-positive-ttl = 0
-      narinfo-cache-negative-ttl = 0
+      # narinfo-cache-negative-ttl = 0
 
       ## Fix
       #experimental-features = nix-command
