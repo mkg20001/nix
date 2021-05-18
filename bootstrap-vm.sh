@@ -8,8 +8,13 @@ u() {
  su "$USER" -c "$*"
 }
 
-mv /etc/nixos /etc/nixos.bak || /bin/true
-git clone https://github.com/mkg20001/nix /etc/nixos
+if [ ! -e /etc/nixos ]; then
+  mv /etc/nixos /etc/nixos.bak || /bin/true
+  git clone https://github.com/mkg20001/nix /etc/nixos
+  read -p "dev: " DEVICE
+  ln -s "devices/$DEVICE" device
+fi
+
 cd /etc/nixos
 bash install-channels.sh
 cd /home
