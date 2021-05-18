@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # 3 terminals with sudo bash
 # gparted
 # apt install htop && htop
