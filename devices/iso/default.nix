@@ -10,7 +10,7 @@ in
     <nixpkgs/nixos/modules/installer/cd-dvd/installation-cd-base.nix>
   ];
 
-  services.xserver.videoDrivers = mkOverride 10 [
+  /* services.xserver.videoDrivers = mkOverride 10 [
     # def nixos
     "radeon"
     "cirrus"
@@ -23,7 +23,7 @@ in
     "virtualbox" # by virtualisation module
     "i915"
     "nvidia"
-  ];
+  ]; */
 
   /* services.xserver.videoDrivers = mkOverride 10 [
     # def nixos
