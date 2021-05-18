@@ -76,6 +76,12 @@ in
     { class = "debug-persistent";     params = "boot.persistence=/dev/disk/by-label/mkg-portable debug"; }
   ];
 
+  isoImage.contents = [
+    { source = ../../infect-vm.sh;
+      target = "infect-vm.sh";
+    }
+  ];
+
   # Auto-login & default pw
   /* services.xserver.displayManager.gdm.autoLogin = {
     enable = true;
