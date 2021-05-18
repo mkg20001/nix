@@ -1,17 +1,21 @@
 #!/bin/bash
 
-set -e
+set -euo pipefail
 
-mkdir etc
+DEVICE="$1"
+ROOT="$2"
+
+mkdir -p etc
 cd etc
-git clone https://github.com/mkg20001/nix nixos
+if [ ! -e nixos ]; then
+  git clone https://github.com/mkg20001/nix nixos
+fi
 cd nixos
-ln -s devices/$DEVICE device
-T=$(mktemp -d)
+ln -s "devices/$DEVICE" device
 
-echo 'nixos-install --root /mnt -I nixpkgs=/etc/nixpkgs' > "$T/nixos-rebuild"
-chmod +x "$T/nixos-rebuild"
+bash install-channels.sh
+nix-channel --update -vv
 
-export PATH="$T:$PATH"
+nixos-generate-config --root "$ROOT"
 
-bash cron/daily.sh
+nixos-install --root "$ROOT"
