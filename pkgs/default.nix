@@ -42,7 +42,7 @@ in
     break-symmetry = pkgs.callPackage ./break-symmetry { };
     jdownloader = pkgs.callPackage ./jdownloader { };
 
-    nixFlakes = pkgs.nixUnstable.overrideAttrs(attrs: attrs // rec {
+    /* nixFlakes = pkgs.nixUnstable.overrideAttrs(attrs: attrs // rec {
       name = "nix-2.4${suffix}";
       suffix = "mkg_e64cf8e0a330590ef200359b91f98332e46791c7";
 
@@ -56,7 +56,7 @@ in
       buildInputs = attrs.buildInputs ++ (with pkgs; [ libcpuid ]);
 
       patches = [];
-    });
+    }); */
 
     # space fix
     firmwareLinuxNonfree = pkgs.callPackage ./firmware-linux-nonfree { inherit recreatePackage; };
