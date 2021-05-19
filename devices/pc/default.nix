@@ -21,11 +21,5 @@
 
   # Use MBR
   boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/sdb";
-
-  # Bleeeeddd.... xD
-  #nix.nixPath = [
-  #  "nixpkgs=/home/maciej/cinnamon"
-  #  "nixos-config=/etc/nixos/configuration.nix"
-  #];
+  boot.loader.grub.device = "/dev/disk/by-id/ata-CT1000MX500SSD1_2040E4B464B5";
 }
