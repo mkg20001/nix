@@ -76,6 +76,17 @@ with lib;
   services.upower.enable = true;
   services.acpid.enable = true;
 
+  # Pipewire
+  hardware.pulseaudio.enable = mkForce false;
+  services.pipewire = {
+    enable = true;
+    pulse.enable = true;
+    alsa = {
+      enable = true;
+      support32Bit = true;
+    };
+  };
+
   # More stuff
   services.gvfs.enable = true;
 
