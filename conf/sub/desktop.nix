@@ -57,7 +57,7 @@ with lib;
 
   # Enable sound.
   sound.enable = true;
-  hardware.pulseaudio.enable = true;
+  /* hardware.pulseaudio.enable = true; */
   hardware.pulseaudio.extraConfig = ''
     load-module module-equalizer-sink
     load-module module-dbus-protocol
