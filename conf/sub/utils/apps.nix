@@ -45,6 +45,7 @@ with lib;
     # instant messaging
     tdesktop # telegram.org
     element-desktop # riot.im
+    nheko
 
     # remote desktop
     anydesk
