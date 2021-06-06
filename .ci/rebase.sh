@@ -5,7 +5,7 @@ set -euo pipefail
 # todo: if
 git -C ../nixpkgs remote add upstream https://github.com/nixos/nixpkgs || true
 
-git -C ../nixpkgs fetch upstream
+git -C ../nixpkgs fetch upstream -p
 git -C ../nixpkgs reset --hard origin/mkg-patch
 git -C ../nixpkgs rebase upstream/master
 git -C ../nixpkgs branch -D mkg-patch-a || true
@@ -18,6 +18,5 @@ bash .ci/rebuild.sh
 git -C ../nixpkgs push -f git@github.com:mkg20001/nixpkgs mkg-patch-a
 dates=$(date +%s)
 datebranch="mkg-patch-$dates"
-git -C ../nixpkgs checkout -b $datebranch
-git -C ../nixpkgs push -f git@github.com:mkg20001/nixpkgs $datebranch
+git -C ../nixpkgs push -f git@github.com:mkg20001/nixpkgs "mkg-patch-a:$datebranch"
 
